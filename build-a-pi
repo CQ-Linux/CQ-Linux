@@ -82,7 +82,7 @@ Build a Pi 3.2.0 and later does not support
 RaspiOS Buster or earlier versions of RaspiOS.
 You should consider upgrading to RaspiOS 11
 (Bullseye). By clicking ok you will be moved
-to the last version of CQ Linux (3.1.4) that 
+to the last version of CQ Linux (1.0.0) that 
 supports Pi OS Buster. Please note there are 
 no plans to update Build a Pi for Buster going 
 forward.  In other words, you are on your own 
@@ -163,7 +163,7 @@ if you choose to install everything. If you find it
 helpful please consider a donation to encourage future
 development.
 
-https://paypal.me/km4ack
+https://paypal.me/cqLinux
 EOF
 
 INTRO=$(yad --width=550 --height=250 --text-align=center --center --title="CQ-Linux" --show-uri \
