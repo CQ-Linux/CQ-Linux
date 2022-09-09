@@ -106,14 +106,14 @@ mkdir -p ${HOME}/.config/autostart
 echo "Checking for Build a Pi updates"
 CURRENT=$(head -1 ${MYPATH}/changelog | sed s'/version=//')
 
-LATEST=$(curl -s https://raw.githubusercontent.com/CQ-Linux/CQ-Linux/master/changelog | tac | tac | head -1 | sed 's/version=//')
+LATEST=$(curl -s https://raw.githubusercontent.com/CQ-Linux/CQ-Linux/main/changelog | tac | tac | head -1 | sed 's/version=//')
 
 if (($(echo "$LATEST $CURRENT" | awk '{print ($1 > $2)}'))); then
 	cat <<EOF >${MYPATH}/updatebap.txt
 Build a Pi update available. Current version is $CURRENT and
 the lateest version is $LATEST. Would you like to update?
 
-Change log - https://github.com/CQ-Linux/CQ-Linux/blob/master/changelog
+Change log - https://github.com/CQ-Linux/CQ-Linux/blob/main/changelog
 EOF
 	BAP=$(
 		yad --width=650 --height=250 --text-align=center --center --title="CQ-Linux" --show-uri \
@@ -138,7 +138,7 @@ EOF
 		mv ${MYPATH}/config ${HOME}/Documents/config.bap
 		rm -rf "${MYPATH}"
 		cd ~ || ! echo "Failure"
-		git clone --branch master https://github.com/CQ-Linux/CQ-Linux.git /${HOME}/CQ-Linux
+		git clone --branch main https://github.com/CQ-Linux/CQ-Linux.git /${HOME}/CQ-Linux
 		mv ${HOME}/Documents/config.bap ${MYPATH}/config 
 
 		cat <<EOF >${MYPATH}/updatebap.txt
@@ -168,7 +168,7 @@ clear
 #been applied previously. If so, it skips the patch screen. If not, it gives
 #the user an option to install the patch(es).
 
-PATCHCHECK=$(curl -s https://raw.githubusercontent.com/CQ-Linux/CQ-Linux/master/patch/README.md | grep PATCH= | sed 's/PATCH=//')
+PATCHCHECK=$(curl -s https://raw.githubusercontent.com/CQ-Linux/CQ-Linux/main/patch/README.md | grep PATCH= | sed 's/PATCH=//')
 
 if [ ${PATCHCHECK} = "YES" ]; then
 #Setup temp directory for BAP patches and download patches
@@ -181,7 +181,7 @@ cd CQ-Linux
 git remote add -f origin https://github.com/CQ-Linux/CQ-Linux.git
 git config core.sparseCheckout true
 echo "/patch" >> .git/info/sparse-checkout
-git pull origin master
+git pull origin main
 
 FILES=$(ls -I README.md /run/user/$UID/CQ-Linux/patch)
 
