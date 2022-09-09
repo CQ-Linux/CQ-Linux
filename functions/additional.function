@@ -1,4 +1,4 @@
-#additional software to install with build-a-pi
+#additional software to install with CQ-Linux
 #20200513 km4ack
 
 TEMPCRON=${MYPATH}/cron.tmp
@@ -310,7 +310,7 @@ CONKY() {
 [Desktop Entry]
 Name=Conky
 Comment=Conky
-GenericName=Conky Screen Background Monitor
+GenericName=Conky Screen CQ-Linux Monitor
 Exec=conky --pause=5
 Icon=/home/`whoami`/CQ-Linux/conky/conky-logo.png
 Type=Application

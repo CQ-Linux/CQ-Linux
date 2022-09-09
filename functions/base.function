@@ -1,4 +1,4 @@
-#this installs the basic software for build-a-pi
+#this installs the basic software for CQ-Linux
 #km4ack 20200513
 
 TEMPCRON=${MYPATH}/cron.tmp

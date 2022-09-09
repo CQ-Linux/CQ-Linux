@@ -1,5 +1,5 @@
 conky.config = {
-	background = true,
+	CQ-Linux = true,
 	use_xft = true,
 	font = '123:size=8',
 	xftalpha = 0.5,

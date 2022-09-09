@@ -81,7 +81,7 @@ INTRO=$(yad --width=600 --height=300 --text-align=center --center --title="Out o
 	rm ${NOTICEPATH}/intro.txt
 	cd $HOME/CQ-Linux
 	git checkout buster 
-	bash build-a-pi & exit
+	bash CQ-Linux & exit
 fi
 
 #####################################
@@ -116,7 +116,7 @@ the lateest version is $LATEST. Would you like to update?
 Change log - https://github.com/CQ-Linux/CQ-Linux/blob/master/changelog
 EOF
 	BAP=$(
-		yad --width=650 --height=250 --text-align=center --center --title="Build-a-Pi" --show-uri \
+		yad --width=650 --height=250 --text-align=center --center --title="CQ-Linux" --show-uri \
 			--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
 			--text-info \
 			--button="Yes":2 \
@@ -209,8 +209,8 @@ Would you like to review/apply
 available patch scripts?
 EOF
 
-INTRO=$(yad --width=650 --height=300 --text-align=center --center --title="Build-a-Pi Patch Tool" --show-uri \
-	--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" --text="Build-a-Pi Patch Tool" \
+INTRO=$(yad --width=650 --height=300 --text-align=center --center --title="CQ-Linux Patch Tool" --show-uri \
+	--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" --text="CQ-Linux Patch Tool" \
 	--text-info \
 	--button="Yes":1 \
 	--button="No":2 <${MYPATH}/patch.txt \
@@ -338,7 +338,7 @@ if [ -n "$HS" ]; then
 			--text="<b>HotSpot Information\r\rPlease enter the information\rbelow \
 for the Hot Spot\r</b>NOTE: The last field is the password for the hotspot. You will use this password to \
 connect to your Pi when it is in hotspot mode <b>This password can only contain letters and numbers</b>" \
-			--title="Build-a-Pi" \
+			--title="CQ-Linux" \
 			--field="Home Wifi SSID":CB "${LIST}" \
 			--field="Home Wifi Password" \
 			--field="Hot Spot Password" \
@@ -370,7 +370,7 @@ if [ -n "$HS" ]; then
 		yad --center --form --width=300 --height=200 --separator="|" \
 			--image ${LOGO} --column=Check --column=App --column=Description \
 			--window-icon=${LOGO} --image-on-top --text-align=center \
-			--text="<b>Hotspot password has to be 8-63 characters</b>" --title="Build-a-Pi" \
+			--text="<b>Hotspot password has to be 8-63 characters</b>" --title="CQ-Linux" \
 			--button=gtk-ok
 		HSINFO
 	fi

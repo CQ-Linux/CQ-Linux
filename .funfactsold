@@ -7,12 +7,12 @@ LOGO=${MYPATH}/logo.png
 
 yad --width=400 --height=200 --title="CQ Linux Fun Facts" --timeout=30 --image ${LOGO} --text-align=center --skip-taskbar --image-on-top \
 	--wrap --no-buttons --center --window-icon=${LOGO} --undecorated --text="<big><big><big><b>\r\rCQ Linux\rFun Facts</b></big></big></big>\r\r \
-We confused Build-A-Pi with Bake a pi.. No more Pi = CQ- Linux was born"
+We confused CQ-Linux with Bake a pi.. No more Pi = CQ- Linux was born"
 
 yad --width=400 --height=200 --title="Fun Facts" --timeout=30 --image ${LOGO} --text-align=center --skip-taskbar --image-on-top \
 	--wrap --no-buttons --center --window-icon=${LOGO} --undecorated --text="<big><big><big><b>\r\rCQ Linux\rFun Facts</b></big></big></big>\r\r \Nick N1NRW Pushed for this project to check his email faster with VARA... He's impatient"
 
-yad --width=400 --height=200 --title="Fun Facts" --timeout=30 --image ${LOGO} --text-align=center --skip-taskbar --image-on-top \    --wrap --no-buttons --center --window-icon=${LOGO} --undecorated --text="<big><big><big><b>\r\rCQ Linux\rFun Facts</b></big></big></big>\r\r \CQ-Linux is the offspring of Build-A-Pi (KM4ACK) and DigiPi (KM6LYW)"
+yad --width=400 --height=200 --title="Fun Facts" --timeout=30 --image ${LOGO} --text-align=center --skip-taskbar --image-on-top \    --wrap --no-buttons --center --window-icon=${LOGO} --undecorated --text="<big><big><big><b>\r\rCQ Linux\rFun Facts</b></big></big></big>\r\r \CQ-Linux is the offspring of CQ-Linux (KM4ACK) and DigiPi (KM6LYW)"
 
 yad --width=400 --height=200 --title="Fun Facts" --timeout=30 --image ${LOGO} --text-align=center --skip-taskbar --image-on-top \    --wrap --no-buttons --center --window-icon=${LOGO} --undecorated --text="<big><big><big><b>\r\rCQ Linux\rFun Facts</b></big></big></big>\r\r \Bruce W1BAW and Nick N1NRW mainly enjoy CQ-Linux so we can operate remote without the YL knowing!"
 yad --width=400 --height=200 --title="Fun Facts" --timeout=30 --image ${LOGO} --text-align=center --skip-taskbar --image-on-top \    --wrap --no-buttons --center --window-icon=${LOGO} --undecorated --text="<big><big><big><b>\r\rCQ Linux\rFun Facts</b></big></big></big>\r\r \QRP Is Life"

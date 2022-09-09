@@ -7,7 +7,7 @@ LOGO=${MYPATH}/logo.png
 
 yad --width=400 --height=200 --title="KM4ACK Fun Facts" --timeout=30 --image ${LOGO} --text-align=center --skip-taskbar --image-on-top \
     --wrap --no-buttons --center --window-icon=${LOGO} --undecorated --text="<big><big><big><b>\r\rKM4ACK\rFun Facts</b></big></big></big>\r\r \
-There are over 1500 lines of code in Build-a-Pi"
+There are over 1500 lines of code in CQ-Linux"
 
 yad --width=400 --height=200 --title="Fun Facts" --timeout=30 --image ${LOGO} --text-align=center --skip-taskbar --image-on-top \
     --wrap --no-buttons --center --window-icon=${LOGO} --undecorated --text="<big><big><big><b>\r\rKM4ACK\rFun Facts</b></big></big></big>\r\r \
