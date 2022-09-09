@@ -105,7 +105,7 @@ INTRO=$(yad --width=600 --height=300 --text-align=center --center --title="Out o
 	rm ${NOTICEPATH}/intro.txt
 	cd $HOME/CQ-Linux
 	git checkout buster 
-	bash build-a-pi & exit
+	bash CQ-Linux & exit
 fi
 
 #####################################
@@ -548,15 +548,15 @@ mkdir -p ${HOME}/bin
 echo "export PATH=$PATH:${HOME}/bin" >>${HOME}/.bashrc
 
 #set update script to exec
-chmod +x ${MYPATH}/update ${MYPATH}/build-a-pi
+chmod +x ${MYPATH}/update ${MYPATH}/CQ-Linux
 
-#create build-a-pi menu item
+#create CQ-Linux menu item
 cd ${MYPATH} || ! echo "Failure"
-cat >build-a-pi.desktop <<EOF
+cat >CQ-Linux.desktop <<EOF
 [Desktop Entry]
-Name=Build-a-Pi
-GenericName=KM4ACK Build-a-Pi
-Comment=Build-a-Pi App Manager
+Name=CQ-Linux
+GenericName=CQ-Linux
+Comment=CQ-Linux App Manager
 Exec=${MYPATH}/update
 Icon=${MYPATH}/logo.png
 Terminal=true
@@ -564,7 +564,7 @@ Type=Application
 Categories=Settings;DesktopSettings;GTK;X-LXDE-Settings;
 EOF
 
-sudo mv build-a-pi.desktop /usr/share/applications/
+sudo mv CQ-Linux.desktop /usr/share/applications/
 
 #create repair-bap tool
 cat <<EOF > /run/user/$UID/repair-bap

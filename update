@@ -79,7 +79,7 @@ INTRO=$(yad --width=600 --height=300 --text-align=center --center --title="Out o
 	exit
 	fi
 	rm ${NOTICEPATH}/intro.txt
-	cd $HOME/pi-build
+	cd $HOME/CQ-Linux
 	git checkout buster 
 	bash build-a-pi & exit
 fi
@@ -91,8 +91,8 @@ fi
 #remove temp dir if exist
 #fix issue 108 https://github.com/km4ack/pi-build/issues/108
 #Thanks to N5RKS for finding the bug
-if [ -d ${HOME}/pi-build/temp ]; then
-	rm -rf "${HOME}/pi-build/temp"
+if [ -d ${HOME}/CQ-Linux/temp ]; then
+	rm -rf "${HOME}/CQ-Linux/temp"
 fi
 
 #####################################
@@ -138,7 +138,7 @@ EOF
 		mv ${MYPATH}/config ${HOME}/Documents/config.bap
 		rm -rf "${MYPATH}"
 		cd ~ || ! echo "Failure"
-		git clone --branch master https://github.com/CQ-Linux/CQ-Linux.git /${HOME}/pi-build
+		git clone --branch master https://github.com/CQ-Linux/CQ-Linux.git /${HOME}/CQ-Linux
 		mv ${HOME}/Documents/config.bap ${MYPATH}/config 
 
 		cat <<EOF >${MYPATH}/updatebap.txt
@@ -168,7 +168,7 @@ clear
 #been applied previously. If so, it skips the patch screen. If not, it gives
 #the user an option to install the patch(es).
 
-PATCHCHECK=$(curl -s https://raw.githubusercontent.com/km4ack/pi-build/master/patch/README.md | grep PATCH= | sed 's/PATCH=//')
+PATCHCHECK=$(curl -s https://raw.githubusercontent.com/CQ-Linux/CQ-Linux/master/patch/README.md | grep PATCH= | sed 's/PATCH=//')
 
 if [ ${PATCHCHECK} = "YES" ]; then
 #Setup temp directory for BAP patches and download patches
@@ -176,19 +176,19 @@ echo "##########################################################"
 echo "#Checking for available patches that haven't been applied#"
 echo "##########################################################"
 cd /run/user/$UID
-git init pi-build
-cd pi-build
+git init CQ-Linux
+cd CQ-Linux
 git remote add -f origin https://github.com/CQ-Linux/CQ-Linux.git
 git config core.sparseCheckout true
 echo "/patch" >> .git/info/sparse-checkout
 git pull origin dev
 
-FILES=$(ls -I README.md /run/user/$UID/pi-build/patch)
+FILES=$(ls -I README.md /run/user/$UID/CQ-Linux/patch)
 
 #check if available patches have already been applied to BAP
 for i in $FILES; do
 
-NAME=$(grep PATCHNAME= /run/user/$UID/pi-build/patch/$i | sed 's/PATCHNAME=//')
+NAME=$(grep PATCHNAME= /run/user/$UID/CQ-Linux/patch/$i | sed 's/PATCHNAME=//')
 RB=$(grep $NAME $HOME/.config/patch)
 if [ -z $RB ]; then
 echo "$NAME" >> /run/user/$UID/avail-patch.txt
@@ -203,7 +203,7 @@ cat <<EOF >${MYPATH}/patch.txt
 One or more patch scripts are currently
 available for Build a Pi. Full description
 of each available patch can be found at
-https://github.com/km4ack/pi-build/tree/dev/patch
+https://github.com/CQ-Linux/CQ-Linux/tree/dev/patch
 
 Would you like to review/apply 
 available patch scripts?
@@ -220,20 +220,20 @@ BUT=$?
 		if [ ${BUT} = 252 ]; then
 		echo "Button ${BUT} pressed"
 		rm ${MYPATH}/patch.txt
-		rm -rf /run/user/$UID/pi-build
+		rm -rf /run/user/$UID/CQ-Linux
 		exit
 		elif [ ${BUT} = 1 ]; then
 		echo "Button ${BUT} pressed"
 		rm ${MYPATH}/patch.txt
-		lxterminal -e bash $HOME/pi-build/patch-menu && exit
+		lxterminal -e bash $HOME/CQ-Linux/patch-menu && exit
 		elif [ ${BUT} = 2 ]; then
 		echo "Button ${BUT} pressed"
 		rm ${MYPATH}/patch.txt
 		echo "user declined patch updates continuing with Build a Pi update"
-		rm -rf /run/user/$UID/pi-build
+		rm -rf /run/user/$UID/CQ-Linux
 		fi
 	else
-	rm -rf /run/user/$UID/pi-build	
+	rm -rf /run/user/$UID/CQ-Linux	
 	fi
 fi
 
@@ -566,13 +566,13 @@ if [ ! -f /usr/local/bin/repair-bap ]; then
 cat <<EOF > /run/user/$UID/repair-bap
 #!/bin/bash
 
-if [ ! -f $HOME/pi-build/update ]; then
+if [ ! -f $HOME/CQ-Linux/update ]; then
 echo "################################"
 echo "#  BAP update tool not found.  #"
 echo "#  Repairing, please stand by  #"
 echo "################################"
 cd $HOME
-git clone https://github.com/km4ack/pi-build.git || echo "Could not connect to Github. Check your internet and try again"
+git clone https://github.com/CQ-Linux/CQ-Linux.git || echo "Could not connect to Github. Check your internet and try again"
 echo "Repair complete. Run the Build a Pi update tool using the shortcut in the Pi menu"
 else
 clear;echo;echo
@@ -633,7 +633,7 @@ done <${UTILITY}
 
 #create new menu subcategories. One for FLDIGI Suite and
 #one for Build a Pi.
-bash ${HOME}/pi-build/menu-update
+bash ${HOME}/CQ-Linux/menu-update
 
 #####################################
 #	END CLEANUP

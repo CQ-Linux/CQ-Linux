@@ -9,7 +9,7 @@ DIR=/run/user/$UID
 
 TEMP=/run/user/$UID/patch.txt
 MENU(){
-ls -I README.md $DIR/pi-build/patch > $TEMP
+ls -I README.md $DIR/CQ-Linux/patch > $TEMP
 
 INFO=$(PARSER='OFS="\n" {print $1}'
 MYTEMP=/run/user/$UID/patch1.txt
@@ -28,7 +28,7 @@ PATCH=$(echo ${INFO} | awk -F "|" '{print $1}')
 #cleanup and exit upon user request
 if [ ${BUT} = 1 ] || [ ${BUT} = 252 ];then
 echo "cleanup and exit Build a Pi patch tool"
-rm -rf $TEMP $DIR/pi-build
+rm -rf $TEMP $DIR/CQ-Linux
 #send user back to BAP update tool
 ${MYPATH}/update && exit
 fi
@@ -45,13 +45,13 @@ MENU
 fi
 
 #verify patch has not been applied already
-PATCHNAME=$(grep PATCHNAME= $DIR/pi-build/patch/${PATCH} | sed 's/PATCHNAME=//')
+PATCHNAME=$(grep PATCHNAME= $DIR/CQ-Linux/patch/${PATCH} | sed 's/PATCHNAME=//')
 PATCHCHECK=$(grep ${PATCHNAME} $HOME/.config/patch)
 
 if [ -z $PATCHCHECK ]; then
 #apply patch & give user notice that patch has been applied
 echo "applying $PATCH"
-bash ${DIR}/pi-build/patch/${PATCH}
+bash ${DIR}/CQ-Linux/patch/${PATCH}
 
 	yad --form --width=500 --text-align=center --center --title="Build-a-Pi Patch Tool" --text-align=center \
 		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
@@ -60,14 +60,14 @@ bash ${DIR}/pi-build/patch/${PATCH}
 
 
 
-#rm -rf $TEMP $DIR/pi-build
+#rm -rf $TEMP $DIR/CQ-Linux
 MENU
 else
 	yad --form --width=500 --text-align=center --center --title="Build-a-Pi Patch Tool" --text-align=center \
 		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
 		--text="<b>$PATCH</b> was applied previously\rNo need to apply again." \
 		--button=gtk-close
-#rm -rf $TEMP $DIR/pi-build
+#rm -rf $TEMP $DIR/CQ-Linux
 MENU
 exit
 fi

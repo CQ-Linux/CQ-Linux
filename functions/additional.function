@@ -312,7 +312,7 @@ Name=Conky
 Comment=Conky
 GenericName=Conky Screen Background Monitor
 Exec=conky --pause=5
-Icon=/home/`whoami`/pi-build/conky/conky-logo.png
+Icon=/home/`whoami`/CQ-Linux/conky/conky-logo.png
 Type=Application
 Encoding=UTF-8
 Terminal=false
@@ -323,15 +323,15 @@ EOF
 	ln -sf ${HOME}/.local/share/applications/conky.desktop ${HOME}/.config/autostart/conky.desktop
 
 	#####Add setconky to main menu
-	chmod +x ${HOME}/pi-build/conky/setconky
+	chmod +x ${HOME}/CQ-Linux/conky/setconky
 
 	cat <<EOF >${HOME}/.local/share/applications/setconky.desktop
 [Desktop Entry]
 Name=Conky-Prefs
 Comment=Conky-Prefs
 GenericName=Change Conky Preferences
-Exec=/home/`whoami`/pi-build/conky/setconky
-Icon=/home/`whoami`/pi-build/conky/conky-logo.png
+Exec=/home/`whoami`/CQ-Linux/conky/setconky
+Icon=/home/`whoami`/CQ-Linux/conky/conky-logo.png
 Type=Application
 Encoding=UTF-8
 Terminal=false

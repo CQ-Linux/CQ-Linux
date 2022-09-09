@@ -292,7 +292,7 @@ EOF
 #	BPQ
 ##################################
 BPQ() {
-    source ${HOME}/pi-build/config || return
+    source ${HOME}/CQ-Linux/config || return
     #install LinBPQ
     cd || return
     ##########################################################################
