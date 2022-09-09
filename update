@@ -181,7 +181,7 @@ cd CQ-Linux
 git remote add -f origin https://github.com/CQ-Linux/CQ-Linux.git
 git config core.sparseCheckout true
 echo "/patch" >> .git/info/sparse-checkout
-git pull origin dev
+git pull origin master
 
 FILES=$(ls -I README.md /run/user/$UID/CQ-Linux/patch)
 
