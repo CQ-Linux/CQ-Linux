@@ -105,7 +105,7 @@ if [ ! -f /usr/local/share/applications/donate.desktop ]; then
 Name=Donate
 Comment=Donate to Build a Pi
 Exec=xdg-open https://www.paypal.com/paypalme/km4ack
-Icon=/home/`whoami`/CQ-Linux/logo.png
+Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
 Type=Application
 Categories=bap
@@ -122,7 +122,7 @@ if [ ! -f /usr/local/share/applications/faq.desktop ]; then
 Name=FAQ
 Comment=Build a Pi FAQ
 Exec=xdg-open https://app.simplenote.com/publish/C3bBxN
-Icon=/home/`whoami`/CQ-Linux/logo.png
+Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
 Type=Application
 Categories=bap
@@ -139,7 +139,7 @@ if [ ! -f /usr/local/share/applications/support.desktop ]; then
 Name=Tech Support
 Comment=Build a Pi Tech Support
 Exec=xdg-open https://groups.io/g/KM4ACK-Pi/topics
-Icon=/home/`whoami`/CQ-Linux/logo.png
+Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
 Type=Application
 Categories=bap
@@ -149,10 +149,10 @@ EOF
 	sudo mv support.desktop /usr/local/share/applications/
 fi
 
-if [ ! -f /usr/local/share/applications/CQ-Linux.desktop ]; then
-sudo mv /usr/share/applications/CQ-Linux.desktop /usr/local/share/applications/
-sudo sed -i 's/Categories.*/Categories=bap/' /usr/local/share/applications/CQ-Linux.desktop
-sudo sed -i 's/Name.*/Name=Update-Tool/' /usr/local/share/applications/CQ-Linux.desktop
+if [ ! -f /usr/local/share/applications/build-a-pi.desktop ]; then
+sudo mv /usr/share/applications/build-a-pi.desktop /usr/local/share/applications/
+sudo sed -i 's/Categories.*/Categories=bap/' /usr/local/share/applications/build-a-pi.desktop
+sudo sed -i 's/Name.*/Name=Update-Tool/' /usr/local/share/applications/build-a-pi.desktop
 fi
 }
 
@@ -184,8 +184,8 @@ cat >bap.directory <<EOF
 [Desktop Entry]
 Type=Directory
 Encoding=UTF-8
-Name=CQ-Linux
-Icon=/home/`whoami`/CQ-Linux/logo.png
+Name=Build-a-Pi
+Icon=/home/`whoami`/pi-build/logo.png
 EOF
 
 sudo mv bap.directory /usr/share/desktop-directories/
@@ -217,7 +217,7 @@ cat >hamradio.menu <<EOF
             </Include>
         </Menu>
 	<Menu>
-        <Name>CQ-Linux</Name>
+        <Name>Build-a-Pi</Name>
         <Directory>bap.directory</Directory>
         <Include>
             <Category>bap</Category>
