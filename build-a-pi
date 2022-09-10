@@ -554,7 +554,7 @@ chmod +x ${MYPATH}/update ${MYPATH}/CQ-Linux
 cd ${MYPATH} || ! echo "Failure"
 cat >cq-linux.desktop <<EOF
 [Desktop Entry]
-Name=CQ-Linux
+Name=cq-linux
 GenericName=CQ-Linux update tool
 Comment=CQ-Linux App Manager
 Exec=${MYPATH}/update

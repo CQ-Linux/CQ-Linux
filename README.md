@@ -45,9 +45,6 @@ CQ-Linux has never, and will never, try to force any user to run BOINC (Berkeley
 
 # Available Apps to Install
 
-#### RTC | Real Time Clock
-Software for DS3231 real-time clock (Available through update script after initial install)
-
 #### HOTSPOT:
 Hotspot is used to generate a wifi hotspot that you can connect-to with other wireless devices. This is useful in the field, so you can connect-to and contol the RPi from a wireless device.
 
