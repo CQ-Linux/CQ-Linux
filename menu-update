@@ -149,10 +149,10 @@ EOF
 	sudo mv support.desktop /usr/local/share/applications/
 fi
 
-if [ ! -f /usr/local/share/applications/build-a-pi.desktop ]; then
-sudo mv /usr/share/applications/build-a-pi.desktop /usr/local/share/applications/
-sudo sed -i 's/Categories.*/Categories=bap/' /usr/local/share/applications/build-a-pi.desktop
-sudo sed -i 's/Name.*/Name=Update-Tool/' /usr/local/share/applications/build-a-pi.desktop
+if [ ! -f /usr/local/share/applications/CQ-Linux.desktop ]; then
+sudo mv /usr/share/applications/CQ-Linux.desktop /usr/local/share/applications/
+sudo sed -i 's/Categories.*/Categories=bap/' /usr/local/share/applications/CQ-Linux.desktop
+sudo sed -i 's/Name.*/Name=Update-Tool/' /usr/local/share/applications/CQ-Linux.desktop
 fi
 }
 
@@ -184,8 +184,8 @@ cat >bap.directory <<EOF
 [Desktop Entry]
 Type=Directory
 Encoding=UTF-8
-Name=Build-a-Pi
-Icon=/home/`whoami`/pi-build/logo.png
+Name=CQ-Linux
+Icon=/home/`whoami`/CQ-Linux/logo.png
 EOF
 
 sudo mv bap.directory /usr/share/desktop-directories/
