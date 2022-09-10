@@ -149,23 +149,12 @@ EOF
 	sudo mv support.desktop /usr/local/share/applications/
 fi
 
-#SUPPORT
 if [ ! -f /usr/local/share/applications/cq-linux.desktop ]; then
-	cat >cq-linux.desktop <<EOF
-[Desktop Entry]
-Name=Update-Tool
-Comment=CQ-Linux update tool
-Exec=/home/pi/CQ-Linux/update
-Icon=/home/`whoami`/CQ-Linux/logo.png
-Terminal=true
-Type=Application
-Categories=bap
-Keywords=Support
-EOF
-
-	sudo mv cq-linux.desktop /usr/local/share/applications/
+sudo mv /usr/share/applications/cq-linux.desktop /usr/local/share/applications/
+sudo sed -i 's/Categories.*/Categories=bap/' /usr/local/share/applications/cq-linux.desktop
+sudo sed -i 's/Name.*/Name=Update-Tool/' /usr/local/share/applications/cq-linux.desktop
 fi
-
+}
 
 
 }
