@@ -552,11 +552,11 @@ chmod +x ${MYPATH}/update ${MYPATH}/CQ-Linux
 
 #create CQ-Linux menu item
 cd ${MYPATH} || ! echo "Failure"
-cat >CQ-Linux.desktop <<EOF
+cat >cq-linux.desktop <<EOF
 [Desktop Entry]
-Name=CQ-Linux
-GenericName=CQ-Linux
-Comment=CQ-Linux App Manager
+Name=cq-linux
+GenericName=cq-linux
+Comment=cq-linux App Manager
 Exec=${MYPATH}/update
 Icon=${MYPATH}/logo.png
 Terminal=true
@@ -564,7 +564,7 @@ Type=Application
 Categories=Settings;DesktopSettings;GTK;X-LXDE-Settings;
 EOF
 
-sudo mv CQ-Linux.desktop /usr/share/applications/
+sudo mv cq-linux.desktop /usr/share/applications/
 
 #create repair-bap tool
 cat <<EOF > /run/user/$UID/repair-bap
