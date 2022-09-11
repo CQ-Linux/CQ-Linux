@@ -82,7 +82,7 @@ Build a Pi 3.2.0 and later does not support
 RaspiOS Buster or earlier versions of RaspiOS.
 You should consider upgrading to RaspiOS 11
 (Bullseye). By clicking ok you will be moved
-to the last version of CQ Linux (1.0.0) that 
+to the last version of CQ Linux (3.1.4) that 
 supports Pi OS Buster. Please note there are 
 no plans to update Build a Pi for Buster going 
 forward.  In other words, you are on your own 
@@ -103,9 +103,9 @@ INTRO=$(yad --width=600 --height=300 --text-align=center --center --title="Out o
 	exit
 	fi
 	rm ${NOTICEPATH}/intro.txt
-	cd $HOME/CQ-Linux
+	cd $HOME/pi-build
 	git checkout buster 
-	bash CQ-Linux & exit
+	bash build-a-pi & exit
 fi
 
 #####################################
@@ -163,7 +163,7 @@ if you choose to install everything. If you find it
 helpful please consider a donation to encourage future
 development.
 
-https://paypal.me/cqLinux
+https://paypal.me/km4ack
 EOF
 
 INTRO=$(yad --width=550 --height=250 --text-align=center --center --title="CQ-Linux" --show-uri \
@@ -509,7 +509,7 @@ sudo sed -i 's/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/' config.txt
 
 #set wallpaper
 #fix issue 193
-sudo cp $HOME/CQ-Linux/bap-wallpaper.jpg /usr/share/rpd-wallpaper/
+sudo cp $HOME/pi-build/bap-wallpaper.jpg /usr/share/rpd-wallpaper/
 pcmanfm --set-wallpaper /usr/share/rpd-wallpaper/bap-wallpaper.jpg
 
 mkdir -p ${DIR} 2>/dev/null
@@ -548,15 +548,15 @@ mkdir -p ${HOME}/bin
 echo "export PATH=$PATH:${HOME}/bin" >>${HOME}/.bashrc
 
 #set update script to exec
-chmod +x ${MYPATH}/update ${MYPATH}/CQ-Linux
+chmod +x ${MYPATH}/update ${MYPATH}/build-a-pi
 
-#create CQ-Linux menu item
+#create build-a-pi menu item
 cd ${MYPATH} || ! echo "Failure"
-cat >cq-linux.desktop <<EOF
+cat >build-a-pi.desktop <<EOF
 [Desktop Entry]
-Name=cq-linux
-GenericName=cq-linux
-Comment=cq-linux App Manager
+Name=Build-a-Pi
+GenericName=KM4ACK Build-a-Pi
+Comment=Build-a-Pi App Manager
 Exec=${MYPATH}/update
 Icon=${MYPATH}/logo.png
 Terminal=true
@@ -564,19 +564,19 @@ Type=Application
 Categories=Settings;DesktopSettings;GTK;X-LXDE-Settings;
 EOF
 
-sudo mv cq-linux.desktop /usr/share/applications/
+sudo mv build-a-pi.desktop /usr/share/applications/
 
 #create repair-bap tool
 cat <<EOF > /run/user/$UID/repair-bap
 #!/bin/bash
 
-if [ ! -f $HOME/CQ-Linux/update ]; then
+if [ ! -f $HOME/pi-build/update ]; then
 echo "################################"
 echo "#  BAP update tool not found.  #"
 echo "#  Repairing, please stand by  #"
 echo "################################"
 cd $HOME
-git clone https://github.com/CQ-Linux/CQ-Linux.git || echo "Could not connect to Github. Check your internet and try again"
+git clone https://github.com/bwattendorf/pi-build_x86.git || echo "Could not connect to Github. Check your internet and try again"
 echo "Repair complete. Run the Build a Pi update tool using the shortcut in the Pi menu"
 else
 clear;echo;echo
@@ -633,7 +633,7 @@ done <${UTILITY}
 
 #create new menu subcategories. One for FLDIGI Suite and
 #one for Build a Pi.
-bash ${HOME}/CQ-Linux/menu-update
+bash ${HOME}/pi-build/menu-update
 
 
 

@@ -1,4 +1,4 @@
-#additional software to install with CQ-Linux
+#additional software to install with build-a-pi
 #20200513 km4ack
 
 TEMPCRON=${MYPATH}/cron.tmp
@@ -290,7 +290,7 @@ CONKY() {
 		sudo apt install -y conky
 	fi
 	touch ${HOME}/Documents/mylog.txt  #conky will fail to load if this file doesn't exist
-	sudo touch /var/lib/misc/dnsmasq.leases #conky will fail to load if this file doesn't exist
+	touch /var/lib/misc/dnsmasq.leases #conky will fail to load if this file doesn't exist
 	sudo apt-get install -y ruby2.7
 	sudo gem install gpsd_client
 	sudo gem install maidenhead
@@ -310,9 +310,9 @@ CONKY() {
 [Desktop Entry]
 Name=Conky
 Comment=Conky
-GenericName=Conky Screen CQ-Linux Monitor
+GenericName=Conky Screen Background Monitor
 Exec=conky --pause=5
-Icon=/home/`whoami`/CQ-Linux/conky/conky-logo.png
+Icon=/home/`whoami`/pi-build/conky/conky-logo.png
 Type=Application
 Encoding=UTF-8
 Terminal=false
@@ -323,15 +323,15 @@ EOF
 	ln -sf ${HOME}/.local/share/applications/conky.desktop ${HOME}/.config/autostart/conky.desktop
 
 	#####Add setconky to main menu
-	chmod +x ${HOME}/CQ-Linux/conky/setconky
+	chmod +x ${HOME}/pi-build/conky/setconky
 
 	cat <<EOF >${HOME}/.local/share/applications/setconky.desktop
 [Desktop Entry]
 Name=Conky-Prefs
 Comment=Conky-Prefs
 GenericName=Change Conky Preferences
-Exec=/home/`whoami`/CQ-Linux/conky/setconky
-Icon=/home/`whoami`/CQ-Linux/conky/conky-logo.png
+Exec=/home/`whoami`/pi-build/conky/setconky
+Icon=/home/`whoami`/pi-build/conky/conky-logo.png
 Type=Application
 Encoding=UTF-8
 Terminal=false

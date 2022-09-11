@@ -4,7 +4,7 @@ MYPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 LOGO=${MYPATH}/logo.png
 
 cat <<EOF >${MYPATH}/boot.txt
-CQ-Linux Build Complete.
+Build-a-Pi Build Complete.
 
 If you found this script helpful
 consider a donation to encourage
@@ -16,7 +16,7 @@ https://paypal.me/km4ack
 
 EOF
 
-OUT=$(yad --width=550 --height=300 --text-align=center --center --title="CQ-Linux" --show-uri \
+OUT=$(yad --width=550 --height=300 --text-align=center --center --title="Build-a-Pi" --show-uri \
     --image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
     --text-info \
     --button="CLOSE":2 <${MYPATH}/boot.txt \

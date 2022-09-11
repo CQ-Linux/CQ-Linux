@@ -115,7 +115,7 @@ RTC() {
     DOUBLE=$(sudo i2cdetect -y 1 | grep UU)
 
     if [ -n "$DOUBLE" ]; then
-        yad --form --width=500 --text-align=center --center --title="CQ-Linux" --text-align=center \
+        yad --form --width=500 --text-align=center --center --title="Build-a-Pi" --text-align=center \
             --image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
             --text="Real Time Clock already installed" \
             --button=gtk-close
@@ -133,7 +133,7 @@ RTC() {
 
         NOW=$(date)
 
-        INFO=$(yad --form --width=500 --text-align=center --center --title="CQ-Linux" --text-align=center \
+        INFO=$(yad --form --width=500 --text-align=center --center --title="Build-a-Pi" --text-align=center \
             --image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
             --text="<b>System time is $NOW</b>" \
             --field="Is this Correct":CB "yes|no" \
@@ -143,7 +143,7 @@ RTC() {
         TIME=$(echo ${INFO} | awk -F "|" '{print $1}')
 
         if [ ${TIME} = 'no' ]; then
-            yad --form --width=500 --text-align=center --center --title="CQ-Linux" --text-align=center \
+            yad --form --width=500 --text-align=center --center --title="Build-a-Pi" --text-align=center \
                 --image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
                 --text="Please set time on the Raspberry Pi and try again. You can set time \
 by connecting to the internet or attaching a GPS" \
@@ -154,7 +154,7 @@ by connecting to the internet or attaching a GPS" \
         CLOCK=$(sudo i2cdetect -y 1 | grep 68)
 
         if [ -z "$CLOCK" ]; then
-            yad --form --width=500 --text-align=center --center --title="CQ-Linux" --text-align=center \
+            yad --form --width=500 --text-align=center --center --title="Build-a-Pi" --text-align=center \
                 --image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
                 --text="Real Time Clock not detected. Please be sure the RTC is installed and seated firmly" \
                 --button=gtk-close
@@ -171,7 +171,7 @@ by connecting to the internet or attaching a GPS" \
             echo "date" | sudo tee -a /etc/rc.local >/dev/null 2>&1
             echo "exit 0" | sudo tee -a /etc/rc.local >/dev/null 2>&1
 
-            yad --form --width=500 --text-align=center --center --title="CQ-Linux" --text-align=center \
+            yad --form --width=500 --text-align=center --center --title="Build-a-Pi" --text-align=center \
                 --image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
                 --text="Real Time Clock has been installed and configured" \
                 --button=gtk-close
@@ -292,7 +292,7 @@ EOF
 #	BPQ
 ##################################
 BPQ() {
-    source ${HOME}/CQ-Linux/config || return
+    source ${HOME}/pi-build/config || return
     #install LinBPQ
     cd || return
     ##########################################################################
