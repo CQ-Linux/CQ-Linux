@@ -24,7 +24,10 @@ Winlink Password & Grid Square
 # Install
 
 ADD STEPS TO I INSTALL RASPBIAN ON PC
+Download Raspian for pc https://www.raspberrypi.com/software/raspberry-pi-desktop
+burn the ISO to a DVD or use RUFUS https://rufus.ie/en/ to make the ISO image bootable on the USB drive.
 
+FOR NOW SET THE USERNAME: pi AND PASSWORD: raspberry TO THE DEFAULT PI user cred.
 
 Power up your Raspbian imaged PC, login, open the terminal, and run the following command.
 
