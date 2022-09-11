@@ -140,7 +140,7 @@ EOF
 		cd ~ || ! echo "Failure"
 		git clone --branch main https://github.com/CQ-Linux/CQ-Linux.git /${HOME}/pi-build
 		mv ${HOME}/Documents/config.bap ${MYPATH}/config 
-
+		sudo chmod 755 /${HOME}/pi-build/update
 		cat <<EOF >${MYPATH}/updatebap.txt
 Build a Pi has been updated to $LATEST. Please restart Build a Pi.
 EOF
