@@ -31,7 +31,7 @@ FOR NOW SET THE USERNAME: pi AND PASSWORD: raspberry TO THE DEFAULT PI user cred
 
 Power up your Raspbian imaged PC, login, open the terminal, and run the following command.
 
-     git clone https://github.com/CQ-Linux/CA-Linux.git \
+     git clone https://github.com/CQ-Linux/CQ-Linux.git \
       $HOME/pi-build && bash $HOME/pi-build/build-a-pi
 
     
