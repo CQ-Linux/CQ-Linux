@@ -306,6 +306,7 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "GPSUPDATE" "${GPSUPDATE}" "Tool to Manage GPS Devices" \
 	false "ARDOP" "$ARDOP" "Mode for HF" \
 	false "ARDOPGUI" "$ARDOPGUI" "GUI for ARDOP" \
+	false "VARA" "$VARA" "VARA Modem" \
 	false "DIREWOLF" "$DIRE" "Software TNC" \
 	false "AX25" "$AX25" "Data Link Layer Protocol" \
 	false "PULSE" "$PULSE" "Sound server" \
@@ -465,6 +466,10 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "GPREDICT" "$GPREDICT" "Satellite Tracking" \
 	false "TQSL" "$TQSL" "LOTW Software" \
 	false "GRIDCALC" "$GRIDCALC" "Grid Calculation Software" \
+	false "ECHOLINK" "$ECHOLINK" "Digital audio mode" \
+	false "CLOUDLOG" "$CLOUDLOG" "web based Logging Software" \
+	false "DIGIPI" "$DIGIPI" "DIGIPI integration" \
+	false "QDMR" "$QDMR" "DMR radio programmer" \
 	--button="Exit":1 \
 	--button="Next":2 >${ADDITIONAL}
 BUT=$?
