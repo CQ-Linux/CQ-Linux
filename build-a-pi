@@ -78,13 +78,13 @@ if [ "$V_ID" -le 10 ]; then
 NOTICEPATH=/run/user/$UID
 
 cat <<EOF >${NOTICEPATH}/intro.txt
-Build a Pi 3.2.0 and later does not support
+CQ-Linux 0.1.0 and later does not support
 RaspiOS Buster or earlier versions of RaspiOS.
 You should consider upgrading to RaspiOS 11
 (Bullseye). By clicking ok you will be moved
-to the last version of CQ Linux (3.1.4) that 
+to the last version of CQ Linux (1.0.0) that 
 supports Pi OS Buster. Please note there are 
-no plans to update Build a Pi for Buster going 
+no plans to update CQ-Linux for Buster going 
 forward.  In other words, you are on your own 
 if it is broke and you are still running Pi OS
 10 (Buster).
@@ -163,7 +163,7 @@ if you choose to install everything. If you find it
 helpful please consider a donation to encourage future
 development.
 
-https://paypal.me/km4ack
+https://paypal.me/cqLinux
 EOF
 
 INTRO=$(yad --width=550 --height=250 --text-align=center --center --title="CQ-Linux" --show-uri \
@@ -408,7 +408,6 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "GRIDCALC" "Grid Calculation Software" \
 	false "ECHOLINK" "Digital audio mode" \
 	false "REPEAT" "Repeater Directory" \
-	false "DIGIPI" "DIGI-PI integration" \
 	false "CLOUDLOG" "Web Based Logging Software" \
 	false "QDMR" "DRM programmer" \
 	--button="Exit":1 \
@@ -422,7 +421,7 @@ fi
 if [ ${BUT} = 3 ]; then
 	ADDAPPS=(CONKY PI-APRS CHIRP GARIM PAT PAT-MENU JS8CALL M0IAX WSJTX PYQSO
 		HAMRS EES QSSTV GRIDTRACKER HAMCLOCK PROPAGATION YAAC XASTIR GPREDICT TQSL
-		GRIDCALC ECHOLINK CQRLOG DIGIPI CLOUDLOG REPEAT QDMR)
+		GRIDCALC ECHOLINK CQRLOG CLOUDLOG REPEAT QDMR)
 
 	for i in "${ADDAPPS[@]}"; do
 		echo "$i" >>${ADDITIONAL}
@@ -501,8 +500,8 @@ crontab -l >$TEMPCRON
 echo "@reboot sleep 10 && export DISPLAY=:0 && ${MYPATH}/.complete" >>$TEMPCRON
 ${MYPATH}/.funfacts &
 #upgrade the system
-sudo apt-get -y upgrade
-sudo apt -y full-upgrade
+#sudo apt-get -y upgrade
+#sudo apt -y full-upgrade
 
 #fix issue 254 05JULY2021
 sudo sed -i 's/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/' config.txt
@@ -576,7 +575,7 @@ echo "#  BAP update tool not found.  #"
 echo "#  Repairing, please stand by  #"
 echo "################################"
 cd $HOME
-git clone https://github.com/bwattendorf/pi-build_x86.git || echo "Could not connect to Github. Check your internet and try again"
+git clone https://github.com/CQ-Linux/CQ-Linux.git || echo "Could not connect to Github. Check your internet and try again"
 echo "Repair complete. Run the Build a Pi update tool using the shortcut in the Pi menu"
 else
 clear;echo;echo

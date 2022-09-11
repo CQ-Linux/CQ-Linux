@@ -106,14 +106,14 @@ mkdir -p ${HOME}/.config/autostart
 echo "Checking for Build a Pi updates"
 CURRENT=$(head -1 ${MYPATH}/changelog | sed s'/version=//')
 
-LATEST=$(curl -s https://raw.githubusercontent.com/bwattendorf/pi-build_x86/dev/changelog | tac | tac | head -1 | sed 's/version=//')
+LATEST=$(curl -s https://raw.githubusercontent.com/CQ-Linux/CQ-Linux/main/changelog | tac | tac | head -1 | sed 's/version=//')
 
 if (($(echo "$LATEST $CURRENT" | awk '{print ($1 > $2)}'))); then
 	cat <<EOF >${MYPATH}/updatebap.txt
 Build a Pi update available. Current version is $CURRENT and
 the lateest version is $LATEST. Would you like to update?
 
-Change log - https://github.com/km4ack/pi-build/blob/master/changelog
+Change log - https://github.com/CQ-Linux/CQ-Linux/blob/main/changelog
 EOF
 	BAP=$(
 		yad --width=650 --height=250 --text-align=center --center --title="Build-a-Pi" --show-uri \
@@ -138,7 +138,7 @@ EOF
 		mv ${MYPATH}/config ${HOME}/Documents/config.bap
 		rm -rf "${MYPATH}"
 		cd ~ || ! echo "Failure"
-		git clone --branch dev https://github.com/bwattendorf/pi-build_x86.git /${HOME}/pi-build
+		git clone --branch main https://github.com/CQ-Linux/CQ-Linux.git /${HOME}/pi-build
 		mv ${HOME}/Documents/config.bap ${MYPATH}/config 
 
 		cat <<EOF >${MYPATH}/updatebap.txt
@@ -178,7 +178,7 @@ echo "##########################################################"
 cd /run/user/$UID
 git init pi-build
 cd pi-build
-git remote add -f origin https://github.com/km4ack/pi-build.git
+git remote add -f origin https://github.com/CQ-Linux/CQ-Linux.git
 git config core.sparseCheckout true
 echo "/patch" >> .git/info/sparse-checkout
 git pull origin dev
@@ -201,16 +201,16 @@ done
 
 cat <<EOF >${MYPATH}/patch.txt
 One or more patch scripts are currently
-available for Build a Pi. Full description
+available for CQ-Linux. Full description
 of each available patch can be found at
-https://github.com/km4ack/pi-build/tree/dev/patch
+https://github.com/CQ-Linux/CQ-Linux/tree/main/patch
 
 Would you like to review/apply 
 available patch scripts?
 EOF
 
-INTRO=$(yad --width=650 --height=300 --text-align=center --center --title="Build-a-Pi Patch Tool" --show-uri \
-	--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" --text="Build-a-Pi Patch Tool" \
+INTRO=$(yad --width=650 --height=300 --text-align=center --center --title="CQ-Linux Patch Tool" --show-uri \
+	--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" --text="CQ-Linux Patch Tool" \
 	--text-info \
 	--button="Yes":1 \
 	--button="No":2 <${MYPATH}/patch.txt \
@@ -229,7 +229,7 @@ BUT=$?
 		elif [ ${BUT} = 2 ]; then
 		echo "Button ${BUT} pressed"
 		rm ${MYPATH}/patch.txt
-		echo "user declined patch updates continuing with Build a Pi update"
+		echo "user declined patch updates continuing with CQ-Linux update"
 		rm -rf /run/user/$UID/pi-build
 		fi
 	else
@@ -338,7 +338,7 @@ if [ -n "$HS" ]; then
 			--text="<b>HotSpot Information\r\rPlease enter the information\rbelow \
 for the Hot Spot\r</b>NOTE: The last field is the password for the hotspot. You will use this password to \
 connect to your Pi when it is in hotspot mode <b>This password can only contain letters and numbers</b>" \
-			--title="Build-a-Pi" \
+			--title="CQ-Linux" \
 			--field="Home Wifi SSID":CB "${LIST}" \
 			--field="Home Wifi Password" \
 			--field="Hot Spot Password" \
@@ -370,7 +370,7 @@ if [ -n "$HS" ]; then
 		yad --center --form --width=300 --height=200 --separator="|" \
 			--image ${LOGO} --column=Check --column=App --column=Description \
 			--window-icon=${LOGO} --image-on-top --text-align=center \
-			--text="<b>Hotspot password has to be 8-63 characters</b>" --title="Build-a-Pi" \
+			--text="<b>Hotspot password has to be 8-63 characters</b>" --title="CQ-Linux" \
 			--button=gtk-ok
 		HSINFO
 	fi
@@ -467,7 +467,6 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "TQSL" "$TQSL" "LOTW Software" \
 	false "GRIDCALC" "$GRIDCALC" "Grid Calculation Software" \
 	false "ECHOLINK" "$ECHOLINK" "Digital audio mode" \
-	false "DIGIPI" "$DIGIPI" "DIGIPI integration" \
 	false "CLOUDLOG" "$CLOUDLOG" "web based Logging Software" \
 	false "QDMR" "$QDMR" "DMR radio programmer" \
 	--button="Exit":1 \
@@ -572,7 +571,7 @@ echo "#  BAP update tool not found.  #"
 echo "#  Repairing, please stand by  #"
 echo "################################"
 cd $HOME
-git clone https://github.com/km4ack/pi-build.git || echo "Could not connect to Github. Check your internet and try again"
+git clone https://github.com/CQ-Linux/CQ-Linux.git || echo "Could not connect to Github. Check your internet and try again"
 echo "Repair complete. Run the Build a Pi update tool using the shortcut in the Pi menu"
 else
 clear;echo;echo
