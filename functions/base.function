@@ -181,10 +181,11 @@ VARA() {
 	echo "##################"
 	echo "installing VARA"
 	echo "##################"
-	curl -O https://raw.githubusercontent.com/bwattendorf/Winelink-X86/master/install_winelink.sh && bash install_winelink.sh bap
+	wget https://raw.githubusercontent.com/WheezyE/Winelink/97e34626cb22ee4c61b77add31382eb51c6a8272/install_winelink.sh
+	bash install_winelink.sh bap
 }
 
-
+##curl -O https://raw.githubusercontent.com/bwattendorf/Winelink-X86/master/install_winelink.sh && bash install_winelink.sh bap
 ################################
 #	HAMLIB
 ################################
