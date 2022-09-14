@@ -493,6 +493,7 @@ fi
 #backup crontab
 crontab -l >$TEMPCRON
 echo "@reboot sleep 10 && export DISPLAY=:0 && ${MYPATH}/.complete" >>$TEMPCRON
+sudo chmod 755 ${MYPATH}/.funfacts
 ${MYPATH}/.funfacts &
 #upgrade the system
 #sudo apt-get -y upgrade
