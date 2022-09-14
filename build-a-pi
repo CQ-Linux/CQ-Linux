@@ -629,7 +629,8 @@ done <${UTILITY}
 #create new menu subcategories. One for FLDIGI Suite and
 #one for Build a Pi.
 bash ${HOME}/pi-build/menu-update
-
+#set chromium as default browser for xdg-open
+xdg-settings set default-web-browser chromium.desktop
 
 
 #####################################
