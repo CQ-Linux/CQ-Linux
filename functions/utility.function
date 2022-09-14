@@ -323,9 +323,9 @@ BPQ() {
     unzip -o -q HTMLPages.zip
     rm HTMLPages.zip
     cd .. || return
-    wget -nv http://www.cantab.net/users/john.wiseman/Downloads/LinBPQAPRS.zip
-    unzip -o -q LinBPQAPRS.zip
-    rm LinBPQAPRS.zip
+    wget -nv http://www.cantab.net/users/john.wiseman/Downloads/BPQAPRS.zip
+    unzip -o -q BPQAPRS.zip
+    rm BPQAPRS.zip
 
     echo "Updating your callsign in configuration files"
 
