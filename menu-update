@@ -104,7 +104,7 @@ if [ ! -f /usr/local/share/applications/donate.desktop ]; then
 [Desktop Entry]
 Name=Donate
 Comment=Donate to Build a Pi
-Exec=xdg-open https://www.paypal.com/paypalme/km4ack
+Exec=xdg-open https://www.paypal.com/paypalme/cqLinux
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
 Type=Application
@@ -138,7 +138,7 @@ if [ ! -f /usr/local/share/applications/support.desktop ]; then
 [Desktop Entry]
 Name=Tech Support
 Comment=Build a Pi Tech Support
-Exec=xdg-open https://groups.io/g/KM4ACK-Pi/topics
+Exec=xdg-open https://groups.io/g/CQ-Linux/topics
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
 Type=Application
