@@ -469,27 +469,27 @@ CHECK() {
 		echo "DIPOLE=Not_Installed" >> $UPDATEFILE
 	fi
 
-	#----------------------------------------------------#
-	#		SHOWLOG | Log file viewer
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		SHOWLOG | Log file viewer
+#----------------------------------------------------#
 	if [ -f ${HOME}/bin/showlog ]; then
 		echo "SHOWLOG=Installed" >> $UPDATEFILE
 	else
 		echo "SHOWLOG=Not_Installed" >> $UPDATEFILE
 	fi
 
-	#----------------------------------------------------#
-	#		Call Sign Lookup GETCALL
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		Call Sign Lookup GETCALL
+#----------------------------------------------------#
 	if [ -f ${HOME}/bin/getcall ]; then
 		echo "CALLSIGN=Installed" >> $UPDATEFILE
 	else
 		echo "CALLSIGN=Not_Installed" >> $UPDATEFILE
 	fi
 
-	#----------------------------------------------------#
-	#		HamClock
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		HamClock
+#----------------------------------------------------#
 	HAMCLOCK=$(ls /usr/local/bin | grep hamclock)
 	if [ -n "$HAMCLOCK" ]; then
 		echo "HAMCLOCK=Installed" >> $UPDATEFILE
@@ -497,23 +497,23 @@ CHECK() {
 		echo "HAMCLOCK=Not_Installed" >> $UPDATEFILE
 	fi
 
-	#----------------------------------------------------#
-	#		Real Time Clock
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		Real Time Clock
+#----------------------------------------------------#
 	echo "RTC=Unknown" >> $UPDATEFILE
 
-	#----------------------------------------------------#
-	#		Gpredict
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		Gpredict
+#----------------------------------------------------#
 	if ! hash gpredict 2>/dev/null; then
 		echo "GPREDICT=Not_Installed" >> $UPDATEFILE
 	else
 		echo "GPREDICT=Installed" >> $UPDATEFILE
 	fi
 
-	#----------------------------------------------------#
-	#		TQSL
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		TQSL
+#----------------------------------------------------#
 	if ! hash tqsl 2>/dev/null; then
 		echo "TQSL=Not_Installed" >> $UPDATEFILE
 	else
@@ -521,9 +521,9 @@ CHECK() {
 	fi
 
 	
-	#----------------------------------------------------#
-	#		XLOG CHECK
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		XLOG CHECK
+#----------------------------------------------------#
 	if ! hash xlog 2>/dev/null; then
 		echo "XLOG=Not_Installed" >> $UPDATEFILE
 	else
@@ -541,9 +541,9 @@ CHECK() {
 		fi
 	fi
 
-	#----------------------------------------------------#
-	#		JTDX
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		JTDX
+#----------------------------------------------------#
 	if ! hash jtdx 2>/dev/null; then
 		echo "JTDX=Not_Installed" >> $UPDATEFILE
 	else
@@ -685,9 +685,9 @@ echo "Checking Packet Search"
 		fi
 	fi
 
-	#----------------------------------------------------#
-	#		piQtSoundModem
-	#----------------------------------------------------#
+#----------------------------------------------------#
+#		piQtSoundModem
+#----------------------------------------------------#
 	if [ -f /usr/local/bin/QtSoundModem ]; then
 		echo "QTSOUND=Installed" >> $UPDATEFILE
 	else
@@ -724,16 +724,11 @@ fi
 #----------------------------------------------------#
 #		Repeater-Start
 #----------------------------------------------------#
-echo "Checking Repeater-Start"
-REPEAT_CURRENT_VER=$(dpkg --list | grep repeater-start | awk '{print $3}')
-REPEAT_LATEST=$(curl -s https://sourceforge.net/projects/repeater-start/files/ | grep all.deb | head -1 | sed 's/.*repeater/repeater/;s/".*//')
-REPEAT_LATEST_VER=$(echo $REPEAT_LATEST | sed 's/repeater-start_//;s/_.*//')
-
-		if (($(echo "${REPEAT_LATEST_VER} ${REPEAT_CURRENT_VER}" | awk '{print ($1 > $2)}'))); then
-			echo "REPEAT=NEEDS-UPDATE" >> $UPDATEFILE
-		else
-			echo "REPEAT=is_latest_version" >> $UPDATEFILE
-		fi
+if ! hash repeaterSTART 2>/dev/null; then
+	echo "REPEAT=Not_Installed" >> $UPDATEFILE
+else
+echo "REPEAT=Installed" >> $UPDATEFILE
+fi
 
 #----------------------------------------------------#
 #		ECHOLINK
