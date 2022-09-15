@@ -1011,9 +1011,9 @@ sudo dpkg -i $REPEAT_LATEST
 }
 
 ##################################
-#	QDMR   echolink install W1BAW
+#	QTEL   echolink install W1BAW
 ##################################
-QDMR() {
+QTEL() {
 	#https://github.com/shuyuan-liu/sdr-tutorials
 	echo "##################"
 	echo "installing ECHOLINK"
