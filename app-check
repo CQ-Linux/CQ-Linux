@@ -734,9 +734,9 @@ fi
 #		Qtel
 #----------------------------------------------------#
 if [ ! -f /usr/bin/qtel ]; then
-	echo "ECHOLINK=Not_Installed" >> $UPDATEFILE
+	echo "QTEL=Not_Installed" >> $UPDATEFILE
 else
-echo "ECHOLINK=Installed" >> $UPDATEFILE
+echo "QTEL=Installed" >> $UPDATEFILE
 fi
 
 CHECK
