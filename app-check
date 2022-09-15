@@ -706,7 +706,7 @@ fi
 #----------------------------------------------------#
 #		CLOUD-LOG
 #----------------------------------------------------#
-if [ ! -f /var/www.html/Cloudlog/index.php ]; then
+if [ ! -f /var/www/html/Cloudlog/index.php ]; then
 	echo "CLOUDLOG=Not_Installed" >> $UPDATEFILE
 else
 echo "CLOUDLOG=Installed" >> $UPDATEFILE
