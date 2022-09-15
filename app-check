@@ -697,7 +697,7 @@ echo "Checking Packet Search"
 #----------------------------------------------------#
 #		DIGI-pi
 #----------------------------------------------------#
-if [ ! -f /usr/local/bin/hamrs ]; then
+if [ ! -f /var/www/html/riglist.txt ]; then
 	echo "DIGIPI=Not_Installed" >> $UPDATEFILE
 else
 echo "DIGIPI=Installed" >> $UPDATEFILE
@@ -706,7 +706,7 @@ fi
 #----------------------------------------------------#
 #		CLOUD-LOG
 #----------------------------------------------------#
-if [ ! -f /usr/local/bin/hamrs ]; then
+if [ ! -f /var/www.html/Cloudlog/index.php ]; then
 	echo "CLOUDLOG=Not_Installed" >> $UPDATEFILE
 else
 echo "CLOUDLOG=Installed" >> $UPDATEFILE
@@ -731,9 +731,9 @@ echo "REPEAT=Installed" >> $UPDATEFILE
 fi
 
 #----------------------------------------------------#
-#		ECHOLINK
+#		Qtel
 #----------------------------------------------------#
-if ! hash echolink 2>/dev/null; then
+if [ ! -f /usr/bin/qtel ]; then
 	echo "ECHOLINK=Not_Installed" >> $UPDATEFILE
 else
 echo "ECHOLINK=Installed" >> $UPDATEFILE
