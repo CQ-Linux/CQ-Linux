@@ -239,6 +239,7 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "GPSUPDATE" "Tool to Manage GPS Devices" \
 	false "ARDOP" "Modem for HF" \
 	false "ARDOPGUI" "GUI for ARDOP" \
+	false "VARA" "VARA Modem" \
 	false "HAMLIB" "Needed for Rig Control" \
 	false "DIREWOLF" "Software TNC" \
 	false "AX25" "Data Link Layer Protocol" \
@@ -252,7 +253,7 @@ if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
 fi
 
 if [ ${BUT} = 3 ]; then
-	BASEAPPS=(HOTSPOT HSTOOLS GPS ARDOP ARDOPGUI HAMLIB DIREWOLF AX25 PULSE GPSUPDATE)
+	BASEAPPS=(HOTSPOT HSTOOLS GPS ARDOP ARDOPGUI HAMLIB DIREWOLF AX25 PULSE GPSUPDATE VARA)
 	for i in "${BASEAPPS[@]}"; do
 		echo "$i" >>${BASE}
 	done
@@ -405,6 +406,11 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "GPREDICT" "Satellite Tracking" \
 	false "TQSL" "LOTW Software" \
 	false "GRIDCALC" "Grid Calculation Software" \
+	false "QTEL" "ECHO Link Digital audio software " \
+	false "CLOUDLOG" "web based Logging Software" \
+	false "DIGIPI" "DIGIPI integration" \
+	false "QDMR" "DMR radio programmer" \
+	
 	--button="Exit":1 \
 	--button="Check All and Continue":3 \
 	--button="Next":2 >${ADDITIONAL}
@@ -416,7 +422,7 @@ fi
 if [ ${BUT} = 3 ]; then
 	ADDAPPS=(CONKY PI-APRS CHIRP GARIM PAT PAT-MENU JS8CALL M0IAX WSJTX PYQSO
 		HAMRS EES QSSTV GRIDTRACKER HAMCLOCK PROPAGATION YAAC XASTIR GPREDICT TQSL
-		GRIDCALC ECHOLINK CQRLOG )
+		GRIDCALC ECHOLINK CQRLOG QTEL CLOUDLOG DIGIPI QDMR )
 
 	for i in "${ADDAPPS[@]}"; do
 		echo "$i" >>${ADDITIONAL}
