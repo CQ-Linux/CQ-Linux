@@ -1,5 +1,11 @@
-version=1.1.0
+version=2.0.0
 
+2.0.0       fixed a bunch of bugs for the branding to show CQ-Linux 
+			added QDMR     DMR radio programmer
+			added Cloud Log   web based logging software
+			added Digi-pi     web based VNC and digital mode setup software
+			added automated wine install of VARA
+			added Qtel   Echlink digital voice client
 
 0.1.0		initial upload from CQ-Linux x86 
 		
