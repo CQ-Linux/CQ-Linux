@@ -143,7 +143,7 @@ if [ ! -f /usr/local/share/applications/support.desktop ]; then
 [Desktop Entry]
 Name=Tech Support
 Comment=Build a Pi Tech Support
-Exec=xdg-open https://groups.io/g/CQ-Linux/topics
+Exec=xdg-open https://groups.io/g/cq-linux/topics
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
 Type=Application
