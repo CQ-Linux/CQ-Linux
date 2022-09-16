@@ -158,3 +158,39 @@ Graphic viewer to view/manage log files.
 #### Gparted
 Disk utility.
 
+#### Vara modem 
+Wine install of Windows VARA modems https://rosmodem.wordpress.com/
+This is a high speed software modems for HF, FM, SAT,and direct chat.
+as of 9/16/22 there is a bug where you need to have a license key this is a bug in Pat winlink.
+
+#### QTEL 
+Echo link Digital audio software http://www.svxlink.org/doc/man/man1/qtel.1.html
+Echo link client software for digital voice
+
+#### Cloud Log
+Cloud log logging software that is web based https://github.com/magicbug/Cloudlog/wiki/Installation
+to set this up for now you need to follow the instructions in the link above and start at step 4 
+you will be setting a user name and password for a MariaDB database and then running the Clound log install wizard
+the URL of the cloudload install will be http://ip of the CQ-linux pc/Cloudlog
+
+#### Digi-Pi 
+easy start interface ,setup of ham digital modes, and web based VNC https://craiger.org/digipi/
+this was ported from Craig KM6LYW Digi-PI I took his GitHub code https://github.com/craigerl/digipi
+to access the web go to http://the ip of the pc cq-linux is on   and it will open the web page. 
+I am still activly working on this software and will be adding pat ,vara, links to cloudlog, Jasons EES pages, and more.   
+please play with this and let me know what you would like added. 
+
+#### QDMR 
+DMR radio programmer and code plug generation software  https://dm3mat.darc.de/qdmr/
+
+Working on for future release's 
+SDR++
+SDR Angel 
+3D printer software 
+Kicad
+
+Thanks
+W1BAW Bruce Wattendorf
+bwattendorf@gmail.com
+
+
