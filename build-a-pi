@@ -396,6 +396,7 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "PYQSO" "Logging Software" \
 	false "HAMRS" "Logging Software" \
 	false "CQRLOG" "Logging Software" \
+	false "REPEAT" "Repeater Directory" \
 	false "EES" "KM4ACK Emergency Email Server" \
 	false "QSSTV" "Slow Scan TV" \
 	false "GRIDTRACKER" "Track Grids in WSJTX" \
@@ -421,7 +422,7 @@ fi
 if [ ${BUT} = 3 ]; then
 	ADDAPPS=(CONKY PI-APRS CHIRP GARIM PAT PAT-MENU JS8CALL M0IAX WSJTX PYQSO
 		HAMRS EES QSSTV GRIDTRACKER HAMCLOCK PROPAGATION YAAC XASTIR GPREDICT TQSL
-		GRIDCALC ECHOLINK CQRLOG QTEL CLOUDLOG DIGIPI QDMR)
+		GRIDCALC ECHOLINK CQRLOG QTEL CLOUDLOG DIGIPI QDMR REPEAT)
 
 	for i in "${ADDAPPS[@]}"; do
 		echo "$i" >>${ADDITIONAL}

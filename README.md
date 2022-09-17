@@ -183,6 +183,9 @@ please play with this and let me know what you would like added.
 #### QDMR 
 DMR radio programmer and code plug generation software  https://dm3mat.darc.de/qdmr/
 
+#### Repeter Start
+(Showing The Amateur Repeaters Tool) is an app to view nearby ham radio repeaters.
+
 Working on for future release's 
 SDR++
 SDR Angel 
