@@ -4,7 +4,7 @@ NOTE:
 This is a fork of  Build a pi to install on a X86 PC with Raspbian Buster installed.
     The changes are by W1BAW Bruce Wattendorf
 
-CQ-Linux will allow you to get up and running fast with a Raspberry Pi for ham radio.
+CQ-Linux will allow you to get up and running fast with a PC for ham radio.
 Rather than downloading a pre-built image where you have no choices in the build, CQ
 Linux gives you complete control over the build. It allows you to choose the applications you 
 want to install and skip the ones you don’t need. This keeps your pc as lean and mean as
