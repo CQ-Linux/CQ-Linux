@@ -115,7 +115,7 @@ PAT-MENU() {
 		rm -rf "${HOME}/patmenu2"
 	fi
 	cd ${HOME}
-	git clone https://github.com/km4ack/patmenu2.git ${HOME}/patmenu2
+	git clone https://github.com/CQ-Linux/patmenu2.git ${HOME}/patmenu2
 
 	#Verify that pat is on master branch. Pat can remain on an old branch
 	#due to a workaround when moving to Pat version 12. This caused Pat Menu
