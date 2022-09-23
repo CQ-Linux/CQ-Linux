@@ -1,5 +1,5 @@
-version=2.0.2
-2.0.2		fixed bug where in patmenu2 we were calling piardopc when we needed to call ardopc since we are using 
+version=2.2.0
+2.2.0		fixed bug where in patmenu2 we were calling piardopc when we needed to call ardopc since we are using 
 			ardopc because we are installing on x86
 2.0.1   	fixed bug where repeter start was not in the initial install but was only in 
 			the update screen. also added repeter start info to readme file
