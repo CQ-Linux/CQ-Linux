@@ -135,7 +135,9 @@ fi
 if ! hash chromium 2>/dev/null; then
 	sudo apt install -y chromium
 fi
-
+if ! hash curl 2>/dev/null; then
+	sudo apt install -y curl
+fi
 
 sudo ln -s /usr/bin/lxterminal /usr/bin/xterm
 sudo apt-get install build-essential -y
