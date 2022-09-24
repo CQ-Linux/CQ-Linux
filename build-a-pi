@@ -147,6 +147,7 @@ sudo ln -s /usr/bin/lxterminal /usr/bin/xterm
 sudo apt-get install build-essential -y
 
 
+
 #####################################
 #	Check if run before
 #####################################
@@ -605,7 +606,7 @@ sudo mv /run/user/$UID/repair-bap /usr/local/bin/
 #####################################
 touch ${RB}
 echo "INITIAL=\"build date $DATE version $VERSION\"" >> ${RB}
-source ${FUNCTIONS}/base.function
+source ${FUNCTIONS}/base.function | tee -a /var/log/cqLinux/baseapp.log
 while read i; do
 	$i
 done <${BASE}
