@@ -607,7 +607,7 @@ sudo mv /run/user/$UID/repair-bap /usr/local/bin/
 #####################################
 touch ${RB}
 echo "INITIAL=\"build date $DATE version $VERSION\"" >> ${RB}
-source ${FUNCTIONS}/base.function | sudo  tee -a /var/log/cqLinux/baseapp.log
+source ${FUNCTIONS}/base.function
 while read i; do
 	$i
 done <${BASE}
