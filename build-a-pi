@@ -139,6 +139,10 @@ if ! hash curl 2>/dev/null; then
 	sudo apt install -y curl
 fi
 
+if ! hash pip 2>/dev/null; then
+	sudo apt install -y pip
+fi
+
 sudo ln -s /usr/bin/lxterminal /usr/bin/xterm
 sudo apt-get install build-essential -y
 
