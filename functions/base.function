@@ -23,22 +23,22 @@ fi
 #	HOTSPOT
 ################################
 HOTSPOT() {
-    #HS="/usr/bin/autohotspotN"
-    #if [ ! -f "${HS}" ]; then
-    #    #pass variables with script because run as root
-    #    sudo bash ${MYPATH}/functions/autohotspot "${SHACKSSID}" "${SHACKPASS}" "${HSPASS}"
-    #    echo "*/5 * * * * sudo /usr/bin/autohotspotN >/dev/null 2>&1" >>${TEMPCRON}
-    #else
+    HS="/usr/bin/autohotspotN"
+    if [ ! -f "${HS}" ]; then
+        #pass variables with script because run as root
+        sudo bash ${MYPATH}/functions/autohotspot "${SHACKSSID}" "${SHACKPASS}" "${HSPASS}"
+        echo "*/5 * * * * sudo /usr/bin/autohotspotN >/dev/null 2>&1" >>${TEMPCRON}
+    else
          echo ################################
-    #    echo ################################
-    #    echo "        FATAL ERROR"
-    #    echo "HOTSPOT ALREADY INSTALLED ONCE"
-    #    echo "   CANNOT INSTALL AGAIN"
-    #    echo " WILL CONTINUE IN 10 SECONDS"
-    #    echo ################################
-    #    echo ################################
-    #    sleep 10
-    #fi
+        echo ################################
+        echo "        FATAL ERROR"
+        echo "HOTSPOT ALREADY INSTALLED ONCE"
+        echo "   CANNOT INSTALL AGAIN"
+        echo " WILL CONTINUE IN 10 SECONDS"
+        echo ################################
+        echo ################################
+        sleep 10
+    fi
 }
 
 ################################
