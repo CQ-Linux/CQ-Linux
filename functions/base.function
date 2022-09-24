@@ -29,7 +29,7 @@ HOTSPOT() {
     #    sudo bash ${MYPATH}/functions/autohotspot "${SHACKSSID}" "${SHACKPASS}" "${HSPASS}"
     #    echo "*/5 * * * * sudo /usr/bin/autohotspotN >/dev/null 2>&1" >>${TEMPCRON}
     #else
-    #    echo ################################
+         echo ################################
     #    echo ################################
     #    echo "        FATAL ERROR"
     #    echo "HOTSPOT ALREADY INSTALLED ONCE"
