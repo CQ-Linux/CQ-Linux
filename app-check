@@ -454,7 +454,7 @@ CHECK() {
 	#----------------------------------------------------#
 	#		GPARTED
 	#----------------------------------------------------#
-	if ! hash gparted 2>/dev/null; then
+	if [ -f /usr/sbin/gparted ]; then
 		echo "GPARTED=Not_Installed" >> $UPDATEFILE
 	else
 		echo "GPARTED=Installed" >> $UPDATEFILE
