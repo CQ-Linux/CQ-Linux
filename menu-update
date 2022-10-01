@@ -9,7 +9,7 @@
 #km4ack - km4ack subcategory
 
 
-REV=20221001
+REV=20221002
 
 source $HOME/.config/KM4ACK
 
@@ -236,6 +236,16 @@ EOF
 
 sudo mv Utilities.directory /usr/share/desktop-directories/
 
+cat >digitalmodes.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Digital-Modes
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv digitalmodes.directory /usr/share/desktop-directories/
+
 
 #MOD HAMRADIO.MENU FILE
 cat >hamradio.menu <<EOF
@@ -291,10 +301,13 @@ cat >hamradio.menu <<EOF
             <Category>hamutilities</Category>
         </Include>
 		</Menu>
-	
-	
-	
-	
+		Name>Digital-Modes</Name>
+        <Directory>digitalmodes.directory</Directory>
+        <Include>
+            <Category>digitalmodes</Category>
+        </Include>
+		</Menu>
+		
   </Menu> <!-- End hamradio -->
 </Menu>
 EOF
