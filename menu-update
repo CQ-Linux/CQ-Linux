@@ -246,6 +246,16 @@ EOF
 
 sudo mv digitalmodes.directory /usr/share/desktop-directories/
 
+cat >hamlogging.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Ham-Radio-Logging
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv hamlogging.directory /usr/share/desktop-directories/
+
 
 #MOD HAMRADIO.MENU FILE
 cat >hamradio.menu <<EOF
@@ -301,13 +311,21 @@ cat >hamradio.menu <<EOF
             <Category>hamutilities</Category>
         </Include>
 		</Menu>
+		<Menu>
 		Name>Digital-Modes</Name>
         <Directory>digitalmodes.directory</Directory>
         <Include>
             <Category>digitalmodes</Category>
         </Include>
 		</Menu>
-		
+		<Menu>
+		Name>Ham-Radio-Logging</Name>
+        <Directory>hamlogging.directory</Directory>
+        <Include>
+            <Category>hamlogging</Category>
+        </Include>
+		</Menu>
+				
   </Menu> <!-- End hamradio -->
 </Menu>
 EOF
