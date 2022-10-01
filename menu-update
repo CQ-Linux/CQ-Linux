@@ -95,6 +95,20 @@ fi
 
 
 }
+NEWMENUCLEANUP(){
+##########################
+#   NEW MENU CLEANUP
+##########################
+echo "updating other menu shortcuts"
+if [ -f /usr/share/applications/filename.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=menulocation/' /usr/share/applications/filename.desktop
+fi
+
+if [ -f /usr/share/applications/filename.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=manulocation/' /usr/share/applications/filename.desktop
+fi
+
+}
 
 BAP(){
 ##########################
@@ -351,6 +365,7 @@ echo "MENU=$REV" >> $HOME/.config/KM4ACK
 CREATEMENU
 FLSUITE
 VARA
+NEWMENUCLEANUP
 fi
 
 
