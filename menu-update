@@ -9,7 +9,7 @@
 #km4ack - km4ack subcategory
 
 
-REV=20220829
+REV=20221001
 
 source $HOME/.config/KM4ACK
 
