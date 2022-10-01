@@ -100,12 +100,12 @@ NEWMENUCLEANUP(){
 #   NEW MENU CLEANUP
 ##########################
 echo "updating other menu shortcuts"
-if [ -f /usr/share/applications/filename.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=menulocation/' /usr/share/applications/filename.desktop
+if [ -f /usr/share/applications/qdmr.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/qdmr.desktop
 fi
 
-if [ -f /usr/share/applications/filename.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=manulocation/' /usr/share/applications/filename.desktop
+if [ -f /usr/share/applications/chirp.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/chirp.desktop
 fi
 
 }
