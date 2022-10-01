@@ -316,7 +316,7 @@ Icon=/home/`whoami`/pi-build/conky/conky-logo.png
 Type=Application
 Encoding=UTF-8
 Terminal=false
-Categories=HamRadio
+Categories=hamutilities
 Keywords=Radio
 EOF
 
@@ -370,7 +370,7 @@ Comment=GPS & Message Tool for JS8Call
 Exec=python3 /usr/local/bin/JS8Utils/JS8CallUtils_v2.py
 Terminal=false
 Type=Application
-Categories=Network;HamRadio;
+Categories=hamutilities
 EOF
 
 	sudo mv m0iax.desktop /usr/share/applications/
