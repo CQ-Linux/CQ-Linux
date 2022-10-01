@@ -195,6 +195,48 @@ EOF
 
 sudo mv bap.directory /usr/share/desktop-directories/
 
+
+cat >designTools.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Design-Tools
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+sudo mv designTools.directory /usr/share/desktop-directories/
+
+
+cat >SDRTools.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=SDR-Tools
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv SDRTools.directory /usr/share/desktop-directories/
+
+cat >RadioProgramming.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Radio-Programming
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv RadioProgramming.directory /usr/share/desktop-directories/
+
+cat >Utilities.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Utilities
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv Utilities.directory /usr/share/desktop-directories/
+
+
 #MOD HAMRADIO.MENU FILE
 cat >hamradio.menu <<EOF
 <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
@@ -221,13 +263,38 @@ cat >hamradio.menu <<EOF
                 <Category>vara</Category>
             </Include>
         </Menu>
-	<Menu>
+		<Menu>
         <Name>Build-a-Pi</Name>
         <Directory>bap.directory</Directory>
         <Include>
             <Category>bap</Category>
         </Include>
-    </Menu>
+		</Menu>
+		<Menu>
+        <Name>SDR-Tools</Name>
+        <Directory>SDRTools.directory</Directory>
+        <Include>
+            <Category>sdrtools</Category>
+        </Include>
+		</Menu>  
+		<Menu>
+        <Name>Radio-Programming</Name>
+        <Directory>RadioProgramming.directory</Directory>
+        <Include>
+            <Category>radioprogramming</Category>
+        </Include>
+		</Menu>
+		<Menu>
+        <Name>Utilities</Name>
+        <Directory>Utilities.directory</Directory>
+        <Include>
+            <Category>hamutilities</Category>
+        </Include>
+		</Menu>
+	
+	
+	
+	
   </Menu> <!-- End hamradio -->
 </Menu>
 EOF
