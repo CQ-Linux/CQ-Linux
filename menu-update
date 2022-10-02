@@ -735,8 +735,7 @@ cat >hamradio.menu <<EOF
             <Category>hamlogging</Category>
         </Include>
 		</Menu>
-				
-  </Menu> <!-- End hamradio -->
+	 </Menu> <!-- End hamradio -->
 </Menu>
 EOF
 
