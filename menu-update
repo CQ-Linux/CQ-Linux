@@ -755,6 +755,7 @@ cat >design-tools.menu <<EOF
     <Include>
         <Category>designtools</Category>
     </Include>
+	</Menu>
     <Menu>
      <Name>ELECTRONICS</Name>
      <Directory>electronics.directory</Directory>
