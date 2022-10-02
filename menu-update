@@ -743,6 +743,35 @@ EOF
 sudo mv hamradio.menu /usr/share/extra-xdg-menus/
 }
 
+#MOD DESIGN-TOOLS.MENU FILE
+cat >design-tools.menu <<EOF
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+ "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+<Menu>
+  <Name>Applications</Name>
+  <Menu>
+    <Name>Design-Tools</Name>
+    <Directory>designtools.directory</Directory>
+    <Include>
+        <Category>designtools</Category>
+    </Include>
+    <Menu>
+     <Name>ELECTRONICS</Name>
+     <Directory>electronics.directory</Directory>
+    <Include>
+          <Category>electroncs</Category>
+    </Include>
+    </Menu>
+   </Menu> <!-- End design-tools -->
+</Menu>
+EOF
+
+sudo mv design-tools.menu /usr/share/extra-xdg-menus/
+}
+
+
+
+
 #verify ham menu is installed
 if [ ! -f /usr/share/extra-xdg-menus/hamradio.menu ]; then
 sudo apt install -y extra-xdg-menus
