@@ -722,14 +722,14 @@ cat >hamradio.menu <<EOF
         </Include>
 		</Menu>
 		<Menu>
-		Name>Digital-Modes</Name>
+		<Name>Digital-Modes</Name>
         <Directory>digitalmodes.directory</Directory>
         <Include>
             <Category>digitalmodes</Category>
         </Include>
 		</Menu>
 		<Menu>
-		Name>Ham-Radio-Logging</Name>
+		<Name>Ham-Radio-Logging</Name>
         <Directory>hamlogging.directory</Directory>
         <Include>
             <Category>hamlogging</Category>
