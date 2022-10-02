@@ -741,7 +741,7 @@ cat >hamradio.menu <<EOF
 EOF
 
 sudo mv hamradio.menu /usr/share/extra-xdg-menus/
-}
+
 
 #MOD DESIGN-TOOLS.MENU FILE
 cat >design-tools.menu <<EOF
