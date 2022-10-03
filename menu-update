@@ -179,21 +179,6 @@ sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/fre
 echo "moving freecad"
 fi
 
-# GCR-PROMPTER
-if [ -f /usr/share/applications/gcr-prompter.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gcr-prompter.desktop
-fi
-
-# GCR-VIEWER
-if [ -f /usr/share/applications/gcr-viewer.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/grc-viewer.desktop
-fi
-
-# GEOCLUE-DEMO-AGENT
-if [ -f /usr/share/applications/geoclue-demo-agent.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/geoclue-demo-agent.desktop
-fi
-
 # GERBVIEW
 if [ -f /usr/share/applications/gerbview.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/gerbview.desktop
@@ -208,7 +193,8 @@ fi
 
 # GHOSTWRITER
 if [ -f /usr/share/applications/ghostwriter.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/ghostwriter.desktop
+sudo sed -i 's/Categories.*/Categories=Qt;Office;WordProcessor/' /usr/share/applications/ghostwriter.desktop
+echo "moving GHOSTWRITER"
 fi
 
 # GNURADIO_GRC
@@ -237,7 +223,8 @@ fi
 
 # GQPX
 if [ -f /usr/share/applications/gqrx.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gqrx.desktop
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/gqrx.desktop
+echo "moving gqpx"
 fi
 
 # GRID-CALC
@@ -254,7 +241,8 @@ fi
 
 # GV
 if [ -f /usr/share/applications/gv.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gv.desktop
+sudo sed -i 's/Categories.*/Categories=Viewer;Graphics;/' /usr/share/applications/gv.desktop
+echo "moving gv"
 fi
 
 # HAMCLOCK
@@ -289,7 +277,8 @@ fi
 
 # LAZARUS
 if [ -f /usr/share/applications/lazarus-2.0.10.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lazarus-2.0.10.desktop
+sudo sed -i 's/Categories.*/Categories=IDE;Development;GTK;GUIDesigner;/' /usr/share/applications/lazarus-2.0.10.desktop
+echo "moving lazarus"
 fi
 
 # LIME-SUITE
@@ -300,57 +289,44 @@ fi
 
 # LINQUIST-QT5
 if [ -f /usr/share/applications/linguist-qt5.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/linquist-qt5.desktop
+sudo sed -i 's/Categories.*/Categories=Qt;Development;Translation;/' /usr/share/applications/linquist-qt5.desktop
+echo "moving linquist-qt5"
 fi
 
 # LSTOPO
 if [ -f /usr/share/applications/lstopo.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lstopo.desktop
-fi
-
-# LXDE-LOGOUT
-if [ -f /usr/share/applications/lxde-logout.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxde-logout.desktop
-fi
-
-# LXDE-SCREENLOCK
-if [ -f /usr/share/applications/lxde-screenlock.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxde-screenlock.desktop
-fi
-
-# LXDE-X-TERMINAL-EMULATOR
-if [ -f /usr/share/applications/lxde-x-terminal-emulator.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/ldxe-x-terminal-emulator.desktop
-fi
-
-# LXDE-X-WWW-BROWSER
-if [ -f /usr/share/applications/lxde-x-www-browser.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxde-x-www-browser.desktop
+sudo sed -i 's/Categories.*/Categories=System/' /usr/share/applications/lstopo.desktop
+echo "moving lstopo"
 fi
 
 # LXINPUT
 if [ -f /usr/share/applications/lxinput.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxinput.desktop
+sudo sed -i 's/Categories.*/Categories=GTK;Settings;HardwareSettings;X-LXDE-Settings;/' /usr/share/applications/lxinput.desktop
+echo "moving lxinput"
 fi
 
 # LXRANDR
 if [ -f /usr/share/applications/lxrandr.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxrandr.desktop
+sudo sed -i 's/Categories.*/Categories=GTK;Settings;HardwareSettings;X-LXDE-Settings;/' /usr/share/applications/lxrandr.desktop
+echo "moving lxrandr"
 fi
 
 # LXSESSION-DEFAULT-APPS
 if [ -f /usr/share/applications/lxsession-default-apps.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxsession-default-apps.desktop
+sudo sed -i 's/Categories.*/Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;/' /usr/share/applications/lxsession-default-apps.desktop
+echo "moving lxsession-default-apps"
 fi
 
 # LXTASK
 if [ -f /usr/share/applications/lxtask.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxtask.desktop
+sudo sed -i 's/Categories.*/Categories=GTK;System;Monitor;/' /usr/share/applications/lxtask.desktop
+echo "moving lxtask"
 fi
 
 # LXTERMINAL
 if [ -f /usr/share/applications/lxterminal.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxterminal.desktop
+sudo sed -i 's/Categories.*/Categories=GTK;System;TerminalEmulator;/' /usr/share/applications/lxterminal.desktop
+echo "moving lxterminal"
 fi
 
 # M0IAX
