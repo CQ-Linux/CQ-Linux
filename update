@@ -106,14 +106,14 @@ mkdir -p ${HOME}/.config/autostart
 echo "Checking for Build a Pi updates"
 CURRENT=$(head -1 ${MYPATH}/changelog | sed s'/version=//')
 
-LATEST=$(curl -s https://raw.githubusercontent.com/CQ-Linux/CQ-Linux/dev/changelog | tac | tac | head -1 | sed 's/version=//')
+LATEST=$(curl -s https://raw.githubusercontent.com/CQ-Linux/CQ-Linux/changelog | tac | tac | head -1 | sed 's/version=//')
 
 if (($(echo "$LATEST $CURRENT" | awk '{print ($1 > $2)}'))); then
 	cat <<EOF >${MYPATH}/updatebap.txt
 Build a Pi update available. Current version is $CURRENT and
 the lateest version is $LATEST. Would you like to update?
 
-Change log - https://github.com/CQ-Linux/CQ-Linux/blob/dev/changelog
+Change log - https://github.com/CQ-Linux/CQ-Linux/blob/changelog
 EOF
 	BAP=$(
 		yad --width=650 --height=250 --text-align=center --center --title="Build-a-Pi" --show-uri \
@@ -138,7 +138,7 @@ EOF
 		mv ${MYPATH}/config ${HOME}/Documents/config.bap
 		rm -rf "${MYPATH}"
 		cd ~ || ! echo "Failure"
-		git clone --branch dev https://github.com/CQ-Linux/CQ-Linux.git /${HOME}/pi-build
+		git clone https://github.com/CQ-Linux/CQ-Linux.git /${HOME}/pi-build
 		mv ${HOME}/Documents/config.bap ${MYPATH}/config 
 		sudo chmod 755 /${HOME}/pi-build/update
 		cat <<EOF >${MYPATH}/updatebap.txt
