@@ -9,7 +9,7 @@
 #km4ack - km4ack subcategory
 
 
-REV=20221002
+REV=20221004
 
 source $HOME/.config/KM4ACK
 
@@ -100,406 +100,527 @@ NEWMENUCLEANUP(){
 #   NEW MENU CLEANUP
 ##########################
 echo "updating other menu shortcuts"
+
+# QDMR
 if [ -f /usr/share/applications/qdmr.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/qdmr.desktop
+echo "moving QDMR"
 fi
 
+# CHIRP
 if [ -f /usr/share/applications/chirp.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/chirp.desktop
+echo "moving chirp"
 fi
 
+# ARDOPGUI
 if [ -f /usr/share/applications/ardopgui.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/ardopgui.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/ardopgui.desktop
+echo "moving ARDOPGUI"
 fi
 
+# BATTERY-TEST
 if [ -f /usr/share/applications/battery-test.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/battery-test.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/battery-test.desktop
+echo "moving battery-test"
 fi
 
+# BPQ-CONFIG
 if [ -f /usr/share/applications/bpq-config.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/bpq-config.desktop
+echo "moving bpq-config"
 fi
 
+# CONKY
 if [ -f /usr/share/applications/conky.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/conky.desktop
+echo "moving CONKY"
 fi
 
+# CONVERTTEMP
 if [ -f /usr/share/applications/converttemp.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/converttemp.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/converttemp.desktop
+echo "moving converttemp"
 fi
 
+# CQRLOG
 if [ -f /usr/share/applications/cqrlog.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/cqrlog.desktop
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/cqrlog.desktop
+echo "cqrlog"
 fi
 
+# CUTESDR
 if [ -f /usr/share/applications/cutesdr.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/cutesdr.desktop
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/cutesdr.desktop
+echo "sdrtools"
 fi
 
+# DIPOLE
 if [ -f /usr/share/applications/dipole.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/dipole.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/dipole.desktop
+echo "dipole"
 fi
 
+# EESCHEMA
 if [ -f /usr/share/applications/eeschema.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/eeschema.desktop
 fi
 
+# FLUID
 if [ -f /usr/share/applications/fluid.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/fluid.desktop
+sudo sed -i 's/Categories.*/Categories=Development/' /usr/share/applications/fluid.desktop
+echo "moving fluid"
 fi
 
+# FREECAD
 if [ -f /usr/share/applications/freecad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/freecad.desktop
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/freecad.desktop
+echo "moving freecad"
 fi
 
+# GCR-PROMPTER
 if [ -f /usr/share/applications/gcr-prompter.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gcr-prompter.desktop
 fi
 
+# GCR-VIEWER
 if [ -f /usr/share/applications/gcr-viewer.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/grc-viewer.desktop
 fi
 
+# GEOCLUE-DEMO-AGENT
 if [ -f /usr/share/applications/geoclue-demo-agent.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/geoclue-demo-agent.desktop
 fi
 
+# GERBVIEW
 if [ -f /usr/share/applications/gerbview.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gerbview.desktop
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/gerbview.desktop
+echo "moving gerbview"
 fi
 
+# GETCALL
 if [ -f /usr/share/applications/getcall.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/getcall.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/getcall.desktop
+echo "moving getcall"
 fi
 
+# GHOSTWRITER
 if [ -f /usr/share/applications/ghostwriter.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/ghostwriter.desktop
 fi
 
+# GNURADIO_GRC
 if [ -f /usr/share/applications/gnuradio-grc.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gnuradio-grc.desktop
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/gnuradio-grc.desktop
+echo "moving gnuradio-grc"
 fi
 
+# GPARTED
 if [ -f /usr/share/applications/gparted.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gparted.desktop
+sudo sed -i 's/Categories.*/Categories=System/' /usr/share/applications/gparted.desktop
+echo "moving gparted"
 fi
 
+# GPREDICT
 if [ -f /usr/share/applications/gpredict.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gpredict.desktop
 fi
 
+# GPSUPDATE
 if [ -f /usr/share/applications/gpsupdate.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gpsupdate.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/gpsupdate.desktop
+echo "moving gpsupdate"
 fi
 
+# GQPX
 if [ -f /usr/share/applications/gqrx.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gqrx.desktop
 fi
 
+# GRID-CALC
 if [ -f /usr/share/applications/grid-calc.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/grid-calc.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/grid-calc.desktop
+echo "moving grid-calc"
 fi
 
+# GRIDTRACKER
 if [ -f /usr/share/applications/gridtracker.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gridtracker.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/gridtracker.desktop
+echo "moving gridtracker"
 fi
 
+# GV
 if [ -f /usr/share/applications/gv.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gv.desktop
 fi
 
+# HAMCLOCK
 if [ -f /usr/share/applications/hamclock.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/hamclock.desktop
 fi
 
+# HAMRS
 if [ -f /usr/share/applications/hamrs.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/hamrs.desktop
 fi
 
+# HOTSPOT-TOOLS
 if [ -f /usr/share/applications/hotspot-tools.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/hotspot-tools.desktop
 fi
 
+# JS8CALL
 if [ -f /usr/share/applications/js8call.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/js8call.desktop
 fi
 
+# KICAD
 if [ -f /usr/share/applications/kicad.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/kicad.desktop
 fi
 
+# LAZARUS
 if [ -f /usr/share/applications/lazarus-2.0.10.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lazarus-2.0.10.desktop
 fi
 
+# LIME-SUITE
 if [ -f /usr/share/applications/lime-suite.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lime-suite.desktop
 fi
 
+# LINQUIST-QT5
 if [ -f /usr/share/applications/linguist-qt5.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/linquist-qt5.desktop
 fi
 
+# LSTOPO
 if [ -f /usr/share/applications/lstopo.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lstopo.desktop
 fi
 
+# LXDE-LOGOUT
 if [ -f /usr/share/applications/lxde-logout.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxde-logout.desktop
 fi
 
+# LXDE-SCREENLOCK
 if [ -f /usr/share/applications/lxde-screenlock.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxde-screenlock.desktop
 fi
 
+# LXDE-X-TERMINAL-EMULATOR
 if [ -f /usr/share/applications/lxde-x-terminal-emulator.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/ldxe-x-terminal-emulator.desktop
 fi
 
+# LXDE-X-WWW-BROWSER
 if [ -f /usr/share/applications/lxde-x-www-browser.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxde-x-www-browser.desktop
 fi
 
+# LXINPUT
 if [ -f /usr/share/applications/lxinput.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxinput.desktop
 fi
 
+# LXRANDR
 if [ -f /usr/share/applications/lxrandr.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxrandr.desktop
 fi
 
+# LXSESSION-DEFAULT-APPS
 if [ -f /usr/share/applications/lxsession-default-apps.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxsession-default-apps.desktop
 fi
 
+# LXTASK
 if [ -f /usr/share/applications/lxtask.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxtask.desktop
 fi
 
+# LXTERMINAL
 if [ -f /usr/share/applications/lxterminal.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lxterminal.desktop
 fi
 
+# M0IAX
 if [ -f /usr/share/applications/m0iax.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/m0iax.desktop
 fi
 
+# MIMEINFO
 if [ -f /usr/share/applications/mimeinfo.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/mimeinfo.desktop
 fi
 
+# MUMBLE
 if [ -f /usr/share/applications/mumble.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/mumble.desktop
 fi
 
+# MUTTER
 if [ -f /usr/share/applications/mutter.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/mutter.desktop
 fi
 
+# NOTIFICATION-DAEMON
 if [ -f /usr/share/applications/notification-daemon.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/notification-daemon.desktop
 fi
 
+# OBCONF
 if [ -f /usr/share/applications/obconf.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/obconf.desktop
 fi
 
+#OPENBOX
 if [ -f /usr/share/applications/openbox.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/openbox.desktop
 fi
 
+# ORG.GNOME.SCREENSHOT
 if [ -f /usr/share/applications/org.gnome.Screenshot.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/org.gnome.Screenshot.desktop
 fi
 
+# ORG.KDE.KDED5
 if [ -f /usr/share/applications/org.kde.kded5.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/org.kde.kded5.desktop
 fi
 
+# PACKETSEARCH
 if [ -f /usr/share/applications/packetsearch.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/packetsearch.desktop
 fi
+
+# PATMENU
 if [ -f /usr/share/applications/patmenu.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/patmenu.desktop
 fi
 
+# PAVUCONTROL
 if [ -f /usr/share/applications/pavucontrol.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pavucontrol.desktop
 fi
 
+# PCBCALCULATOR
 if [ -f /usr/share/applications/pcbcalculator.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pcbcalculator.desktop
 fi
 
+# PCBNEW
 if [ -f /usr/share/applications/pcbnew.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pcbnew.desktop
 fi
 
+# PCMANFM
 if [ -f /usr/share/applications/pcmanfm.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pcmanfm.desktop
 fi
 
+# PCMANFM-DESKTOP-PREF
 if [ -f /usr/share/applications/pcmanfm-desktop-pref.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pcmanfm-desktop-pref.desktop
 fi
 
+# PIAPRS
 if [ -f /usr/share/applications/piaprs.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/piaprs.desktop
 fi
 
+# PIPANEL
 if [ -f /usr/share/applications/pipanel.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pipanel.desktop
 fi
 
+# PISTATS
 if [ -f /usr/share/applications/pistats.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pistats.desktop
 fi
 
+# PYQSO
 if [ -f /usr/share/applications/pyqso.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pyqso.desktop
 fi
 
+# PYTHON2.7
 if [ -f /usr/share/applications/python2.7.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/python2.7.desktop
 fi
 
+# PYTHON3.9
 if [ -f /usr/share/applications/python3.9.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/python3.9.desktop
 fi
 
+# QDMR
 if [ -f /usr/share/applications/qdmr.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qdmr.desktop
 fi
 
+# QTEL
 if [ -f /usr/share/applications/qtel.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qtel.desktop
 fi
 
+# QTHID-2.2
 if [ -f /usr/share/applications/qthid-2.2.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qthid-2.2.desktop
 fi
 
+# QTHID
 if [ -f /usr/share/applications/qthid.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qthid.desktop
 fi
 
+# QTSOUNDMODEM
 if [ -f /usr/share/applications/qtsoundmodem.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qtsoundmodem.desktop
 fi
 
+# QTTERMTCP
 if [ -f /usr/share/applications/qttermtcp.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qttermtcp.desktop
 fi
 
+# QUISK
 if [ -f /usr/share/applications/quisk.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/quisk.desktop
 fi
 
+# RC_GUI
 if [ -f /usr/share/applications/rc_gui.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/rc_gui.desktop
 fi
 
+# REPETERSTART
 if [ -f /usr/share/applications/repeterstart.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/repeterstart.desktop
 fi
 
+# RESETWINE
 if [ -f /usr/share/applications/resetwine.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/resetwine.desktop
 fi
 
+# RP-BOOKSHELF
 if [ -f /usr/share/applications/rp-bookshelf.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/rp-bookshelf.desktop
 fi
 
+# SECURE-FILE
 if [ -f /usr/share/applications/secure-file.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/secure-file.desktop
 fi
 
+# SHOWLOG
 if [ -f /usr/share/applications/showlog.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/showlog.desktop
 fi
 
+# SNAP-HANDLE-LINK
 if [ -f /usr/share/applications/snap-handle-link.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/snap-handle-link.desktop
 fi
 
+# SYSTEM-CONFIG-PRINTER
 if [ -f /usr/share/applications/system-config-printer.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/system-config-printer.desktop
 fi
 
+# TEXDOCK
 if [ -f /usr/share/applications/texdoctk.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/texdoctk.desktop
 fi
 
+# TQSL
 if [ -f /usr/share/applications/tqsl.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/tqsl.desktop
 fi
 
+# VARA-CHAT
 if [ -f /usr/share/applications/vara-chat.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara-chat.desktop
 fi
 
+# VARA
 if [ -f /usr/share/applications/vara.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara.desktop
 fi
 
+# VARA-FM
 if [ -f /usr/share/applications/vara-fm.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara-fm.desktop
 fi
 
+# VARA-SOUNDCARDSETUP
 if [ -f /usr/share/applications/vara-soundcardsetup.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara-soundcardsetup.desktop
 fi
 
+# VARA-UPDATE
 if [ -f /usr/share/applications/vara-update.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara-update.desktop
 fi
 
-
+# VIM
 if [ -f /usr/share/applications/vim.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vim.desktop
 fi
 
+# WSJTX
 if [ -f /usr/share/applications/wsjtx.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/wsjtx.desktop
 fi
 
+# X11VNC
 if [ -f /usr/share/applications/x11vnc.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/x11vnc.desktop
 fi
 
+# XASTIR
 if [ -f /usr/share/applications/xastir.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xastir.desktop
 fi
 
+# XDG_DESKTOP_PORTAL_GDK
 if [ -f /usr/share/applications/xdg-desktop-portal-gtk.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xdg-desktop-portal-gtk.desktop
 fi
 
+# XGPS
 if [ -f /usr/share/applications/xgps.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xgps.desktop
 fi
 
+# XGPSSPEED
 if [ -f /usr/share/applications/xgpsspeed.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xgpsspeed.desktop
 fi
 
+# XSCREENSAVER-PROPERTIES
 if [ -f /usr/share/applications/xscreensaver-properties.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xscreensaver-properties.desktop
 fi
 
+# XYGRIB
 if [ -f /usr/share/applications/xygrib.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xygrib.desktop
 fi
 
+# YACC
 if [ -f /usr/share/applications/yaac.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/yaac.desktop
 fi
 
+# YAD-ICON-BROWSER
 if [ -f /usr/share/applications/yad-icon-browser.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/yad-icon-browser.desktop
 fi
 
+# YGATE
 if [ -f /usr/share/applications/ygate.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/ygate.desktop
 fi
