@@ -133,7 +133,7 @@ fi
 
 # CONKY
 if [ -f /usr/share/applications/conky.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/conky.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/conky.desktop
 echo "moving CONKY"
 fi
 
@@ -146,24 +146,25 @@ fi
 # CQRLOG
 if [ -f /usr/share/applications/cqrlog.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/cqrlog.desktop
-echo "cqrlog"
+echo "moving cqrlog"
 fi
 
 # CUTESDR
 if [ -f /usr/share/applications/cutesdr.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/cutesdr.desktop
-echo "sdrtools"
+echo "moving cutesdr"
 fi
 
 # DIPOLE
 if [ -f /usr/share/applications/dipole.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/dipole.desktop
-echo "dipole"
+echo "moving dipole"
 fi
 
 # EESCHEMA
 if [ -f /usr/share/applications/eeschema.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/eeschema.desktop
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/eeschema.desktop
+echo "moving eeschema"
 fi
 
 # FLUID
@@ -224,7 +225,8 @@ fi
 
 # GPREDICT
 if [ -f /usr/share/applications/gpredict.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/gpredict.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/gpredict.desktop
+echo "moving gpredict"
 fi
 
 # GPSUPDATE
@@ -257,27 +259,32 @@ fi
 
 # HAMCLOCK
 if [ -f /usr/share/applications/hamclock.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/hamclock.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/hamclock.desktop
+echo "moving hamclock"
 fi
 
 # HAMRS
 if [ -f /usr/share/applications/hamrs.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/hamrs.desktop
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/hamrs.desktop
+echo "moving hamrs"
 fi
 
 # HOTSPOT-TOOLS
 if [ -f /usr/share/applications/hotspot-tools.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/hotspot-tools.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/hotspot-tools.desktop
+echo "moving hoptspot-tools"
 fi
 
 # JS8CALL
 if [ -f /usr/share/applications/js8call.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/js8call.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/js8call.desktop
+echo "moving js8call"
 fi
 
 # KICAD
 if [ -f /usr/share/applications/kicad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/kicad.desktop
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/kicad.desktop
+echo "moving kicad"
 fi
 
 # LAZARUS
@@ -287,7 +294,8 @@ fi
 
 # LIME-SUITE
 if [ -f /usr/share/applications/lime-suite.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/lime-suite.desktop
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/lime-suite.desktop
+echo "moving lime-suite"
 fi
 
 # LINQUIST-QT5
@@ -375,7 +383,7 @@ if [ -f /usr/share/applications/obconf.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/obconf.desktop
 fi
 
-#OPENBOX
+# OPENBOX
 if [ -f /usr/share/applications/openbox.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/openbox.desktop
 fi
@@ -397,7 +405,8 @@ fi
 
 # PATMENU
 if [ -f /usr/share/applications/patmenu.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/patmenu.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/patmenu.desktop
+echo "moving patmenu"
 fi
 
 # PAVUCONTROL
@@ -407,12 +416,14 @@ fi
 
 # PCBCALCULATOR
 if [ -f /usr/share/applications/pcbcalculator.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pcbcalculator.desktop
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/pcbcalculator.desktop
+echo "moving pcbcalculator"
 fi
 
 # PCBNEW
 if [ -f /usr/share/applications/pcbnew.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pcbnew.desktop
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/pcbnew.desktop
+echo "moving pcbnew"
 fi
 
 # PCMANFM
@@ -427,7 +438,8 @@ fi
 
 # PIAPRS
 if [ -f /usr/share/applications/piaprs.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/piaprs.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/piaprs.desktop
+echo "moving piaprs"
 fi
 
 # PIPANEL
@@ -442,7 +454,8 @@ fi
 
 # PYQSO
 if [ -f /usr/share/applications/pyqso.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pyqso.desktop
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/pyqso.desktop
+echo "moving pyqso"
 fi
 
 # PYTHON2.7
@@ -457,7 +470,8 @@ fi
 
 # QDMR
 if [ -f /usr/share/applications/qdmr.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qdmr.desktop
+sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/qdmr.desktop
+echo "moving qdmr"
 fi
 
 # QTEL
@@ -497,12 +511,14 @@ fi
 
 # REPETERSTART
 if [ -f /usr/share/applications/repeterstart.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/repeterstart.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/repeterstart.desktop
+echo "moving repeterstart"
 fi
 
 # RESETWINE
 if [ -f /usr/share/applications/resetwine.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/resetwine.desktop
+sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/resetwine.desktop
+echo "moving resetwine"
 fi
 
 # RP-BOOKSHELF
@@ -517,7 +533,8 @@ fi
 
 # SHOWLOG
 if [ -f /usr/share/applications/showlog.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/showlog.desktop
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/showlog.desktop
+echo " moved showlog"
 fi
 
 # SNAP-HANDLE-LINK
@@ -537,32 +554,38 @@ fi
 
 # TQSL
 if [ -f /usr/share/applications/tqsl.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/tqsl.desktop
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/tqsl.desktop
+echo " moving tqsl"
 fi
 
 # VARA-CHAT
 if [ -f /usr/share/applications/vara-chat.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara-chat.desktop
+sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara-chat.desktop
+echo "moved vara-chat"
 fi
 
 # VARA
 if [ -f /usr/share/applications/vara.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara.desktop
+sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara.desktop
+echo "moved vara"
 fi
 
 # VARA-FM
 if [ -f /usr/share/applications/vara-fm.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara-fm.desktop
+sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara-fm.desktop
+echo "moved vara-fm"
 fi
 
 # VARA-SOUNDCARDSETUP
 if [ -f /usr/share/applications/vara-soundcardsetup.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara-soundcardsetup.desktop
+sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara-soundcardsetup.desktop
+echo "moved vara-soundcardsetup"
 fi
 
 # VARA-UPDATE
 if [ -f /usr/share/applications/vara-update.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vara-update.desktop
+sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara-update.desktop
+echo "vara-update"
 fi
 
 # VIM
@@ -572,7 +595,8 @@ fi
 
 # WSJTX
 if [ -f /usr/share/applications/wsjtx.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/wsjtx.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/wsjtx.desktop
+echo "moving wsjtx"
 fi
 
 # X11VNC
