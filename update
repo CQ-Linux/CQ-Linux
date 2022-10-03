@@ -646,6 +646,10 @@ rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} >/dev/null 2>&1
 #since it conflicts with hamlib installed from source
 sudo apt purge -y libhamlib4
 
+#make sure update has read write execute priv 
+#to make sure it can run again another day
+sudo chmod 755 /${HOME}/pi-build/update
+
 #restore crontab
 crontab ${TEMPCRON}
 rm ${TEMPCRON}
