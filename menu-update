@@ -284,7 +284,7 @@ fi
 
 # LINQUIST-QT5
 if [ -f /usr/share/applications/linguist-qt5.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=Qt;Development;Translation;/' /usr/share/applications/linquist-qt5.desktop
+sudo sed -i 's/Categories.*/Categories=Qt;Development;Translation;/' /usr/share/applications/linguist-qt5.desktop
 echo "moving linquist-qt5"
 fi
 
@@ -556,7 +556,7 @@ fi
 # XSCREENSAVER-PROPERTIES
 if [ -f /usr/share/applications/xscreensaver-properties.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;Security;X-XFCE;/' /usr/share/applications/xscreensaver-properties.desktop
-scho "moving xscreensaver-properties"
+echo "moving xscreensaver-properties"
 fi
 
 # XYGRIB
