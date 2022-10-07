@@ -350,7 +350,7 @@ fi
 
 # PACKETSEARCH
 if [ -f /usr/share/applications/packetsearch.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=digitaltools/' /usr/share/applications/packetsearch.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/packetsearch.desktop
 echo "moving packetsearch"
 fi
 
