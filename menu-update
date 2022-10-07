@@ -116,7 +116,7 @@ fi
 
 # BPQ-CONFIG
 if [ -f /usr/share/applications/bpq-config.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/bpq-config.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/bpq-config.desktop
 echo "moving bpq-config"
 fi
 
@@ -326,7 +326,7 @@ fi
 
 # M0IAX
 if [ -f /usr/share/applications/m0iax.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/m0iax.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/m0iax.desktop
 echo "moving moiax"
 fi
 
@@ -434,19 +434,19 @@ fi
 
 # QTEL
 if [ -f /usr/share/applications/qtel.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qtel.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/qtel.desktop
 echo "moving qtel"
 fi
 
 # QTHID-2.2
 if [ -f /usr/share/applications/qthid-2.2.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qthid-2.2.desktop
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/qthid-2.2.desktop
 echo "moving qthid-2.2"
 fi
 
 # QTHID
 if [ -f /usr/share/applications/qthid.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qthid.desktop
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/qthid.desktop
 echo "moving qthid"
 fi
 
