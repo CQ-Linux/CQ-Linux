@@ -101,17 +101,6 @@ NEWMENUCLEANUP(){
 ##########################
 echo "updating other menu shortcuts"
 
-# QDMR
-if [ -f /usr/share/applications/qdmr.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/qdmr.desktop
-echo "moving QDMR"
-fi
-
-# CHIRP
-if [ -f /usr/share/applications/chirp.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/chirp.desktop
-echo "moving chirp"
-fi
 
 # ARDOPGUI
 if [ -f /usr/share/applications/ardopgui.desktop ]; then
@@ -129,6 +118,12 @@ fi
 if [ -f /usr/share/applications/bpq-config.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/bpq-config.desktop
 echo "moving bpq-config"
+fi
+
+# CHIRP
+if [ -f /usr/share/applications/chirp.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/chirp.desktop
+echo "moving chirp"
 fi
 
 # CONKY
@@ -332,51 +327,31 @@ fi
 # M0IAX
 if [ -f /usr/share/applications/m0iax.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/m0iax.desktop
-fi
-
-# MIMEINFO
-if [ -f /usr/share/applications/mimeinfo.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/mimeinfo.desktop
+echo "moving moiax"
 fi
 
 # MUMBLE
 if [ -f /usr/share/applications/mumble.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/mumble.desktop
-fi
-
-# MUTTER
-if [ -f /usr/share/applications/mutter.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/mutter.desktop
-fi
-
-# NOTIFICATION-DAEMON
-if [ -f /usr/share/applications/notification-daemon.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/notification-daemon.desktop
+sudo sed -i 's/Categories.*/Categories=Network;Chat;Qt;/' /usr/share/applications/mumble.desktop
+echo "moving mumble"
 fi
 
 # OBCONF
 if [ -f /usr/share/applications/obconf.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/obconf.desktop
-fi
-
-# OPENBOX
-if [ -f /usr/share/applications/openbox.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/openbox.desktop
+sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;GTK;/' /usr/share/applications/obconf.desktop
+echo "moving obconf"
 fi
 
 # ORG.GNOME.SCREENSHOT
 if [ -f /usr/share/applications/org.gnome.Screenshot.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/org.gnome.Screenshot.desktop
-fi
-
-# ORG.KDE.KDED5
-if [ -f /usr/share/applications/org.kde.kded5.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/org.kde.kded5.desktop
+sudo sed -i 's/Categories.*/Categories=GTK;GNOME;Utility;X-GNOME-Utilities;/' /usr/share/applications/org.gnome.Screenshot.desktop
+echo "moving org.gnome.screenshot"
 fi
 
 # PACKETSEARCH
 if [ -f /usr/share/applications/packetsearch.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/packetsearch.desktop
+sudo sed -i 's/Categories.*/Categories=digitaltools/' /usr/share/applications/packetsearch.desktop
+echo "moving packetsearch"
 fi
 
 # PATMENU
@@ -387,7 +362,8 @@ fi
 
 # PAVUCONTROL
 if [ -f /usr/share/applications/pavucontrol.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pavucontrol.desktop
+sudo sed -i 's/Categories.*/Categories=AudioVideo;Audio;Mixer;GTK;/' /usr/share/applications/pavucontrol.desktop
+echo "moving pavucontrol"
 fi
 
 # PCBCALCULATOR
@@ -404,12 +380,14 @@ fi
 
 # PCMANFM
 if [ -f /usr/share/applications/pcmanfm.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pcmanfm.desktop
+sudo sed -i 's/Categories.*/Categories=System;FileTools;FileManager;Utility;Core;GTK;/' /usr/share/applications/pcmanfm.desktop
+echo "moving pcmanfm"
 fi
 
 # PCMANFM-DESKTOP-PREF
 if [ -f /usr/share/applications/pcmanfm-desktop-pref.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pcmanfm-desktop-pref.desktop
+sudo sed -i 's/Categories.*/Categories=Settings;GTK;DesktopSettings;X-LXDE-Settings;/' /usr/share/applications/pcmanfm-desktop-pref.desktop
+echo "moving pcmanfm-desktop-pref"
 fi
 
 # PIAPRS
@@ -420,12 +398,14 @@ fi
 
 # PIPANEL
 if [ -f /usr/share/applications/pipanel.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pipanel.desktop
+sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;GTK;X-LXDE-Settings;/' /usr/share/applications/pipanel.desktop
+echo "moving pipanel"
 fi
 
 # PISTATS
 if [ -f /usr/share/applications/pistats.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/pistats.desktop
+sudo sed -i 's/Categories.*/Categories=other/' /usr/share/applications/pistats.desktop
+echo "moving pistats"
 fi
 
 # PYQSO
@@ -436,12 +416,14 @@ fi
 
 # PYTHON2.7
 if [ -f /usr/share/applications/python2.7.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/python2.7.desktop
+sudo sed -i 's/Categories.*/Categories=Development;/' /usr/share/applications/python2.7.desktop
+echo "moving python2.7"
 fi
 
 # PYTHON3.9
 if [ -f /usr/share/applications/python3.9.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/python3.9.desktop
+sudo sed -i 's/Categories.*/Categories=Development;/' /usr/share/applications/python3.9.desktop
+echo "moving python3.9"
 fi
 
 # QDMR
@@ -453,36 +435,43 @@ fi
 # QTEL
 if [ -f /usr/share/applications/qtel.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qtel.desktop
+echo "moving qtel"
 fi
 
 # QTHID-2.2
 if [ -f /usr/share/applications/qthid-2.2.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qthid-2.2.desktop
+echo "moving qthid-2.2"
 fi
 
 # QTHID
 if [ -f /usr/share/applications/qthid.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qthid.desktop
+echo "moving qthid"
 fi
 
 # QTSOUNDMODEM
 if [ -f /usr/share/applications/qtsoundmodem.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qtsoundmodem.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/qtsoundmodem.desktop
+echo "moving qtsoundmodem"
 fi
 
 # QTTERMTCP
 if [ -f /usr/share/applications/qttermtcp.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/qttermtcp.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/qttermtcp.desktop
+echo "moving qttermtcp"
 fi
 
 # QUISK
 if [ -f /usr/share/applications/quisk.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/quisk.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/quisk.desktop
+echo "moving quisk"
 fi
 
 # RC_GUI
 if [ -f /usr/share/applications/rc_gui.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/rc_gui.desktop
+sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;GTK;X-LXDE-Settings;/' /usr/share/applications/rc_gui.desktop
+echo "moving rc_gui"
 fi
 
 # REPETERSTART
@@ -491,82 +480,46 @@ sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/re
 echo "moving repeterstart"
 fi
 
-# RESETWINE
-if [ -f /usr/share/applications/resetwine.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/resetwine.desktop
-echo "moving resetwine"
-fi
-
 # RP-BOOKSHELF
 if [ -f /usr/share/applications/rp-bookshelf.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/rp-bookshelf.desktop
+sudo sed -i 's/Categories.*/Categories=Help;/' /usr/share/applications/rp-bookshelf.desktop
+echo "moving rp-bookshelf"
 fi
 
 # SECURE-FILE
 if [ -f /usr/share/applications/secure-file.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/secure-file.desktop
+sudo sed -i 's/Categories.*/Categories=Utility/' /usr/share/applications/secure-file.desktop
+echo "moving secure-file"
 fi
 
 # SHOWLOG
 if [ -f /usr/share/applications/showlog.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/showlog.desktop
-echo " moved showlog"
-fi
-
-# SNAP-HANDLE-LINK
-if [ -f /usr/share/applications/snap-handle-link.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/snap-handle-link.desktop
+echo "moving showlog"
 fi
 
 # SYSTEM-CONFIG-PRINTER
 if [ -f /usr/share/applications/system-config-printer.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/system-config-printer.desktop
+sudo sed -i 's/Categories.*/Categories=System;Settings;HardwareSettings;Printing;GTK;/' /usr/share/applications/system-config-printer.desktop
+echo "moving system-config-printer"
 fi
 
 # TEXDOCK
 if [ -f /usr/share/applications/texdoctk.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/texdoctk.desktop
+sudo sed -i 's/Categories.*/Categories=Settings;/' /usr/share/applications/texdoctk.desktop
+echo "moving texdock"
 fi
 
 # TQSL
 if [ -f /usr/share/applications/tqsl.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/tqsl.desktop
-echo " moving tqsl"
-fi
-
-# VARA-CHAT
-if [ -f /usr/share/applications/vara-chat.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara-chat.desktop
-echo "moved vara-chat"
-fi
-
-# VARA
-if [ -f /usr/share/applications/vara.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara.desktop
-echo "moved vara"
-fi
-
-# VARA-FM
-if [ -f /usr/share/applications/vara-fm.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara-fm.desktop
-echo "moved vara-fm"
-fi
-
-# VARA-SOUNDCARDSETUP
-if [ -f /usr/share/applications/vara-soundcardsetup.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara-soundcardsetup.desktop
-echo "moved vara-soundcardsetup"
-fi
-
-# VARA-UPDATE
-if [ -f /usr/share/applications/vara-update.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=vara/' /usr/share/applications/vara-update.desktop
-echo "vara-update"
+echo "moving tqsl"
 fi
 
 # VIM
 if [ -f /usr/share/applications/vim.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/vim.desktop
+sudo sed -i 's/Categories.*/Categories=Utility;TextEditor;/' /usr/share/applications/vim.desktop
+echo "moving vim"
 fi
 
 # WSJTX
@@ -577,52 +530,57 @@ fi
 
 # X11VNC
 if [ -f /usr/share/applications/x11vnc.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/x11vnc.desktop
+sudo sed -i 's/Categories.*/Categories=Network;RemoteAccess;/' /usr/share/applications/x11vnc.desktop
+echo "moving x11vnc"
 fi
 
 # XASTIR
 if [ -f /usr/share/applications/xastir.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xastir.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/xastir.desktop
+echo "moving xaster"
 fi
 
-# XDG_DESKTOP_PORTAL_GDK
-if [ -f /usr/share/applications/xdg-desktop-portal-gtk.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xdg-desktop-portal-gtk.desktop
-fi
 
 # XGPS
 if [ -f /usr/share/applications/xgps.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xgps.desktop
+sudo sed -i 's/Categories.*/Categories=Utility/' /usr/share/applications/xgps.desktop
+echo "moving xgps"
 fi
 
 # XGPSSPEED
 if [ -f /usr/share/applications/xgpsspeed.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xgpsspeed.desktop
+sudo sed -i 's/Categories.*/Categories=Application;Maps;Utility;/' /usr/share/applications/xgpsspeed.desktop
+echo "moving xgpspeed"
 fi
 
 # XSCREENSAVER-PROPERTIES
 if [ -f /usr/share/applications/xscreensaver-properties.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xscreensaver-properties.desktop
+sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;Security;X-XFCE;/' /usr/share/applications/xscreensaver-properties.desktop
+scho "moving xscreensaver-properties"
 fi
 
 # XYGRIB
 if [ -f /usr/share/applications/xygrib.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/xygrib.desktop
+sudo sed -i 's/Categories.*/Categories=Application;Geoscience;/' /usr/share/applications/xygrib.desktop
+echo "moving xygrib"
 fi
 
 # YACC
 if [ -f /usr/share/applications/yaac.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/yaac.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/yaac.desktop
+echo "moving yacc"
 fi
 
 # YAD-ICON-BROWSER
 if [ -f /usr/share/applications/yad-icon-browser.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/yad-icon-browser.desktop
+sudo sed -i 's/Categories.*/Categories=GTK;Development;/' /usr/share/applications/yad-icon-browser.desktop
+echo "moving yad-icon-browser"
 fi
 
 # YGATE
 if [ -f /usr/share/applications/ygate.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=HamRadio/' /usr/share/applications/ygate.desktop
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/ygate.desktop
+echo "moving ygate"
 fi
 
 }
