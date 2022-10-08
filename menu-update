@@ -488,7 +488,7 @@ fi
 
 # REPEATERSTART
 if [ -f /usr/share/applications/repeaterstart.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=Hamradio/' /usr/share/applications/repeaterstart.desktop
+sudo sed -i 's/Categories.*/Categories=hamutilities=/' /usr/share/applications/repeaterstart.desktop
 echo "moving repeaterstart"
 fi
 
