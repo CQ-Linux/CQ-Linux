@@ -156,6 +156,12 @@ sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/di
 echo "moving dipole"
 fi
 
+# DIREWOLF
+if [ -f /usr/local/share/applications/direwolf.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/local/share/applications/direwolf.desktop
+echo "moving direwolf"
+fi
+
 # EESCHEMA
 if [ -f /usr/share/applications/eeschema.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/eeschema.desktop
@@ -172,6 +178,12 @@ fi
 if [ -f /usr/share/applications/freecad.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/freecad.desktop
 echo "moving freecad"
+fi
+
+# GARIM
+if [ -f /usr/local/share/applications/garim.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/local/share/applications/garim.desktop
+echo "moving garim"
 fi
 
 # GERBVIEW
@@ -474,10 +486,10 @@ sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;GTK;X-LXDE-Setti
 echo "moving rc_gui"
 fi
 
-# REPETERSTART
-if [ -f /usr/share/applications/repeterstart.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=Hamradio/' /usr/share/applications/repeterstart.desktop
-echo "moving repeterstart"
+# REPEATERSTART
+if [ -f /usr/share/applications/repeaterstart.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Hamradio/' /usr/share/applications/repeaterstart.desktop
+echo "moving repeaterstart"
 fi
 
 # RP-BOOKSHELF
