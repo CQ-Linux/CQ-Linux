@@ -757,6 +757,27 @@ EOF
 
 sudo mv hamlogging.directory /usr/share/desktop-directories/
 
+cat >designtools.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Design-Tools
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv designtools.directory /usr/share/desktop-directories/
+
+cat >electronics.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Electronics
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv electronics.directory /usr/share/desktop-directories/
+
+
 
 #MOD HAMRADIO.MENU FILE
 cat >hamradio.menu <<EOF
@@ -834,7 +855,7 @@ sudo mv hamradio.menu /usr/share/extra-xdg-menus/
 
 
 #MOD DESIGN-TOOLS.MENU FILE
-cat >design-tools.menu <<EOF
+cat >designtools.menu <<EOF
 <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
  "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
 <Menu>
@@ -857,7 +878,7 @@ cat >design-tools.menu <<EOF
 </Menu>
 EOF
 
-sudo mv design-tools.menu /usr/share/extra-xdg-menus/
+sudo mv designtools.menu /usr/share/extra-xdg-menus/
 }
 
 
