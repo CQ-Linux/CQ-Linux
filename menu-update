@@ -114,6 +114,12 @@ sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/ba
 echo "moving battery-test"
 fi
 
+# BITMAP TO COMPONENT CONVERTER
+if [ -f /usr/share/applications/bitmap2component.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/bitmap2component.desktop
+echo "moving bitmap2component"
+fi
+
 # BPQ-CONFIG
 if [ -f /usr/share/applications/bpq-config.desktop ]; then
 sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/bpq-config.desktop
@@ -695,17 +701,6 @@ Icon=/home/`whoami`/pi-build/logo.png
 EOF
 
 sudo mv bap.directory /usr/share/desktop-directories/
-
-
-cat >designTools.directory <<EOF
-[Desktop Entry]
-Type=Directory
-Encoding=UTF-8
-Name=Design-Tools
-Icon=/home/`whoami`/pi-build/logo.png
-EOF
-sudo mv designTools.directory /usr/share/desktop-directories/
-
 
 cat >SDRTools.directory <<EOF
 [Desktop Entry]
