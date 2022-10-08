@@ -511,6 +511,76 @@ if [ ${BUT} = 3 ]; then
 	done
 fi
 
+#####################################
+#	DESIGN TOOLS
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>Design Tools</b>" --title="CQ-Linux" \
+	false "KICAD" "electronics design software" \
+	false "FREECAD" "3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${FLSUITE}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	DESIGNAPPS=(KICAD FREECAD)
+	for i in "${DESIGNAPPS[@]}"; do
+		echo "$i" >>${DESIGN}
+	done
+fi
+
+#####################################
+#	SDR TOOLS
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>SDR Tools</b>" --title="CQ-Linux" \
+	false "FLRIG" "Rig Contol GUI" \
+	false "FLDIGI" "Digital Software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${FLSUITE}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	FLAPPS=(FLRIG FLDIGI )
+	for i in "${FLAPPS[@]}"; do
+		echo "$i" >>${FLSUITE}
+	done
+fi
+
+#####################################
+#	TRAINING SOFTWARE
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>TRAINING SOFTWARE</b>" --title="CQ-Linux" \
+	false "FLRIG" "Rig Contol GUI" \
+	false "FLDIGI" "Digital Software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${FLSUITE}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	FLAPPS=(FLRIG FLDIGI )
+	for i in "${FLAPPS[@]}"; do
+		echo "$i" >>${FLSUITE}
+	done
+fi
+
+
 #backup crontab
 crontab -l >$TEMPCRON
 echo "@reboot sleep 10 && export DISPLAY=:0 && ${MYPATH}/.complete" >>$TEMPCRON
