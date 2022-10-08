@@ -21,6 +21,7 @@ UTILITY=${MYPATH}/utility.txt
 FLSUITE=${MYPATH}/flsuite.txt
 CONFIG=${MYPATH}/config
 FUNCTIONS=${MYPATH}/functions
+DESIGN=${MYPATH}/design
 TEMPCRON=${MYPATH}/cron.tmp
 DIR=${MYPATH}/temp
 WHO=$(whoami)
