@@ -710,6 +710,33 @@ while read i; do
 done <${ADDITIONAL}
 
 #####################################
+#	Install DESIGN TOOLS
+#####################################
+source ${FUNCTIONS}/design.function
+while read i; do
+	$i
+done <${DESIGN}
+
+#####################################
+#	Install SDR APPS
+#####################################
+source ${FUNCTIONS}/sdr.function
+while read i; do
+	$i
+done <${SDR}
+
+#####################################
+#	Install LEARNING APPS
+#####################################
+source ${FUNCTIONS}/training.function
+while read i; do
+	$i
+done <${TRAINING}
+
+
+
+
+#####################################
 #	Install KM4ACK Utilites
 #####################################
 source ${FUNCTIONS}/utility.function
