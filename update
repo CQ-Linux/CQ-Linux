@@ -44,6 +44,18 @@ FINISH() {
 	if [ -f "${UTILITY}" ]; then
 		rm ${UTILITY}
 	fi
+	
+	if [ -f "${DESIGN}" ]; then
+		rm ${DESIGN}
+	fi
+	
+	if [ -f "${SDR}" ]; then
+		rm ${SDR}
+	fi
+	
+	if [ -f "${TRAINING}" ]; then
+		rm ${TRAINING}
+	fi
 }
 
 trap FINISH EXIT
