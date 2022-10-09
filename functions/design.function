@@ -15,3 +15,10 @@ KICAD() {
 FREECAD() {
     sudo apt-get install freecad -y
 }
+
+##################################
+#	OPENSCAD
+##################################
+OPENSCAD() {
+    sudo apt-get install openscad -y
+}
