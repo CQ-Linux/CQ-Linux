@@ -2,9 +2,9 @@
 #                                                                #
 #	#   #	#       #     #      #        #####  #   #       #
 #	#  #	# #   # #    ##     # #      #       #  #        #
-#	# #	#   #   #   # #    #   #    #        # #         #
-#	##	#       #  #####  #######  #         ##          #
-#	# #	#       #     #   #     #   #        # #         #
+#	# #	    #   #   #   # #    #   #    #        # #         #
+#	##	    #       #  #####  #######  #         ##          #
+#	# #	    #       #     #   #     #   #        # #         #
 #	#  #	#       #     #   #     #    #       #  #        #
 #	#   #	#       #     #   #     #     #####  #   #       #
 #                                                                #
@@ -20,9 +20,9 @@ ADDITIONAL=${MYPATH}/additional.txt
 UTILITY=${MYPATH}/utility.txt
 FLSUITE=${MYPATH}/flsuite.txt
 CONFIG=${MYPATH}/config
-FUNCTIONS=${MYPATH}/functions.txt
-DESIGN=${MYPATH}/design.txt
-SDR=${MYPATH}/sdr.txt
+FUNCTIONS=${MYPATH}/functions
+DESIGN=${MYPATH}/design
+SDR=${MYPATH}/sdr
 TRAINING=${MYPATH}/training
 TEMPCRON=${MYPATH}/cron.tmp
 DIR=${MYPATH}/temp
