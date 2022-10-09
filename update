@@ -18,6 +18,9 @@ FUNCTIONS=${MYPATH}/functions
 ADDITIONAL=${MYPATH}/additional.txt
 UTILITY=${MYPATH}/utility.txt
 FLSUITE=${MYPATH}/flsuite.txt
+DESIGN=${MYPATH}/design.txt
+SDR=${SDR}/sdr.txt
+TRAINING=${TRAINING}/training.txt
 CONFIG=${MYPATH}/config
 LOGO=${MYPATH}/logo.png
 TEMPCRON=${MYPATH}/cron.tmp
@@ -539,6 +542,58 @@ if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
 	exit
 fi
 
+#----------------------------------------------------#
+#		DESIGN MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>UTILITIES</b></big></big>" --title="Update" \
+	false "KICAD" "$KICAD" "electronics design software" \
+	false "FREECAD" "$FREECAD" "3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Next":2 >${DESIGN}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+#----------------------------------------------------#
+#		SDR MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>SDR</b></big></big>" --title="Update" \
+	false "KICAD" "$KICAD" "electronics design software" \
+	false "FREECAD" "$FREECAD" "3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Next":2 >${SDR}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+#----------------------------------------------------#
+#		TRAINING MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>TRAINING</b></big></big>" --title="Update" \
+	false "KICAD" "$KICAD" "electronics design software" \
+	false "FREECAD" "$FREECAD" "3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Install/Update Selected":2 >${TRAINING}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+
 #check and exit if nothing selected
 CKBASE=$(cat ${BASE})
 CKFL=$(cat ${FLSUITE})
@@ -623,6 +678,30 @@ while read i; do
 	source ${FUNCTIONS}/additional.function
 	$i
 done <${ADDITIONAL}
+
+#####################################
+#	Install DESIGN Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/design.function
+	$i
+done <${DESIGN}
+
+#####################################
+#	Install SDR Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/sdr.function
+	$i
+done <${SDR}
+
+#####################################
+#	Install TRAINING Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/training.function
+	$i
+done <${TRAINING}
 
 #####################################
 #	Install KM4ACK Utilites
