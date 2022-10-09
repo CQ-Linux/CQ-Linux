@@ -564,6 +564,7 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--text="<big><big><b>DESIGN TOOLS</b></big></big>" --title="Update" \
 	false "KICAD" "$KICAD" "electronics design software" \
 	false "FREECAD" "$FREECAD" "3D CAD Design software" \
+	false "OPENSCAD" "$OPENSCAD" "command line 3D CAD Design software" \
 	--button="Exit":1 \
 	--button="Next":2 >${DESIGN}
 BUT=$?
