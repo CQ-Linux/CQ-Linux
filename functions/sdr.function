@@ -26,7 +26,7 @@ WIRESHARE() {
 ##################################
 #	SDRPLUSPLUS
 ##################################
-SDRPLUSPLUS() {
+SDR-PLUS-PLUS() {
     sudo apt-get install sdr++ -y
 }
 
@@ -40,28 +40,28 @@ KISMET() {
 ##################################
 #	SHINYSDR broken
 ##################################
-SHINYSDR() {
+SHINY-SDR() {
     sudo apt-get install shinysdr -y
 }
 
 ##################################
 #	RTL-SDR
 ##################################
-rtl-sdr() {
+RTL-SDR() {
     sudo apt-get install rtl-sdr -y
 }
 
 ##################################
 #	CUBICSDR
 ##################################
-cubicsdr() {
+CUBIC-SDR() {
     sudo apt-get install cubicsdr -y
 }
 
 ##################################
 #	ESPTOOL
 ##################################
-esptool() {
+ESP-TOOL() {
     sudo apt-get install esptool -y
 }
 
@@ -75,14 +75,14 @@ hacktv() {
 ##################################
 #	LIQUIDSOAP
 ##################################
-liquidsoap() {
+LIQUID-SOAP() {
     sudo apt-get install liquidsoap -y
 }
 
 ##################################
 #	MIRAGE
 ##################################
-mirage() {
+MIRAGE() {
     sudo apt-get install mirage -y
 }
 
@@ -90,21 +90,21 @@ mirage() {
 ##################################
 #	NMAP
 ##################################
-namp() {
+NMAP() {
     sudo apt-get install namp -y
 }
 
 ##################################
 #	OSMO
 ##################################
-osmo() {
+OSMO() {
     sudo apt-get install osmo -y
 }
 
 ##################################
 #	UBERTOOTH
 ##################################
-ubertooth() {
+UBERTOOTH() {
     sudo apt-get install ubertooth -y
 }
 
