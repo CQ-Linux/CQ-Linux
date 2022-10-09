@@ -2,16 +2,120 @@ BUILDDIR=$HOME/.bap-source-files
 mkdir -p ${BUILDDIR}
 
 ##################################
-#	KICAD
+#	SDRTRUNK broken
 ##################################
-KICAD() {
-   sudo apt-get install kicad -y 
+SDRTRUNK() {
+   sudo apt-get install sdrtrunk -y
 
 }
 
 ##################################
-#	FREECAD
+#	GQRX SDR
 ##################################
-FREECAD() {
-    sudo apt-get install freecad -y
+GQRS() {
+    sudo apt-get install gqrx-sdr -y
 }
+
+##################################
+#	WIRESHARE broken
+##################################
+WIRESHARE() {
+    sudo apt-get install wireshare -y
+}
+
+##################################
+#	SDRPLUSPLUS
+##################################
+SDRPLUSPLUS() {
+    sudo apt-get install sdr++ -y
+}
+
+##################################
+#	KISMET broken
+##################################
+KISMET() {
+    sudo apt-get install kismet -y
+}
+
+##################################
+#	SHINYSDR broken
+##################################
+SHINYSDR() {
+    sudo apt-get install shinysdr -y
+}
+
+##################################
+#	RTL-SDR
+##################################
+rtl-sdr() {
+    sudo apt-get install rtl-sdr -y
+}
+
+##################################
+#	CUBICSDR
+##################################
+cubicsdr() {
+    sudo apt-get install cubicsdr -y
+}
+
+##################################
+#	ESPTOOL
+##################################
+esptool() {
+    sudo apt-get install esptool -y
+}
+
+##################################
+#	HACKTV
+##################################
+hacktv() {
+    sudo apt-get install hacktv -y
+}
+
+##################################
+#	LIQUIDSOAP
+##################################
+liquidsoap() {
+    sudo apt-get install liquidsoap -y
+}
+
+##################################
+#	MIRAGE
+##################################
+mirage() {
+    sudo apt-get install mirage -y
+}
+
+
+##################################
+#	NMAP
+##################################
+namp() {
+    sudo apt-get install namp -y
+}
+
+##################################
+#	OSMO
+##################################
+osmo() {
+    sudo apt-get install osmo -y
+}
+
+##################################
+#	UBERTOOTH
+##################################
+ubertooth() {
+    sudo apt-get install ubertooth -y
+}
+
+##################################
+#	WIREGUARD
+##################################
+wireguard() {
+    sudo apt-get install wireguard -y
+}
+
+
+
+
+
