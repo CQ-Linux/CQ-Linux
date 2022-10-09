@@ -536,7 +536,7 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "BATT" "$BATT" "Battery Test Script" \
 	false "XYGRIB" "$XYGRIB" "Grib file viewer" \
 	--button="Exit":1 \
-	--button="Install/Update Selected":2 >${UTILITY}
+	--button="Next":2 >${UTILITY}
 BUT=$?
 if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
 	exit
@@ -549,7 +549,7 @@ source $UPDATEFILE
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
 	--window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<big><big><b>UTILITIES</b></big></big>" --title="Update" \
+	--text="<big><big><b>DESIGN TOOLS</b></big></big>" --title="Update" \
 	false "KICAD" "$KICAD" "electronics design software" \
 	false "FREECAD" "$FREECAD" "3D CAD Design software" \
 	--button="Exit":1 \
@@ -599,8 +599,13 @@ CKBASE=$(cat ${BASE})
 CKFL=$(cat ${FLSUITE})
 CKADD=$(cat ${ADDITIONAL})
 CKUTIL=$(cat ${UTILITY})
-if [ -z "$CKBASE" ] && [ -z "$CKFL" ] && [ -z "$CKADD" ] && [ -z "$CKUTIL" ]; then
-	rm ${BASE} ${FLSUITE} ${ADDITIONAL} ${UTILITY} >/dev/null 2>&1
+CKDESIGN=$(cat ${DESIGN})
+CKSDR=$(cat ${SDR})
+CKTRAINING=$(cat ${TRAINING})
+
+
+if [ -z "$CKBASE" ] && [ -z "$CKFL" ] && [ -z "$CKADD" ] && [ -z "$CKUTIL" ] && [ z- "$CKDESIGN" ] && [ z- "$SDR" ] && [ z- "$TRAINING"]; then
+	rm ${BASE} ${FLSUITE} ${ADDITIONAL} ${UTILITY} ${DESIGN} ${SDR} ${TRAINING} >/dev/null 2>&1
 	yad --width=550 --height=250 --text-align=center --center --title="Update" \
 		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
 		--text="\r\r\r\r<b>Nothing selected for install/update</b>" \
