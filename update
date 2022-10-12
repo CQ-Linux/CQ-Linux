@@ -19,7 +19,7 @@ ADDITIONAL=${MYPATH}/additional.txt
 UTILITY=${MYPATH}/utility.txt
 FLSUITE=${MYPATH}/flsuite.txt
 DIGITAL=${MYPATH}/digital.txt
-LOGGING-${MYPATH}/logging.txt
+LOGGING=${MYPATH}/logging.txt
 DESIGN=${MYPATH}/design.txt
 SDR=${MYPATH}/sdr.txt
 TRAINING=${MYPATH}/training.txt
@@ -814,7 +814,7 @@ bash ${HOME}/pi-build/menu-update
 #	END CLEANUP
 #####################################
 #Remove temp files
-rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} >/dev/null 2>&1
+rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} ${LOGGING} ${DIGITAL} ${SDR} ${TRAINING} ${DESIGN} >/dev/null 2>&1
 
 #remove libham (rigctl) installed from apt
 #since it conflicts with hamlib installed from source
