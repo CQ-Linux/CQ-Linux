@@ -615,7 +615,7 @@ if [ ! -f /usr/local/share/applications/donate.desktop ]; then
 	cat >donate.desktop <<EOF
 [Desktop Entry]
 Name=Donate
-Comment=Donate to Build a Pi
+Comment=Donate to CQ-Linux
 Exec=xdg-open https://www.paypal.com/paypalme/cqLinux
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
@@ -632,7 +632,7 @@ if [ ! -f /usr/local/share/applications/faq.desktop ]; then
 	cat >faq.desktop <<EOF
 [Desktop Entry]
 Name=FAQ
-Comment=Build a Pi FAQ
+Comment=CQ-Linux FAQ
 Exec=xdg-open http://simp.ly/p/5FR1FV
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
@@ -649,7 +649,7 @@ if [ ! -f /usr/local/share/applications/support.desktop ]; then
 	cat >support.desktop <<EOF
 [Desktop Entry]
 Name=Tech Support
-Comment=Build a Pi Tech Support
+Comment=CQ-Linux Tech Support
 Exec=xdg-open https://groups.io/g/cq-linux/topics
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
@@ -696,7 +696,7 @@ cat >bap.directory <<EOF
 [Desktop Entry]
 Type=Directory
 Encoding=UTF-8
-Name=Build-a-Pi
+Name=CQ-Linux
 Icon=/home/`whoami`/pi-build/logo.png
 EOF
 
