@@ -588,11 +588,11 @@ source $UPDATEFILE
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
 	--window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<big><big><b>TRAINING</b></big></big>" --title="Update" \
+	--text="<big><big><b>LOGGING</b></big></big>" --title="Update" \
 	false "KICAD" "$KICAD" "electronics design software" \
 	false "FREECAD" "$FREECAD" "3D CAD Design software" \
 	--button="Exit":1 \
-	--button="Next":2 >${TRAINING}
+	--button="Next":2 >${LOGGING}
 BUT=$?
 if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
 	exit
