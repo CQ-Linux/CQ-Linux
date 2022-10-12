@@ -761,7 +761,7 @@ done <${ADDITIONAL}
 #	Install DIGITAL MODES Apps
 #####################################
 while read i; do
-	source ${FUNCTIONS}/degital.function
+	source ${FUNCTIONS}/digital.function
 	$i
 done <${DIGITAL}
 
