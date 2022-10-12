@@ -18,6 +18,8 @@ FUNCTIONS=${MYPATH}/functions
 ADDITIONAL=${MYPATH}/additional.txt
 UTILITY=${MYPATH}/utility.txt
 FLSUITE=${MYPATH}/flsuite.txt
+DIGITAL=${MYPATH}/digital.txt
+LOGGING-${MYPATH}/logging.txt
 DESIGN=${MYPATH}/design.txt
 SDR=${MYPATH}/sdr.txt
 TRAINING=${MYPATH}/training.txt
@@ -44,7 +46,15 @@ FINISH() {
 	if [ -f "${UTILITY}" ]; then
 		rm ${UTILITY}
 	fi
-	
+
+	if [ -f "${DIGITAL}" ]; then
+		rm ${DIGITAL}
+	fi
+
+	if [ -f "${LOGGING}" ]; then
+		rm ${LOGGING}
+	fi
+			
 	if [ -f "${DESIGN}" ]; then
 		rm ${DESIGN}
 	fi
@@ -555,6 +565,41 @@ if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
 fi
 
 #----------------------------------------------------#
+#		DIGITAL MODES MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>DIGITAL MODES</b></big></big>" --title="Update" \
+	false "KICAD" "$KICAD" "electronics design software" \
+	false "FREECAD" "$FREECAD" "3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Next":2 >${DIGITAL}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+#----------------------------------------------------#
+#		LOGGING SOFTWARE MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>TRAINING</b></big></big>" --title="Update" \
+	false "KICAD" "$KICAD" "electronics design software" \
+	false "FREECAD" "$FREECAD" "3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Next":2 >${TRAINING}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+
+#----------------------------------------------------#
 #		DESIGN MENU
 #----------------------------------------------------#
 source $UPDATEFILE
@@ -583,14 +628,14 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "SDRTRUNK" "$SDRTRUNK" "electronics design software" \
 	false "GQRS" "$GQRS" "electronics design software" \
 	false "WIRESHARE" "$WIRESHARE" "electronics design software" \
-	false "SDR-PLUS-PLUS" "$SDR-PLUS-PLUS" "electronics design software" \
+	false "SDR-PLUS-PLUS" "$SDRPLUSPLUS" "electronics design software" \
 	false "KISMET" "$KISMET" "electronics design software" \
-	false "SHINY-SDR" "$SHINY-SDR" "electronics design software" \
-	false "RTL-SDR" "$RTL-SDR" "electronics design software" \
-	false "CUBIC-SDR" "$CUBIC-SDR" "electronics design software" \
-	false "ESP-TOOL" "$ESP-TOOL"  "electronics design software" \
-	false "HACK-TV" "$HACK-TV"  "electronics design software" \
-	false "LIQUID-SOAP" "$LIQUID-SOAP" "electronics design software" \
+	false "SHINY-SDR" "$SHINYSDR" "electronics design software" \
+	false "RTL-SDR" "$RTLSDR" "electronics design software" \
+	false "CUBIC-SDR" "$CUBICSDR" "electronics design software" \
+	false "ESP-TOOL" "$ESPTOOL"  "electronics design software" \
+	false "HACK-TV" "$HACKTV"  "electronics design software" \
+	false "LIQUID-SOAP" "$LIQUIDSOAP" "electronics design software" \
 	false "MIRAGE" "$MIRAGE" "electronics design software" \
 	false "NMAP" "$NMAP" "electronics design software" \
 	false "OSMO" "$OSMO" "electronics design software" \
@@ -710,6 +755,24 @@ while read i; do
 	source ${FUNCTIONS}/additional.function
 	$i
 done <${ADDITIONAL}
+
+
+#####################################
+#	Install DIGITAL MODES Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/degital.function
+	$i
+done <${DIGITAL}
+
+
+#####################################
+#	Install LOGGING SOFTWARE Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/logging.function
+	$i
+done <${LOGGING}
 
 #####################################
 #	Install DESIGN Apps
