@@ -1,0 +1,24 @@
+BUILDDIR=$HOME/.bap-source-files
+mkdir -p ${BUILDDIR}
+
+##################################
+#	KICAD
+##################################
+KICAD() {
+   sudo apt-get install kicad -y 
+
+}
+
+##################################
+#	FREECAD
+##################################
+FREECAD() {
+    sudo apt-get install freecad -y
+}
+
+##################################
+#	OPENSCAD
+##################################
+OPENSCAD() {
+    sudo apt-get install openscad -y
+}
