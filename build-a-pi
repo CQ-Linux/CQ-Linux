@@ -20,7 +20,9 @@ ADDITIONAL=${MYPATH}/additional.txt
 UTILITY=${MYPATH}/utility.txt
 FLSUITE=${MYPATH}/flsuite.txt
 CONFIG=${MYPATH}/config
-FUNCTIONS=${MYPATH}/functions
+DIGITAL=${MYPATH}/digital.txt
+LOGGING=${MYPATH}/logging.TXT
+=${MYPATH}/functions
 DESIGN=${MYPATH}/design
 SDR=${MYPATH}/sdr
 TRAINING=${MYPATH}/training
@@ -41,6 +43,14 @@ FINISH() {
 
 	if [ -f "${FLSUITE}" ]; then
 		rm ${FLSUITE}
+	fi
+
+	if [ -f "${DIGITAL}" ]; then
+		rm ${DIGITAL}
+	fi
+
+	if [ -f "${LOGGING}" ]; then
+		rm ${LOGGING}
 	fi
 
 	if [ -f "${UTILITY}" ]; then
@@ -515,6 +525,56 @@ if [ ${BUT} = 3 ]; then
 fi
 
 #####################################
+#	DIGITAL TOOLS
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>Digital Mode Software Tools</b>" --title="CQ-Linux" \
+	false "KICAD" "electronics design software" \
+	false "FREECAD" "3D CAD Design software" \
+	false "OPENSCAD" "command line 3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${DIGITAL}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	DIGITALAPPS=(KICAD FREECAD OPENSCAD)
+	for i in "${DIGITALAPPS[@]}"; do
+		echo "$i" >>${DIGITAL}
+	done
+fi
+
+#####################################
+#	LOGGING TOOLS
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>Logging Software</b>" --title="CQ-Linux" \
+	false "KICAD" "electronics design software" \
+	false "FREECAD" "3D CAD Design software" \
+	false "OPENSCAD" "command line 3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${LOGGING}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	LOGGINGAPPS=(KICAD FREECAD OPENSCAD)
+	for i in "${LOGGINGAPPS[@]}"; do
+		echo "$i" >>${LOGGING}
+	done
+fi
+
+
+
+#####################################
 #	DESIGN TOOLS
 #####################################
 yad --center --list --checklist --width=600 --height=600 --separator="" \
@@ -658,9 +718,9 @@ chmod +x ${MYPATH}/update ${MYPATH}/build-a-pi
 cd ${MYPATH} || ! echo "Failure"
 cat >build-a-pi.desktop <<EOF
 [Desktop Entry]
-Name=Build-a-Pi
-GenericName=KM4ACK Build-a-Pi
-Comment=Build-a-Pi App Manager
+Name=CQ-linux
+GenericName=CQ-Linux
+Comment=CQ-Linux App Manager
 Exec=${MYPATH}/update
 Icon=${MYPATH}/logo.png
 Terminal=true
@@ -727,6 +787,23 @@ while read i; do
 	$i
 done <${ADDITIONAL}
 
+
+#####################################
+#	Install DIGITAL TOOLS
+#####################################
+source ${FUNCTIONS}/digital.function
+while read i; do
+	$i
+done <${DIGITAL}
+
+#####################################
+#	Install LOGGING TOOLS
+#####################################
+source ${FUNCTIONS}/logging.function
+while read i; do
+	$i
+done <${LOGGING}
+
 #####################################
 #	Install DESIGN TOOLS
 #####################################
@@ -770,7 +847,7 @@ xdg-settings set default-web-browser chromium.desktop
 #	END CLEANUP
 #####################################
 #Remove temp files
-rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} >/dev/null 2>&1
+rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} ${DIGITAL} ${LOGGING} >/dev/null 2>&1
 rm -rf ${DIR} >/dev/null 2>&1
 sudo apt -y autoremove > /dev/null 2>&1
 
