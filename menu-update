@@ -752,16 +752,6 @@ EOF
 
 sudo mv hamlogging.directory /usr/share/desktop-directories/
 
-cat >designtools.directory <<EOF
-[Desktop Entry]
-Type=Directory
-Encoding=UTF-8
-Name=Design-Tools
-Icon=/home/`whoami`/pi-build/logo.png
-EOF
-
-sudo mv designtools.directory /usr/share/desktop-directories/
-
 cat >electronics.directory <<EOF
 [Desktop Entry]
 Type=Directory
@@ -862,8 +852,8 @@ cat >designtools.menu <<EOF
         <Category>designtools</Category>
     </Include>
 	 <Menu>
-     <Name>Electronics</Name>
-     <Directory>electronics.directory</Directory>
+      <Name>Electronics</Name>
+      <Directory>electronics.directory</Directory>
     <Include>
           <Category>electroncs</Category>
     </Include>
