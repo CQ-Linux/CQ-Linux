@@ -9,7 +9,7 @@
 #km4ack - km4ack subcategory
 
 
-REV=20221004
+REV=20221019
 
 source $HOME/.config/KM4ACK
 
@@ -858,7 +858,7 @@ cat >designtools.menu <<EOF
           <Category>electroncs</Category>
     </Include>
     </Menu>
-   </Menu> <!-- End design-tools -->
+   </Menu> <!-- End designtools -->
 </Menu>
 EOF
 
