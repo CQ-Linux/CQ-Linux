@@ -406,73 +406,45 @@ if [ ${BUT} = 3 ]; then
 fi
 
 #####################################
-#	Ham Apps
+#	Ham Apps new digital modes
 #####################################
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
 	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<b>Ham Applications</b>" --title="CQ-Linux" \
-	false "CONKY" "System Information Display" \
+	--text="<b>Digital Mode Software</b>" --title="CQ-Linux" \
 	false "PI-APRS" "APRS Message Application" \
-	false "CHIRP" "Program Radios" \
-	false "GARIM" "File Transfer Program" \
 	false "PAT" "Radio Email Application" \
 	false "PAT-MENU" "Control for Pat Winlink" \
 	false "JS8CALL" "Weak Signal Digital Mode Software" \
 	false "M0IAX" "Tools for JS8Call Messages" \
 	false "WSJTX" "Weak Signal Digital Mode Software" \
-	false "PYQSO" "Logging Software" \
-	false "HAMRS" "Logging Software" \
-	false "CQRLOG" "Logging Software" \
-	false "REPEAT" "Repeater Directory" \
 	false "EES" "KM4ACK Emergency Email Server" \
 	false "QSSTV" "Slow Scan TV" \
 	false "GRIDTRACKER" "Track Grids in WSJTX" \
-	false "HAMCLOCK" "Clock for Ham Radio Ops" \
-	false "PROPAGATION" "Propagation Prediction Software" \
 	false "YAAC" "Yet Another APRS Client" \
 	false "XASTIR" "APRS Client" \
-	false "GPREDICT" "Satellite Tracking" \
-	false "TQSL" "LOTW Software" \
-	false "GRIDCALC" "Grid Calculation Software" \
 	false "QTEL" "ECHO Link Digital audio software" \
-	false "CLOUDLOG" "Web based Logging Software" \
-	false "DIGIPI" "DIGIPI integration" \
-	false "QDMR" "DMR radio programmer" \
 	--button="Exit":1 \
 	--button="Check All and Continue":3 \
-	--button="Next":2 >${ADDITIONAL}
+	--button="Next":2 >${DIGITAL}
 BUT=$?
 if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
 	exit
 fi
 
 if [ ${BUT} = 3 ]; then
-	ADDAPPS=(CONKY PI-APRS CHIRP GARIM PAT PAT-MENU JS8CALL M0IAX WSJTX PYQSO
-		HAMRS EES QSSTV GRIDTRACKER HAMCLOCK PROPAGATION YAAC XASTIR GPREDICT TQSL
-		GRIDCALC ECHOLINK CQRLOG QTEL CLOUDLOG DIGIPI QDMR REPEAT)
+	ADDAPPS=(PI-APRS PAT PAT-MENU JS8CALL M0IAX WSJTX EES QSSTV GRIDTRACKER YAAC XASTIR
+		QTEL)
 
 	for i in "${ADDAPPS[@]}"; do
-		echo "$i" >>${ADDITIONAL}
+		echo "$i" >>${DIGITAL}
 	done
 fi
  
-#check if hamclock is being installed
-HCCHECK=$(grep "HAMCLOCK" ${ADDITIONAL})
-if [ -n "$HCCHECK" ]; then
-
-	HC=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
-		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
-		--text="<b>version $VERSION</b>" \
-		--field="Ham Clock Size":CB "SMALL|LARGE" \
-		--button="Continue":2)
-	HC=$(echo $HC | awk -F "|" '{print $1}')
-	sed -i 's/HAMCLOCK//' ${ADDITIONAL}
-	echo $HC >>${ADDITIONAL}
-fi
 
 
-PATCHECK=$(grep "PAT" ${ADDITIONAL})
+
+PATCHECK=$(grep "PAT" ${DIGITAL})
 if [ -n "$PATCHECK" ]; then
 	INFO=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
 		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
@@ -525,28 +497,52 @@ if [ ${BUT} = 3 ]; then
 fi
 
 #####################################
-#	DIGITAL TOOLS
+#	DIGITAL TOOLS  new ham apps
 #####################################
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
 	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<b>Digital Mode Software Tools</b>" --title="CQ-Linux" \
-	false "KICAD" "electronics design software" \
-	false "FREECAD" "3D CAD Design software" \
-	false "OPENSCAD" "command line 3D CAD Design software" \
+	--text="<b>Additional Ham Apps</b>" --title="CQ-Linux" \
+	false "CONKY" "System Information Display" \
+	false "CHIRP" "Program Radios" \
+	false "GARIM" "File Transfer Program" \
+	false "REPEAT" "Repeater Directory" \
+	false "HAMCLOCK" "Clock for Ham Radio Ops" \
+	false "PROPAGATION" "Propagation Prediction Software" \
+	false "GPREDICT" "Satellite Tracking" \
+	false "GRIDCALC" "Grid Calculation Software" \
+	false "DIGIPI" "DIGIPI integration" \
+	false "QDMR" "DMR radio programmer" \
 	--button="Exit":1 \
 	--button="Check All and Continue":3 \
-	--button="Next":2 >${DIGITAL}
+	--button="Next":2 >${ADDITIONAL}
 BUT=$?
 if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
 	exit
 fi
 if [ ${BUT} = 3 ]; then
-	DIGITALAPPS=(KICAD FREECAD OPENSCAD)
-	for i in "${DIGITALAPPS[@]}"; do
-		echo "$i" >>${DIGITAL}
+	ADDITIONALAPPS=(CONKY CHIRP GARIM HAMCLOCK PROPAGATION GPREDICT
+		GRIDCALC DIGIPI QDMR REPEAT)
+	for i in "${ADDITIONALAPPS[@]}"; do
+		echo "$i" >>${ADDITIONAL}
 	done
 fi
+#check if hamclock is being installed
+HCCHECK=$(grep "HAMCLOCK" ${ADDITIONAL})
+if [ -n "$HCCHECK" ]; then
+
+	HC=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
+		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
+		--text="<b>version $VERSION</b>" \
+		--field="Ham Clock Size":CB "SMALL|LARGE" \
+		--button="Continue":2)
+	HC=$(echo $HC | awk -F "|" '{print $1}')
+	sed -i 's/HAMCLOCK//' ${ADDITIONAL}
+	echo $HC >>${ADDITIONAL}
+fi
+
+
+
 
 #####################################
 #	LOGGING TOOLS
@@ -555,9 +551,11 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
 	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
 	--text="<b>Logging Software</b>" --title="CQ-Linux" \
-	false "KICAD" "electronics design software" \
-	false "FREECAD" "3D CAD Design software" \
-	false "OPENSCAD" "command line 3D CAD Design software" \
+	false "PYQSO" "Logging Software" \
+	false "HAMRS" "Logging Software" \
+	false "CQRLOG" "Logging Software" \
+	false "TQSL" "LOTW Software" \
+	false "CLOUDLOG" "Web based Logging Software" \
 	--button="Exit":1 \
 	--button="Check All and Continue":3 \
 	--button="Next":2 >${LOGGING}
@@ -566,7 +564,7 @@ if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
 	exit
 fi
 if [ ${BUT} = 3 ]; then
-	LOGGINGAPPS=(KICAD FREECAD OPENSCAD)
+	LOGGINGAPPS=(PYQSO HAMRS CQRLOG CLOUDLOG TQSL)
 	for i in "${LOGGINGAPPS[@]}"; do
 		echo "$i" >>${LOGGING}
 	done
@@ -580,7 +578,7 @@ fi
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
 	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<b>Design Tools</b>" --title="CQ-Linux" \
+	--text="<b>Design Software</b>" --title="CQ-Linux" \
 	false "KICAD" "electronics design software" \
 	false "FREECAD" "3D CAD Design software" \
 	false "OPENSCAD" "command line 3D CAD Design software" \
@@ -604,7 +602,7 @@ fi
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
 	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<b>SDR Tools</b>" --title="CQ-Linux" \
+	--text="<b>SDR Software</b>" --title="CQ-Linux" \
 	false "SDRTRUNK" "electronics design software" \
 	false "GQRS" "electronics design software" \
 	false "WIRESHARE" "electronics design software" \
@@ -641,7 +639,7 @@ fi
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
 	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<b>TRAINING SOFTWARE</b>" --title="CQ-Linux" \
+	--text="<b>Training Software</b>" --title="CQ-Linux" \
 	false "KICAD" "electronics design software" \
 	false "FREECAD" "3D CAD Design software" \
 	--button="Exit":1 \
