@@ -762,6 +762,16 @@ EOF
 
 sudo mv electronics.directory /usr/share/desktop-directories/
 
+cat >degigntools.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Design-Tools
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv designtools.directory /usr/share/desktop-directories/
+
 
 
 #MOD HAMRADIO.MENU FILE
