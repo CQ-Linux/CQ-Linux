@@ -855,7 +855,7 @@ cat >designtools.menu <<EOF
       <Name>Electronics</Name>
       <Directory>electronics.directory</Directory>
     <Include>
-          <Category>electroncs</Category>
+          <Category>electronics</Category>
     </Include>
     </Menu>
    </Menu> <!-- End designtools -->
@@ -863,6 +863,9 @@ cat >designtools.menu <<EOF
 EOF
 
 sudo mv designtools.menu /usr/share/extra-xdg-menus/
+sudo exmendis --system electronics
+sudo exmenen --system designtools
+
 }
 
 
