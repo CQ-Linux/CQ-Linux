@@ -762,7 +762,7 @@ EOF
 
 sudo mv electronics.directory /usr/share/desktop-directories/
 
-cat >degigntools.directory <<EOF
+cat >designtools.directory <<EOF
 [Desktop Entry]
 Type=Directory
 Encoding=UTF-8
