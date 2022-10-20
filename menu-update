@@ -757,7 +757,7 @@ cat >electronics.directory <<EOF
 Type=Directory
 Encoding=UTF-8
 Name=Electronics
-Icon=/home/`whoami`/pi-build/logo.png
+Icon=applications-electronics
 EOF
 
 sudo mv electronics.directory /usr/share/desktop-directories/
