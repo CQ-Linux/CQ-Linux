@@ -455,9 +455,9 @@ CHECK() {
 	#		GPARTED
 	#----------------------------------------------------#
 	if [ -f /usr/sbin/gparted ]; then
-		echo "GPARTED=Not_Installed" >> $UPDATEFILE
-	else
 		echo "GPARTED=Installed" >> $UPDATEFILE
+	else
+		echo "GPARTED=Not_Installed" >> $UPDATEFILE
 	fi
 
 	#----------------------------------------------------#
