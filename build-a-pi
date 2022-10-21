@@ -406,7 +406,7 @@ if [ ${BUT} = 3 ]; then
 fi
 
 #####################################
-#	Ham Apps new digital modes
+#	digital modes
 #####################################
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
