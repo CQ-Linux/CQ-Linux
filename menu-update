@@ -602,8 +602,8 @@ echo "moving ygate"
 fi
 
 # OPENSCAD
-if [ -f /usr/share/applications/OpenSCAD.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/OpenSCAD.desktop
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
 echo "moving openscad"
 fi
 
