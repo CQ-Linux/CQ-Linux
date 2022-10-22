@@ -776,7 +776,7 @@ fi
 #----------------------------------------------------#
 #SDRTRUNK
 #----------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash notworking 2>/dev/null; then
 	echo "SDRTRUNK=Not_Installed" >> $UPDATEFILE
 else
 echo "SDRTRUNK=Installed" >> $UPDATEFILE
@@ -785,7 +785,7 @@ fi
 #---------------------------------------------------#
 #GQRS          
 #---------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash gqrx-sdr 2>/dev/null; then
 	echo "GQRS=Not_Installed" >> $UPDATEFILE
 else
 echo "GQRS=Installed" >> $UPDATEFILE
@@ -794,7 +794,7 @@ fi
 #----------------------------------------------------#
 #WIRESHARE
 #----------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash notworking 2>/dev/null; then
 	echo "WIRESHARE=Not_Installed" >> $UPDATEFILE
 else
 echo "WIRESHARE=Installed" >> $UPDATEFILE
@@ -803,7 +803,7 @@ fi
 #----------------------------------------------------#
 #SDR-PLUS-PLUS
 #----------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash sdr++ 2>/dev/null; then
 	echo "SDRPLUSPLUS=Not_Installed" >> $UPDATEFILE
 else
 echo "SDRPLUSPLUS=Installed" >> $UPDATEFILE
@@ -812,7 +812,7 @@ fi
 #-----------------------------------------------------#
 #KISMET
 #-----------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash notworking 2>/dev/null; then
 	echo "KISMET=Not_Installed" >> $UPDATEFILE
 else
 echo "KISMET=Installed" >> $UPDATEFILE
@@ -821,7 +821,7 @@ fi
 #------------------------------------------------------#
 #SHINY-SDR
 #------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash notworking 2>/dev/null; then
 	echo "SHINYSDR=Not_Installed" >> $UPDATEFILE
 else
 echo "SHINYSDR=Installed" >> $UPDATEFILE
@@ -830,7 +830,7 @@ fi
 #------------------------------------------------------#
 #RTL-SDR
 #------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash rtl-sdr 2>/dev/null; then
 	echo "RTLSDR=Not_Installed" >> $UPDATEFILE
 else
 echo "RTLSDR=Installed" >> $UPDATEFILE
@@ -839,7 +839,7 @@ fi
 #------------------------------------------------------#
 #CUBIC-SDR
 #------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash notworking 2>/dev/null; then
 	echo "CUBICSDR=Not_Installed" >> $UPDATEFILE
 else
 echo "CUBICSDR=Installed" >> $UPDATEFILE
@@ -848,7 +848,7 @@ fi
 #------------------------------------------------------#
 #ESP-TOOL
 #------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash esptool 2>/dev/null; then
 	echo "ESPTOOL=Not_Installed" >> $UPDATEFILE
 else
 echo "ESPTOOL=Installed" >> $UPDATEFILE
@@ -857,7 +857,7 @@ fi
 #-------------------------------------------------------#
 #HACK-TV
 #-------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash notworking 2>/dev/null; then
 	echo "HACKTV=Not_Installed" >> $UPDATEFILE
 else
 echo "HACKTV=Installed" >> $UPDATEFILE
@@ -866,7 +866,7 @@ fi
 #--------------------------------------------------------#
 #LIQUID-SOAP
 #--------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash liquidsoap 2>/dev/null; then
 	echo "LIQUIDSOAP=Not_Installed" >> $UPDATEFILE
 else
 echo "LIQUIDSOAP=Installed" >> $UPDATEFILE
@@ -875,7 +875,7 @@ fi
 #--------------------------------------------------------#
 #MIRAGE
 #--------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash mirage 2>/dev/null; then
 	echo "MIRAGE=Not_Installed" >> $UPDATEFILE
 else
 echo "MIRAGE=Installed" >> $UPDATEFILE
@@ -884,7 +884,7 @@ fi
 #---------------------------------------------------------#
 #NMAP
 #---------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash notworking 2>/dev/null; then
 	echo "NMAP=Not_Installed" >> $UPDATEFILE
 else
 echo "NMAP=Installed" >> $UPDATEFILE
@@ -893,7 +893,7 @@ fi
 #----------------------------------------------------------#
 #OSMO
 #----------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash osmo 2>/dev/null; then
 	echo "OSMO=Not_Installed" >> $UPDATEFILE
 else
 echo "OSMO=Installed" >> $UPDATEFILE
@@ -902,7 +902,7 @@ fi
 #----------------------------------------------------------#
 #UBERTOOTH
 #----------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash ubertooth 2>/dev/null; then
 	echo "UBERTOOTH=Not_Installed" >> $UPDATEFILE
 else
 echo "UBERTOOTH=Installed" >> $UPDATEFILE
@@ -911,7 +911,7 @@ fi
 #----------------------------------------------------------#
 #WIREGUARD
 #----------------------------------------------------------#
-if ! hash kicad 2>/dev/null; then
+if ! hash wireguard 2>/dev/null; then
 	echo "WIREGUARD=Not_Installed" >> $UPDATEFILE
 else
 echo "WIREGUARD=Installed" >> $UPDATEFILE

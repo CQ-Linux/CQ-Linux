@@ -91,7 +91,7 @@ MIRAGE() {
 #	NMAP
 ##################################
 NMAP() {
-    sudo apt-get install namp -y
+    sudo apt-get install nmamp -y
 }
 
 ##################################
