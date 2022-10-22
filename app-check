@@ -857,7 +857,7 @@ fi
 #-------------------------------------------------------#
 #HACK-TV
 #-------------------------------------------------------#
-if ! hash notworking 2>/dev/null; then
+if ! hash hacktv 2>/dev/null; then
 	echo "HACKTV=Not_Installed" >> $UPDATEFILE
 else
 echo "HACKTV=Installed" >> $UPDATEFILE
@@ -884,7 +884,7 @@ fi
 #---------------------------------------------------------#
 #NMAP
 #---------------------------------------------------------#
-if ! hash notworking 2>/dev/null; then
+if ! hash nmap 2>/dev/null; then
 	echo "NMAP=Not_Installed" >> $UPDATEFILE
 else
 echo "NMAP=Installed" >> $UPDATEFILE
