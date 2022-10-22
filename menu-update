@@ -601,6 +601,12 @@ sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/yg
 echo "moving ygate"
 fi
 
+# OPENSCAD
+if [ -f /usr/share/applications/OpenSCAD.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/OpenSCAD.desktop
+echo "moving openscad"
+fi
+
 }
 
 BAP(){
