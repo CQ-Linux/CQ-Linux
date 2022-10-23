@@ -17,6 +17,7 @@ sudo mkdir -p /usr/local/share/applications
 
 sudo mkdir -p /usr/share/icons/cqlinux
 
+sudo cp ~/pi-build/images/icons/*.* /usr/share/icons/cqlinux/
 
 
 
