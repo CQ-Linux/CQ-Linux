@@ -15,6 +15,10 @@ source $HOME/.config/KM4ACK
 
 sudo mkdir -p /usr/local/share/applications
 
+sudo mkdir -p /usr/share/icons/cqlinux
+
+
+
 
 FLSUITE(){
 ##########################
@@ -607,7 +611,58 @@ sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/ope
 echo "moving openscad"
 fi
 
+
+##ICON CHANGES
+# DESIGN TOOLS ICON
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+echo "changing design tools icon"
+fi
+
+# DIGITAL MODES ICON
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+echo "changing digital modes icon"
+fi
+
+# LOGGING ICON
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+echo "changing logging icon"
+fi
+
+# RADIO PROGRAMMING ICON
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+echo "changing radio programming icon"
+fi
+
+# SDR TOOLS ICON
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+echo "changing sdr tools icon"
+fi
+
+# UTILITIES ICON
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+echo "changing utlities icon"
+fi
+
+# VARA ICON
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+echo "changing vara icon"
+fi
+
+# HAM RADIO ICON
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+echo "changing ham radio icon"
+fi
+
 }
+
 
 BAP(){
 ##########################
