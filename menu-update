@@ -615,50 +615,50 @@ fi
 
 ##ICON CHANGES
 # DESIGN TOOLS ICON
-if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+if [ -f /usr/share/desktop-directories/designtools.directory ]; then
+sudo sed -i 's/Icon.*/Icon=/usr/share/icons/cqlinux/designtools.png/' /usr/share/desktop-directories/designtools.directory
 echo "changing design tools icon"
 fi
 
 # DIGITAL MODES ICON
-if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+if [ -f /usr/share/desktop-directories/digitalmodes.directory ]; then
+sudo sed -i 's/Icon.*/Icon=/usr/share/icons/cqlinux/digitalmodes.png/' /usr/share/desktop-directories/digitalmodes.directory
 echo "changing digital modes icon"
 fi
 
 # LOGGING ICON
-if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+if [ -f /usr/share/desktop-directories/hamlogging.directory ]; then
+sudo sed -i 's/Icon.*/Icon=/usr/share/icons/cqlinux/logging.png/' /usr/share/desktop-directories/hamlogging.directory
 echo "changing logging icon"
 fi
 
 # RADIO PROGRAMMING ICON
-if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+if [ -f /usr/share/desktop-directories/RadioProgramming.directory ]; then
+sudo sed -i 's/Icon.*/Icon=/usr/share/icons/cqlinux/radioProgramming.png/' /usr/share/desktop-directories/RadioProgramming.directory
 echo "changing radio programming icon"
 fi
 
 # SDR TOOLS ICON
-if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+if [ -f /usr/share/desktop-directories/SDRTools.directory ]; then
+sudo sed -i 's/Icon.*/Icon=/usr/share/icons/cqlinux/sdr.png/' /usr/share/desktop-directories/SDRTools.directory
 echo "changing sdr tools icon"
 fi
 
 # UTILITIES ICON
-if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+if [ -f /usr/share/desktop-directories/Utilities.directory ]; then
+sudo sed -i 's/Icon.*/Icon=/usr/share/icons/cqlinux/utilities.png/' /usr/share/desktop-directories/Utilities.directory
 echo "changing utlities icon"
 fi
 
 # VARA ICON
-if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+if [ -f /usr/share/desktop-directories/vara.directory ]; then
+sudo sed -i 's/Icon.*/Icon=/usr/share/icons/cqlinux/vara.png/' /usr/share/desktop-directories/vara.directory
 echo "changing vara icon"
 fi
 
 # HAM RADIO ICON
-if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+if [ -f /usr/share/desktop-directories/HamRadio.directory ]; then
+sudo sed -i 's/Icon.*/Icon=/usr/share/icons/cqlinux/hamradio.png/' /usr/share/desktop-directories/HamRadio.directory
 echo "changing ham radio icon"
 fi
 
