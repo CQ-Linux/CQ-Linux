@@ -652,7 +652,7 @@ fi
 
 # VARA ICON
 if [ -f /usr/share/desktop-directories/vara.directory ]; then
-sudo sed -i 's|Icon.*|Icon=/usr/share/icons/cqlinux/vara.png|' /usr/share/desktop-directories/vara.directory
+sudo sed -i 's|Icon.*|Icon=F302_VARA.0|' /usr/share/desktop-directories/vara.directory
 echo "changing vara icon"
 fi
 
