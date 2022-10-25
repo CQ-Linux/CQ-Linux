@@ -818,11 +818,11 @@ cat >docslearning.directory <<EOF
 [Desktop Entry]
 Type=Directory
 Encoding=UTF-8
-Name=Ham-Radio-Docs and Learning
+Name=Ham-Radio-Docs-and-Learning
 Icon=/home/`whoami`/pi-build/logo.png
 EOF
 
-sudo mv hamlogging.directory /usr/share/desktop-directories/
+sudo mv docslearning.directory /usr/share/desktop-directories/
 
 
 
