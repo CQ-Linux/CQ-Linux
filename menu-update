@@ -608,7 +608,7 @@ fi
 
 # OPENSCAD
 if [ -f /usr/share/applications/openscad.desktop ]; then
-sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/openscad.desktop
+sudo sed -i 's/Categories.*/Categories=designtools;docslearning;/' /usr/share/applications/openscad.desktop
 echo "moving openscad"
 fi
 
@@ -814,6 +814,20 @@ EOF
 
 sudo mv hamlogging.directory /usr/share/desktop-directories/
 
+cat >docslearning.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Ham-Radio-Docs and Learning
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv hamlogging.directory /usr/share/desktop-directories/
+
+
+
+
+
 cat >electronics.directory <<EOF
 [Desktop Entry]
 Type=Directory
@@ -902,6 +916,13 @@ cat >hamradio.menu <<EOF
         <Directory>hamlogging.directory</Directory>
         <Include>
             <Category>hamlogging</Category>
+        </Include>
+		</Menu>
+		<Menu>
+		<Name>Ham-Radio-Docs-and-Learning</Name>
+        <Directory>docslearning.directory</Directory>
+        <Include>
+            <Category>docslearning</Category>
         </Include>
 		</Menu>
 	 </Menu> <!-- End hamradio -->
