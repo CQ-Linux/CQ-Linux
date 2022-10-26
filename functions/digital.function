@@ -84,6 +84,7 @@ PAT() {
 	jq '.varafm.ptt_ctrl = 'true'' | jq '.varahf.ptt_ctrl = 'true'' | \
 	jq '.hamlib_rigs = {'\"my-rig\"': {"address": "127.0.0.1:4532", "network": "tcp"}}' >~/Desktop/config.json	
 	sudo chmod 777 ${HOME}/Desktop/config.json
+	sudo chown root:root ${HOME}/Desktop/config.json
 	mv ${HOME}/Desktop/config.json ${FIG}
 	sed -i 's/"enable_http": false,/"enable_http": true,/' ${FIG}
 
