@@ -26,13 +26,24 @@ PAT() {
 	fi
 
 	if [ `getconf LONG_BIT` = '64' ]; then
-
-	#reference:
-	#https://www.jeremymorgan.com/tutorials/raspberry-pi/install-go-raspberry-pi/
-	#https://github.com/la5nta/pat/wiki/Building-from-source
-	#https://cqdeks4td.blogspot.com/2021/11/installing-pat-open-source-winlink.html
-
+	#install deb file for 64 bit systems
+	NEWPATV=$(curl -s https://github.com/la5nta/pat/releases | grep amd64 | head -1 | sed 's/.*pat_/pat_/' | sed 's/<\/a>.*$//')
+	NEWPAT=$(echo ${NEWPATV} | sed 's/pat_//' | sed 's/_linux_amd64.deb//' | sed 's/0\.//')
+	echo "new pat v ${NEWPATV}"
+	echo "new pat ${NEWPAT}"
+	wget --tries 2 --connect-timeout=60 https://github.com/la5nta/pat/releases/download/v0.${NEWPAT}/${NEWPATV}
+	sudo dpkg -i ${DIR}/${NEWPATV}
 	
+	else
+
+	#install deb file for 32 bit systems
+	NEWPATV=$(curl -s https://github.com/la5nta/pat/releases | grep amd64 | head -1 | sed 's/.*pat_/pat_/' | sed 's/<\/a>.*$//')
+	NEWPAT=$(echo ${NEWPATV} | sed 's/pat_//' | sed 's/_linux_amd64.deb//' | sed 's/0\.//')
+	echo "new pat v ${NEWPATV}"
+	echo "new pat ${NEWPAT}"
+	wget --tries 2 --connect-timeout=60 https://github.com/la5nta/pat/releases/download/v0.${NEWPAT}/${NEWPATV}
+	sudo dpkg -i ${DIR}/${NEWPATV}
+	fi
 
 	#lines below configure pat with user info
 	pat http &
@@ -66,13 +77,20 @@ PAT() {
 	#jq '.ax25.rig = '\"my-rig\"'' ${FIG} | jq '.ardop.rig = '\"my-rig\"'' | jq '.hamlib_rigs = {'\"my-rig\"': {"address": "127.0.0.1:4532", "network": "tcp"}}' >~/Desktop/config.json
 	jq '.ax25.rig = '\"my-rig\"'' ${FIG} | jq '.varafm.rig = '\"my-rig\"'' | jq '.varahf.rig = '\"my-rig\"'' | jq '.ardop.rig = '\"my-rig\"'' | \
 	jq '.varafm.ptt_ctrl = 'true'' | jq '.varahf.ptt_ctrl = 'true'' | \
-	jq '.hamlib_rigs = {'\"my-rig\"': {"address": "127.0.0.1:4532", "network": "tcp"}}' >~/Desktop/config.json
+	jq '.hamlib_rigs = {'\"my-rig\"': {"address": "127.0.0.1:4532", "network": "tcp"}}' >~/Desktop/config.json	
 	mv ${HOME}/Desktop/config.json ${FIG}
 	sed -i 's/"enable_http": false,/"enable_http": true,/' ${FIG}
 
 	if [ -f ${DIR}/config.json ]; then
 		mv ${DIR}/config.json ${HOME}/.wl2k/
 	fi
+
+	PAT_OLD_SOURCE_INSTALL() {
+	#This code is left for reference. This was used ot build pat from source when 64bit Pi OS was first released. 20220922
+	#reference:
+	#https://www.jeremymorgan.com/tutorials/raspberry-pi/install-go-raspberry-pi/
+	#https://github.com/la5nta/pat/wiki/Building-from-source
+	#https://cqdeks4td.blogspot.com/2021/11/installing-pat-open-source-winlink.html
 
 	#install golang needed for pat build
 	cd
@@ -95,18 +113,10 @@ PAT() {
 	sudo cp $HOME/pat/debian/pat@.service /lib/systemd/system/
 	sudo cp $HOME/pat/pat /usr/bin/
 	rm -rf $HOME/pat
-	else
-	#install deb file for 32 bit systems
-	NEWPATV=$(curl -s https://github.com/la5nta/pat/releases | grep amd64 | head -1 | sed 's/.*pat_/pat_/' | sed 's/<\/a>.*$//')
-	NEWPAT=$(echo ${NEWPATV} | sed 's/pat_//' | sed 's/_linux_amd64.deb//' | sed 's/0\.//')
-	echo "new pat v ${NEWPATV}"
-	echo "new pat ${NEWPAT}"
-	wget --tries 2 --connect-timeout=60 https://github.com/la5nta/pat/releases/download/v0.${NEWPAT}/${NEWPATV}
-	sudo dpkg -i ${DIR}/${NEWPATV}
-	fi
-
+	}
 
 }
+##################################
 ##################################
 #	PAT MENU
 ##################################
