@@ -17,6 +17,7 @@ PAT() {
 	echo "##################"
 	echo "installing pat"
 	echo "##################"
+	sudo mkdir ${HOME}/.config/pat
 	PORT=8080
 	cd ${DIR}
 	if [ -f ${HOME}/.wl2k/config.json ]; then
