@@ -83,6 +83,7 @@ PAT() {
 	jq '.ax25.rig = '\"my-rig\"'' ${FIG} | jq '.varafm.rig = '\"my-rig\"'' | jq '.varahf.rig = '\"my-rig\"'' | jq '.ardop.rig = '\"my-rig\"'' | \
 	jq '.varafm.ptt_ctrl = 'true'' | jq '.varahf.ptt_ctrl = 'true'' | \
 	jq '.hamlib_rigs = {'\"my-rig\"': {"address": "127.0.0.1:4532", "network": "tcp"}}' >~/Desktop/config.json	
+	sudo chmod 777 ${HOME}/Desktop/config.json
 	mv ${HOME}/Desktop/config.json ${FIG}
 	sed -i 's/"enable_http": false,/"enable_http": true,/' ${FIG}
 
