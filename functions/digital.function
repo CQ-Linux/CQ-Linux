@@ -17,6 +17,7 @@ PAT() {
 	echo "##################"
 	echo "installing pat"
 	echo "##################"
+	sudo mkdir ${HOME}/.config/pat
 	PORT=8080
 	cd ${DIR}
 	if [ -f ${HOME}/.wl2k/config.json ]; then
@@ -54,12 +55,15 @@ PAT() {
 	sudo cp $HOME/pat/pat /usr/bin/
 	rm -rf $HOME/pat
 	else
-	#install deb file for 32 bit systems
+	#install deb file for 64 bit systems
 	NEWPATV=$(curl -s https://github.com/la5nta/pat/releases | grep amd64 | head -1 | sed 's/.*pat_/pat_/' | sed 's/<\/a>.*$//')
 	NEWPAT=$(echo ${NEWPATV} | sed 's/pat_//' | sed 's/_linux_amd64.deb//' | sed 's/0\.//')
 	echo "new pat v ${NEWPATV}"
 	echo "new pat ${NEWPAT}"
 	wget --tries 2 --connect-timeout=60 https://github.com/la5nta/pat/releases/download/v0.${NEWPAT}/${NEWPATV}
+	sudo cp ${HOME}/pi-build/config.json $XDG_CONFIG_HOME/pat/config.json
+	sudo chmod 777 $XDG_CONFIG_HOME/pat/config.json
+	sudo chown pi:pi $XDG_CONFIG_HOME/pat/config.json	
 	sudo dpkg -i ${DIR}/${NEWPATV}
 	fi
 
@@ -85,16 +89,16 @@ PAT() {
 	sed -i "s/\"mycall\": \".*\",/\"mycall\": \"${CALL}\",/" ${FIG}
 	#set password
 	WL2KPASS=$(grep "WL2KPASS" ${MYPATH}/config | sed 's/"//g' | sed 's/WL2KPASS=//')
-	sed -i "s/\"secure_login_password\": \".*\",/\"secure_login_password\": \""$WL2KPASS"\",/" ${FIG}
+	sudo sed -i "s/\"secure_login_password\": \".*\",/\"secure_login_password\": \""$WL2KPASS"\",/" ${FIG}
 	#set locator
-	sed -i "s/\"locator\": \".*\",/\"locator\": \"$GRID\",/" ${FIG}
+	sudo sed -i "s/\"locator\": \".*\",/\"locator\": \"$GRID\",/" ${FIG}
 	#Change localhost to 0.0.0.0
 	#This is a secutiry risk. See https://github.com/km4ack/pi-build/issues/299
 	#Changed to 127.0.0.1 on 11OCT2021 KM4ACK
-	sed -i "s/\"http_addr\": \".*\",/\"http_addr\": \"127.0.0.1:$PORT\",/" ${FIG}
+	sudo sed -i "s/\"http_addr\": \".*\",/\"http_addr\": \"127.0.0.1:$PORT\",/" ${FIG}
 	jq '.ax25.rig = '\"my-rig\"'' ${FIG} | jq '.ardop.rig = '\"my-rig\"'' | jq '.hamlib_rigs = {'\"my-rig\"': {"address": "127.0.0.1:4532", "network": "tcp"}}' >~/Desktop/config.json
-	mv ${HOME}/Desktop/config.json ${FIG}
-	sed -i 's/"enable_http": false,/"enable_http": true,/' ${FIG}
+	sudo mv ${HOME}/Desktop/config.json ${FIG}
+	sudo sed -i 's/"enable_http": false,/"enable_http": true,/' ${FIG}
 
 	if [ -f ${DIR}/config.json ]; then
 		mv ${DIR}/config.json ${HOME}/.wl2k/
