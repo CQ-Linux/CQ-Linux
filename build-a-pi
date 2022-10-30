@@ -11,6 +11,8 @@
 ##################################################################
 #20200620
 
+exec > /var/log/cqlinux.log 2>&1
+
 DESK=$(printenv | grep DISPLAY)
 MYPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 LOGO=${MYPATH}/logo.png
