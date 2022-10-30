@@ -86,7 +86,7 @@ PAT() {
 	FIG=$XDG_CONFIG_HOME/pat/config.json
 	fi
 	#set callsign
-	sed -i "s/\"mycall\": \".*\",/\"mycall\": \"${CALL}\",/" ${FIG}
+	sudo sed -i "s/\"mycall\": \".*\",/\"mycall\": \"${CALL}\",/" ${FIG}
 	#set password
 	WL2KPASS=$(grep "WL2KPASS" ${MYPATH}/config | sed 's/"//g' | sed 's/WL2KPASS=//')
 	sudo sed -i "s/\"secure_login_password\": \".*\",/\"secure_login_password\": \""$WL2KPASS"\",/" ${FIG}
