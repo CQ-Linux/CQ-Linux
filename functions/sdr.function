@@ -16,12 +16,6 @@ GQRS() {
     sudo apt-get install gqrx-sdr -y
 }
 
-##################################
-#	WIRESHARE broken
-##################################
-WIRESHARE() {
-    sudo apt-get install wireshare -y
-}
 
 ##################################
 #	SDRPLUSPLUS

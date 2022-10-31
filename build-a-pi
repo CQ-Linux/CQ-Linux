@@ -604,9 +604,8 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
 	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
 	--text="<b>SDR Software</b>" --title="CQ-Linux" \
-	false "SDRTRUNK" "electronics design software" \
-	false "GQRS" "electronics design software" \
-	false "WIRESHARE" "electronics design software" \
+	false "SDRTRUNK" "trunked radio monitoring" \
+	false "GQRS" "SDR radio reciving software" \
 	false "SDR-PLUS-PLUS" "electronics design software" \
 	false "KISMET" "electronics design software" \
 	false "SHINY-SDR" "electronics design software" \
