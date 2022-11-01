@@ -531,6 +531,18 @@ EOF
 
 }
 
+##################################
+#	QTEL   echolink install W1BAW
+##################################
+QTEL() {
+	#https://github.com/shuyuan-liu/sdr-tutorials
+	echo "##################"
+	echo "installing ECHOLINK"
+	echo "##################"
+	sudo apt -y install qtel 
+	
+}
+
 
 ##################################
 #	JTDX
