@@ -606,9 +606,9 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--text="<b>SDR Software</b>" --title="CQ-Linux" \
 	false "SDRTRUNK" "trunked radio monitoring" \
 	false "GQRS" "SDR radio reciving software" \
-	false "SDR-PLUS-PLUS" "electronics design software" \
-	false "KISMET" "electronics design software" \
-	false "SHINY-SDR" "electronics design software" \
+	false "SDR-PLUS-PLUS" "Bloat free SDR program" \
+	false "KISMET" "RTL SDR software" \
+	false "SHINY-SDR" "sofwtare defined radio reciver" \
 	false "RTL-SDR" "electronics design software" \
 	false "CUBIC-SDR" "electronics design software" \
 	false "ESP-TOOL" "electronics design software" \
