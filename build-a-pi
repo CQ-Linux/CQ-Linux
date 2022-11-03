@@ -2,14 +2,15 @@
 #                                                                #
 #	#   #	#       #     #      #        #####  #   #       #
 #	#  #	# #   # #    ##     # #      #       #  #        #
-#	# #	#   #   #   # #    #   #    #        # #         #
-#	##	#       #  #####  #######  #         ##          #
-#	# #	#       #     #   #     #   #        # #         #
+#	# #	    #   #   #   # #    #   #    #        # #         #
+#	##	    #       #  #####  #######  #         ##          #
+#	# #	    #       #     #   #     #   #        # #         #
 #	#  #	#       #     #   #     #    #       #  #        #
 #	#   #	#       #     #   #     #     #####  #   #       #
 #                                                                #
 ##################################################################
 #20200620
+
 
 DESK=$(printenv | grep DISPLAY)
 MYPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
@@ -20,7 +21,12 @@ ADDITIONAL=${MYPATH}/additional.txt
 UTILITY=${MYPATH}/utility.txt
 FLSUITE=${MYPATH}/flsuite.txt
 CONFIG=${MYPATH}/config
+DIGITAL=${MYPATH}/digital.txt
+LOGGING=${MYPATH}/logging.TXT
 FUNCTIONS=${MYPATH}/functions
+DESIGN=${MYPATH}/design
+SDR=${MYPATH}/sdr
+TRAINING=${MYPATH}/training
 TEMPCRON=${MYPATH}/cron.tmp
 DIR=${MYPATH}/temp
 WHO=$(whoami)
@@ -38,6 +44,14 @@ FINISH() {
 
 	if [ -f "${FLSUITE}" ]; then
 		rm ${FLSUITE}
+	fi
+
+	if [ -f "${DIGITAL}" ]; then
+		rm ${DIGITAL}
+	fi
+
+	if [ -f "${LOGGING}" ]; then
+		rm ${LOGGING}
 	fi
 
 	if [ -f "${UTILITY}" ]; then
@@ -132,7 +146,22 @@ if ! hash bc >/dev/null; then
 fi
 #an issue pops up every now and again concerning xterm.
 #link lxterminal to xterm. see https://github.com/km4ack/pi-build/issues/34
+if ! hash chromium 2>/dev/null; then
+	sudo apt install -y chromium
+fi
+if ! hash curl 2>/dev/null; then
+	sudo apt install -y curl
+fi
+
+if ! hash pip 2>/dev/null; then
+	sudo apt install -y pip
+fi
+
 sudo ln -s /usr/bin/lxterminal /usr/bin/xterm
+sudo apt-get install build-essential -y
+
+sudo mkdir /var/log/cqLinux
+
 
 #####################################
 #	Check if run before
@@ -279,7 +308,7 @@ for the Hot Spot\r</b>NOTE: The last field is the password for the hotspot. You 
 connect to your Pi when it is in hotspot mode <b>This password can only contain letters and numbers</b>" \
 			--title="CQ-Linux" \
 			--field="Home Wifi SSID":CB "$LIST" \
-			--field="Home Wifi Password" \
+			--field="Home Wifi Password":H \
 			--field="Hot Spot Password" \
 			--button="Exit":1 \
 			--button="Continue":2 \
@@ -378,79 +407,51 @@ if [ ${BUT} = 3 ]; then
 fi
 
 #####################################
-#	Ham Apps
+#	digital modes
 #####################################
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=Description \
 	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<b>Ham Applications</b>" --title="CQ-Linux" \
-	false "CONKY" "System Information Display" \
+	--text="<b>Digital Mode Software</b>" --title="CQ-Linux" \
 	false "PI-APRS" "APRS Message Application" \
-	false "CHIRP" "Program Radios" \
-	false "GARIM" "File Transfer Program" \
 	false "PAT" "Radio Email Application" \
 	false "PAT-MENU" "Control for Pat Winlink" \
 	false "JS8CALL" "Weak Signal Digital Mode Software" \
 	false "M0IAX" "Tools for JS8Call Messages" \
 	false "WSJTX" "Weak Signal Digital Mode Software" \
-	false "PYQSO" "Logging Software" \
-	false "HAMRS" "Logging Software" \
-	false "CQRLOG" "Logging Software" \
-	false "REPEAT" "Repeater Directory" \
 	false "EES" "KM4ACK Emergency Email Server" \
 	false "QSSTV" "Slow Scan TV" \
 	false "GRIDTRACKER" "Track Grids in WSJTX" \
-	false "HAMCLOCK" "Clock for Ham Radio Ops" \
-	false "PROPAGATION" "Propagation Prediction Software" \
 	false "YAAC" "Yet Another APRS Client" \
 	false "XASTIR" "APRS Client" \
-	false "GPREDICT" "Satellite Tracking" \
-	false "TQSL" "LOTW Software" \
-	false "GRIDCALC" "Grid Calculation Software" \
 	false "QTEL" "ECHO Link Digital audio software" \
-	false "CLOUDLOG" "Web based Logging Software" \
-	false "DIGIPI" "DIGIPI integration" \
-	false "QDMR" "DMR radio programmer" \
 	--button="Exit":1 \
 	--button="Check All and Continue":3 \
-	--button="Next":2 >${ADDITIONAL}
+	--button="Next":2 >${DIGITAL}
 BUT=$?
 if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
 	exit
 fi
 
 if [ ${BUT} = 3 ]; then
-	ADDAPPS=(CONKY PI-APRS CHIRP GARIM PAT PAT-MENU JS8CALL M0IAX WSJTX PYQSO
-		HAMRS EES QSSTV GRIDTRACKER HAMCLOCK PROPAGATION YAAC XASTIR GPREDICT TQSL
-		GRIDCALC ECHOLINK CQRLOG QTEL CLOUDLOG DIGIPI QDMR REPEAT)
+	ADDAPPS=(PI-APRS PAT PAT-MENU JS8CALL M0IAX WSJTX EES QSSTV GRIDTRACKER YAAC XASTIR
+		QTEL)
 
 	for i in "${ADDAPPS[@]}"; do
-		echo "$i" >>${ADDITIONAL}
+		echo "$i" >>${DIGITAL}
 	done
 fi
  
-#check if hamclock is being installed
-HCCHECK=$(grep "HAMCLOCK" ${ADDITIONAL})
-if [ -n "$HCCHECK" ]; then
-
-	HC=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
-		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
-		--text="<b>version $VERSION</b>" \
-		--field="Ham Clock Size":CB "SMALL|LARGE" \
-		--button="Continue":2)
-	HC=$(echo $HC | awk -F "|" '{print $1}')
-	sed -i 's/HAMCLOCK//' ${ADDITIONAL}
-	echo $HC >>${ADDITIONAL}
-fi
 
 
-PATCHECK=$(grep "PAT" ${ADDITIONAL})
+
+PATCHECK=$(grep "PAT" ${DIGITAL})
 if [ -n "$PATCHECK" ]; then
 	INFO=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
 		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
 		--text="<b>version $VERSION</b>" \
 		--field="Six Character Grid Square" \
-		--field="Winlink Password" \
+		--field="Winlink Password":H \
 		--field="<b>Password is case sensitive</b>":LBL \
 		--button="Continue":2)
 	GRID=$(echo ${INFO} | awk -F "|" '{print $1}')
@@ -483,7 +484,7 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "XYGRIB" "Grib File Viewer" \
 	--button="Exit":1 \
 	--button="Check All and Continue":3 \
-	--button="Install Selected":2 >${UTILITY}
+	--button="Next":2 >${UTILITY}
 BUT=$?
 if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
 	exit
@@ -495,6 +496,166 @@ if [ ${BUT} = 3 ]; then
 		echo "$i" >>${UTILITY}
 	done
 fi
+
+#####################################
+#	DIGITAL TOOLS  new ham apps
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>Additional Ham Apps</b>" --title="CQ-Linux" \
+	false "CONKY" "System Information Display" \
+	false "CHIRP" "Program Radios" \
+	false "GARIM" "File Transfer Program" \
+	false "REPEAT" "Repeater Directory" \
+	false "HAMCLOCK" "Clock for Ham Radio Ops" \
+	false "PROPAGATION" "Propagation Prediction Software" \
+	false "GPREDICT" "Satellite Tracking" \
+	false "GRIDCALC" "Grid Calculation Software" \
+	false "DIGIPI" "DIGIPI integration" \
+	false "QDMR" "DMR radio programmer" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${ADDITIONAL}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	ADDITIONALAPPS=(CONKY CHIRP GARIM HAMCLOCK PROPAGATION GPREDICT
+		GRIDCALC DIGIPI QDMR REPEAT)
+	for i in "${ADDITIONALAPPS[@]}"; do
+		echo "$i" >>${ADDITIONAL}
+	done
+fi
+#check if hamclock is being installed
+HCCHECK=$(grep "HAMCLOCK" ${ADDITIONAL})
+if [ -n "$HCCHECK" ]; then
+
+	HC=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
+		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
+		--text="<b>version $VERSION</b>" \
+		--field="Ham Clock Size":CB "SMALL|LARGE" \
+		--button="Continue":2)
+	HC=$(echo $HC | awk -F "|" '{print $1}')
+	sed -i 's/HAMCLOCK//' ${ADDITIONAL}
+	echo $HC >>${ADDITIONAL}
+fi
+
+
+
+
+#####################################
+#	LOGGING TOOLS
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>Logging Software</b>" --title="CQ-Linux" \
+	false "PYQSO" "Logging Software" \
+	false "HAMRS" "Logging Software" \
+	false "CQRLOG" "Logging Software" \
+	false "TQSL" "LOTW Software" \
+	false "CLOUDLOG" "Web based Logging Software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${LOGGING}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	LOGGINGAPPS=(PYQSO HAMRS CQRLOG CLOUDLOG TQSL)
+	for i in "${LOGGINGAPPS[@]}"; do
+		echo "$i" >>${LOGGING}
+	done
+fi
+
+
+
+#####################################
+#	DESIGN TOOLS
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>Design Software</b>" --title="CQ-Linux" \
+	false "KICAD" "electronics design software" \
+	false "FREECAD" "3D CAD Design software" \
+	false "OPENSCAD" "command line 3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${DESIGN}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	DESIGNAPPS=(KICAD FREECAD OPENSCAD)
+	for i in "${DESIGNAPPS[@]}"; do
+		echo "$i" >>${DESIGN}
+	done
+fi
+
+#####################################
+#	SDR TOOLS
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>SDR Software</b>" --title="CQ-Linux" \
+	false "SDRTRUNK" "trunked radio monitoring" \
+	false "GQRS" "SDR radio reciving software" \
+	false "SDR-PLUS-PLUS" "Bloat free SDR program" \
+	false "KISMET" "RTL SDR software" \
+	false "SHINY-SDR" "sofwtare defined radio reciver" \
+	false "RTL-SDR" "electronics design software" \
+	false "CUBIC-SDR" "electronics design software" \
+	false "ESP-TOOL" "electronics design software" \
+	false "HACK-TV" "electronics design software" \
+	false "LIQUID-SOAP" "electronics design software" \
+	false "MIRAGE" "electronics design software" \
+	false "NMAP" "electronics design software" \
+	false "OSMO" "electronics design software" \
+	false "UBERTOOTH" "electronics design software" \
+	false "WIREGUARD" "electronics design software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Next":2 >${SDR}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	SDRAPPS=(SDR-TRUNK GQRS WIRESHARE SDR-PLUS-PLUS KISMET SHINY-SDR RTL_SDR ESP-TOOL HACK-TV LIQUID-SOAP MIRAGE NMAP OSMO UBERTOOTH WIREGUARD )
+	for i in "${SDRAPPS[@]}"; do
+		echo "$i" >>${SDR}
+	done
+fi
+
+#####################################
+#	TRAINING SOFTWARE
+#####################################
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=Description \
+	--print-column=2 --window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<b>Training Software</b>" --title="CQ-Linux" \
+	false "KICAD" "electronics design software" \
+	false "FREECAD" "3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Check All and Continue":3 \
+	--button="Install Selected":2 >${TRAINING}
+BUT=$?
+if [ ${BUT} = 252 ] || [ ${BUT} = 1 ]; then
+	exit
+fi
+if [ ${BUT} = 3 ]; then
+	TRAININGPPS=(KICAD FREECAD )
+	for i in "${TRAININGAAPS[@]}"; do
+		echo "$i" >>${TRAINING}
+	done
+fi
+
 
 #backup crontab
 crontab -l >$TEMPCRON
@@ -555,9 +716,9 @@ chmod +x ${MYPATH}/update ${MYPATH}/build-a-pi
 cd ${MYPATH} || ! echo "Failure"
 cat >build-a-pi.desktop <<EOF
 [Desktop Entry]
-Name=Build-a-Pi
-GenericName=KM4ACK Build-a-Pi
-Comment=Build-a-Pi App Manager
+Name=CQ-linux
+GenericName=CQ-Linux
+Comment=CQ-Linux App Manager
 Exec=${MYPATH}/update
 Icon=${MYPATH}/logo.png
 Terminal=true
@@ -624,6 +785,47 @@ while read i; do
 	$i
 done <${ADDITIONAL}
 
+
+#####################################
+#	Install DIGITAL TOOLS
+#####################################
+source ${FUNCTIONS}/digital.function
+while read i; do
+	$i
+done <${DIGITAL}
+
+#####################################
+#	Install LOGGING TOOLS
+#####################################
+source ${FUNCTIONS}/logging.function
+while read i; do
+	$i
+done <${LOGGING}
+
+#####################################
+#	Install DESIGN TOOLS
+#####################################
+source ${FUNCTIONS}/design.function
+while read i; do
+	$i
+done <${DESIGN}
+
+#####################################
+#	Install SDR APPS
+#####################################
+source ${FUNCTIONS}/sdr.function
+while read i; do
+	$i
+done <${SDR}
+
+#####################################
+#	Install LEARNING APPS
+#####################################
+source ${FUNCTIONS}/training.function
+while read i; do
+	$i
+done <${TRAINING}
+
 #####################################
 #	Install KM4ACK Utilites
 #####################################
@@ -643,7 +845,7 @@ xdg-settings set default-web-browser chromium.desktop
 #	END CLEANUP
 #####################################
 #Remove temp files
-rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} >/dev/null 2>&1
+rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} ${DIGITAL} ${LOGGING} >/dev/null 2>&1
 rm -rf ${DIR} >/dev/null 2>&1
 sudo apt -y autoremove > /dev/null 2>&1
 

@@ -4,9 +4,9 @@
 #                                                                #
 #	#   #	#       #     #      #        #####  #   #       #
 #	#  #	# #   # #    ##     # #      #       #  #        #
-#	# #	#   #   #   # #    #   #    #        # #         #
-#	##	#       #  #####  #######  #         ##          #
-#	# #	#       #     #   #     #   #        # #         #
+#	# #	    #   #   #   # #    #   #    #        # #         #
+#	##	    #       #  #####  #######  #         ##          #
+#	# #	    #       #     #   #     #   #        # #         #
 #	#  #	#       #     #   #     #    #       #  #        #
 #	#   #	#       #     #   #     #     #####  #   #       #
 #                                                                #
@@ -18,6 +18,11 @@ FUNCTIONS=${MYPATH}/functions
 ADDITIONAL=${MYPATH}/additional.txt
 UTILITY=${MYPATH}/utility.txt
 FLSUITE=${MYPATH}/flsuite.txt
+DIGITAL=${MYPATH}/digital.txt
+LOGGING=${MYPATH}/logging.txt
+DESIGN=${MYPATH}/design.txt
+SDR=${MYPATH}/sdr.txt
+TRAINING=${MYPATH}/training.txt
 CONFIG=${MYPATH}/config
 LOGO=${MYPATH}/logo.png
 TEMPCRON=${MYPATH}/cron.tmp
@@ -40,6 +45,26 @@ FINISH() {
 
 	if [ -f "${UTILITY}" ]; then
 		rm ${UTILITY}
+	fi
+
+	if [ -f "${DIGITAL}" ]; then
+		rm ${DIGITAL}
+	fi
+
+	if [ -f "${LOGGING}" ]; then
+		rm ${LOGGING}
+	fi
+			
+	if [ -f "${DESIGN}" ]; then
+		rm ${DESIGN}
+	fi
+	
+	if [ -f "${SDR}" ]; then
+		rm ${SDR}
+	fi
+	
+	if [ -f "${TRAINING}" ]; then
+		rm ${TRAINING}
 	fi
 }
 
@@ -341,7 +366,7 @@ for the Hot Spot\r</b>NOTE: The last field is the password for the hotspot. You 
 connect to your Pi when it is in hotspot mode <b>This password can only contain letters and numbers</b>" \
 			--title="CQ-Linux" \
 			--field="Home Wifi SSID":CB "${LIST}" \
-			--field="Home Wifi Password" \
+			--field="Home Wifi Password":H \
 			--field="Hot Spot Password" \
 			--button="Exit":1 \
 			--button="Continue":2 \
@@ -437,69 +462,39 @@ if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
 	exit
 fi
 #----------------------------------------------------#
-#		HAM APP MENU
+#		DIGITAL MODES MENU
 #----------------------------------------------------#
 source $UPDATEFILE
 yad --center --list --checklist --width=600 --height=600 --separator="" \
 	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
 	--window-icon=${LOGO} --image-on-top --text-align=center \
-	--text="<big><big><b>HAM Apps</b></big></big>" --title="Update" \
+	--text="<big><big><b>Digital Mode Software</b></big></big>" --title="Update" \
 	false "PAT" "$PAT" "Radio Email Application" \
 	false "PAT-MENU" "$PATMENU" "Control for Pat Winlink" \
-	false "CHIRP" "$CHIRP" "Program Radios" \
-	false "GARIM" "$GARIM" "File Transfer Program " \
 	false "M0IAX" "$M0IAX" "Tools for JS8Call messages" \
-	false "CONKY" "$CONKY" "System Information Display" \
 	false "WSJTX" "$FT8" "Weak signal digital mode software" \
 	false "JS8CALL" "$JS8" "Weak signal digital mode software" \
-	false "REPEAT" "$REPEAT" "Repeater Directory" \
 	false "XASTIR" "$XASTIR" "APRS Client" \
 	false "YAAC" "$YAAC" "Yet Another APRS Client" \
 	false "PI-APRS" "$PIAPRS" "APRS Messaging Client" \
-	false "PYQSO" "$PYQSO" "Logging Software" \
-	false "HAMRS" "$HAMRS" "Logging Software" \
-	false "CQRLOG" "$CQRLOG" "Logging Software" \
 	false "QSSTV" "$QSSTV" "Slow scan TV" \
 	false "GRIDTRACKER" "$GRIDTRACK" "Track grids in WSJTX" \
-	false "HAMCLOCK" "$HAMCLOCK" "Clock for Ham Radio Ops" \
-	false "PROPAGATION" "$PROP" "Propagation prediction" \
 	false "EES" "$EES" "KM4ACK Emergency Email Server" \
-	false "GPREDICT" "$GPREDICT" "Satellite Tracking" \
-	false "TQSL" "$TQSL" "LOTW Software" \
-	false "GRIDCALC" "$GRIDCALC" "Grid Calculation Software" \
 	false "QTEL" "$QTEL" "ECHO Link Digital audio software " \
-	false "CLOUDLOG" "$CLOUDLOG" "web based Logging Software" \
-	false "DIGIPI" "$DIGIPI" "DIGIPI integration" \
-	false "QDMR" "$QDMR" "DMR radio programmer" \
 	--button="Exit":1 \
-	--button="Next":2 >${ADDITIONAL}
+	--button="Next":2 >${DIGITAL}
 BUT=$?
 if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
 	exit
 fi
 
-#check if hamclock is being installed
-HCCHECK=$(cat ${ADDITIONAL} | grep HAMCLOCK)
-if [ -n "$HCCHECK" ]; then
-
-	HC=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
-		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
-		--text="<b>version $VERSION</b>" \
-		--field="Ham Clock Size":CB "SMALL|LARGE" \
-		--button="Continue":2)
-	HC=$(echo $HC | awk -F "|" '{print $1}')
-	sed -i 's/HAMCLOCK//' ${ADDITIONAL}
-	echo $HC >>${ADDITIONAL}
-fi
-
-
-PATCHECK=$(cat ${ADDITIONAL} | grep PAT)
+PATCHECK=$(cat ${DIGITAL} | grep PAT)
 if [ -n "$PATCHECK" ]; then
 	INFO=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
 		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
 		--text="<b>version $VERSION</b>" \
 		--field="Six Character Grid Square" "$GRID" \
-		--field="Winlink Password" \
+		--field="Winlink Password":H \
 		--field="<b>Password is case sensitive</b>":LBL \
 		--button="Continue":2)
 	GRID=$(echo $INFO | awk -F "|" '{print $1}')
@@ -533,19 +528,151 @@ yad --center --list --checklist --width=600 --height=600 --separator="" \
 	false "BATT" "$BATT" "Battery Test Script" \
 	false "XYGRIB" "$XYGRIB" "Grib file viewer" \
 	--button="Exit":1 \
-	--button="Install/Update Selected":2 >${UTILITY}
+	--button="Next":2 >${UTILITY}
 BUT=$?
 if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
 	exit
 fi
+
+#----------------------------------------------------#
+#		HAM APPS MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>Additional Ham Apps</b></big></big>" --title="Update" \
+	false "CONKY" "$CONKY" "System Information Display" \
+	false "CHIRP" "$CHIRP" "Program Radios" \
+	false "GARIM" "$GARIM" "File Transfer Program " \
+	false "REPEAT" "$REPEAT" "Repeater Directory" \
+	false "HAMCLOCK" "$HAMCLOCK" "Clock for Ham Radio Ops" \
+	false "PROPAGATION" "$PROP" "Propagation prediction" \
+	false "GPREDICT" "$GPREDICT" "Satellite Tracking" \
+	false "GRIDCALC" "$GRIDCALC" "Grid Calculation Software" \
+	false "DIGIPI" "$DIGIPI" "DIGIPI integration" \
+	false "QDMR" "$QDMR" "DMR radio programmer" \
+	--button="Exit":1 \
+	--button="Next":2 >${ADDITIONAL}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+#check if hamclock is being installed
+HCCHECK=$(cat ${ADDITIONAL} | grep HAMCLOCK)
+if [ -n "$HCCHECK" ]; then
+
+	HC=$(yad --form --width=420 --text-align=center --center --title="CQ-Linux" \
+		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
+		--text="<b>version $VERSION</b>" \
+		--field="Ham Clock Size":CB "SMALL|LARGE" \
+		--button="Continue":2)
+	HC=$(echo $HC | awk -F "|" '{print $1}')
+	sed -i 's/HAMCLOCK//' ${ADDITIONAL}
+	echo $HC >>${ADDITIONAL}
+fi
+
+
+#----------------------------------------------------#
+#		LOGGING SOFTWARE MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>Logging Software</b></big></big>" --title="Update" \
+	false "PYQSO" "$PYQSO" "Logging Software" \
+	false "HAMRS" "$HAMRS" "Logging Software" \
+	false "CQRLOG" "$CQRLOG" "Logging Software" \
+	false "TQSL" "$TQSL" "LOTW Software" \
+	false "CLOUDLOG" "$CLOUDLOG" "web based Logging Software" \
+	--button="Exit":1 \
+	--button="Next":2 >${LOGGING}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+
+#----------------------------------------------------#
+#		DESIGN TOOLS MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>DESIGN SOFTWARE</b></big></big>" --title="Update" \
+	false "KICAD" "$KICAD" "electronics design software" \
+	false "FREECAD" "$FREECAD" "3D CAD Design software" \
+	false "OPENSCAD" "$OPENSCAD" "command line 3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Next":2 >${DESIGN}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+#----------------------------------------------------#
+#		SDR TOOLS MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>SDR</b></big></big>" --title="Update" \
+	false "SDRTRUNK" "$SDRTRUNK" "trunked radio monitoring" \
+	false "GQRS" "$GQRS" "electronics design software" \
+	false "SDR-PLUS-PLUS" "$SDRPLUSPLUS" "electronics design software" \
+	false "KISMET" "$KISMET" "electronics design software" \
+	false "SHINY-SDR" "$SHINYSDR" "electronics design software" \
+	false "RTL-SDR" "$RTLSDR" "electronics design software" \
+	false "CUBIC-SDR" "$CUBICSDR" "electronics design software" \
+	false "ESP-TOOL" "$ESPTOOL"  "electronics design software" \
+	false "HACK-TV" "$HACKTV"  "electronics design software" \
+	false "LIQUID-SOAP" "$LIQUIDSOAP" "electronics design software" \
+	false "MIRAGE" "$MIRAGE" "electronics design software" \
+	false "NMAP" "$NMAP" "electronics design software" \
+	false "OSMO" "$OSMO" "electronics design software" \
+	false "UBERTOOTH" "$UBERTOOTH" "electronics design software" \
+	false "WIREGUARD" "$WIREGUARD"  "electronics design software" \
+	--button="Exit":1 \
+	--button="Next":2 >${SDR}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
+#----------------------------------------------------#
+#		TRAINING SOFTWARE MENU
+#----------------------------------------------------#
+source $UPDATEFILE
+yad --center --list --checklist --width=600 --height=600 --separator="" \
+	--image ${LOGO} --column=Check --column=App --column=status --column=description --print-column=2 \
+	--window-icon=${LOGO} --image-on-top --text-align=center \
+	--text="<big><big><b>TRAINING</b></big></big>" --title="Update" \
+	false "KICAD" "$KICAD" "electronics design software" \
+	false "FREECAD" "$FREECAD" "3D CAD Design software" \
+	--button="Exit":1 \
+	--button="Install/Update Selected":2 >${TRAINING}
+BUT=$?
+if [ ${BUT} = 1 ] || [ ${BUT} = 252 ]; then
+	exit
+fi
+
 
 #check and exit if nothing selected
 CKBASE=$(cat ${BASE})
 CKFL=$(cat ${FLSUITE})
 CKADD=$(cat ${ADDITIONAL})
 CKUTIL=$(cat ${UTILITY})
-if [ -z "$CKBASE" ] && [ -z "$CKFL" ] && [ -z "$CKADD" ] && [ -z "$CKUTIL" ]; then
-	rm ${BASE} ${FLSUITE} ${ADDITIONAL} ${UTILITY} >/dev/null 2>&1
+CKDESIGN=$(cat ${DESIGN})
+CKSDR=$(cat ${SDR})
+CKTRAINING=$(cat ${TRAINING})
+
+
+if [ -z "$CKBASE" ] && [ -z "$CKFL" ] && [ -z "$CKADD" ] && [ -z "$CKUTIL" ] && [ z- "$CKDESIGN" ] && [ z- "$SDR" ] && [ z- "$TRAINING"]; then
+	rm ${BASE} ${FLSUITE} ${ADDITIONAL} ${UTILITY} ${DESIGN} ${SDR} ${TRAINING} >/dev/null 2>&1
 	yad --width=550 --height=250 --text-align=center --center --title="Update" \
 		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
 		--text="\r\r\r\r<b>Nothing selected for install/update</b>" \
@@ -624,6 +751,48 @@ while read i; do
 	$i
 done <${ADDITIONAL}
 
+
+#####################################
+#	Install DIGITAL MODES Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/digital.function
+	$i
+done <${DIGITAL}
+
+
+#####################################
+#	Install LOGGING SOFTWARE Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/logging.function
+	$i
+done <${LOGGING}
+
+#####################################
+#	Install DESIGN Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/design.function
+	$i
+done <${DESIGN}
+
+#####################################
+#	Install SDR Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/sdr.function
+	$i
+done <${SDR}
+
+#####################################
+#	Install TRAINING Apps
+#####################################
+while read i; do
+	source ${FUNCTIONS}/training.function
+	$i
+done <${TRAINING}
+
 #####################################
 #	Install KM4ACK Utilites
 #####################################
@@ -640,7 +809,7 @@ bash ${HOME}/pi-build/menu-update
 #	END CLEANUP
 #####################################
 #Remove temp files
-rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} >/dev/null 2>&1
+rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} ${LOGGING} ${DIGITAL} ${SDR} ${TRAINING} ${DESIGN} >/dev/null 2>&1
 
 #remove libham (rigctl) installed from apt
 #since it conflicts with hamlib installed from source

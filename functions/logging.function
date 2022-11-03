@@ -1,0 +1,181 @@
+#logging software to install with build-a-pi
+#20221020 km4ack
+
+TEMPCRON=${MYPATH}/cron.tmp
+DIR=${MYPATH}/temp
+WHO=$(whoami)
+mkdir -p ${DIR}
+BUILDDIR=$HOME/.bap-source-files
+mkdir -p ${BUILDDIR}
+
+source ${MYPATH}/config
+
+
+##################################
+#	PYQSO
+##################################
+PYQSO() {
+	sudo apt-get install -y pyqso
+
+}
+
+##################################
+#	CQRLOG
+##################################
+CQRLOG() {
+
+sudo apt-get install -y lcl-2.0 lazarus-2.0 fp-compiler-3.2.0 fpc-3.2.0 libssl-dev git build-essential \
+		libmariadb-dev-compat lazarus-ide lcl lcl-gtk2 lcl-nogui lcl-units lcl-utils lazarus lazarus-doc lazarus-src \
+		fp-units-misc fp-units-rtl fp-utils fpc fpc-source libssl-dev default-mysql-client-core default-mysql-server \
+		default-mysql-server-core gawk libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdbd-mysql-perl \
+		libdbi-perl libencode-locale-perl libfcgi-perl libhtml-parser-perl libhtml-tagset-perl \
+		libhtml-template-perl libhttp-date-perl libhttp-message-perl libio-html-perl liblwp-mediatypes-perl \
+		libmariadb-dev-compat libnetpbm10 readline-common libterm-readkey-perl libtimedate-perl liburi-perl \
+
+cd $HOME
+git clone https://github.com/ok2cqr/cqrlog.git
+cd $HOME/cqrlog
+make
+sudo make install
+}
+
+##################################
+#	TQSL
+##################################
+TQSL() {
+	sudo apt install -y cmake g++ libexpat1-dev libssl-dev libdb++-dev libcurl4-openssl-dev libwxgtk3.0-gtk3-dev
+	cd ${BUILDDIR} || return
+	CUR=$(curl -s http://www.arrl.org/tqsl-download | grep "for Linux" | sed 's/.*TQSL //' | awk '{print $1}')
+	wget http://www.arrl.org/tqsl/tqsl-${CUR}.tar.gz
+	tar -xzvf tqsl-${CUR}.tar.gz
+	rm "tqsl-${CUR}.tar.gz"
+	cd tqsl-${CUR} || return
+	cmake .
+	make
+	sudo make install
+	sudo make clean
+	sudo cp ${BUILDDIR}/tqsl-${CUR}/apps/tqsl.desktop /usr/share/applications/
+
+}
+
+##################################
+#	XLOG
+##################################
+#xlog removed due to xlog bug. - https://github.com/km4ack/pi-build/issues/215
+#This code left so BAP can support it again once the bug is resolved.
+XLOG() {
+	#verify hamlib installed
+	if ! hash rigctld 2>/dev/null; then
+		cat <<EOF >${HOME}/Desktop/XLOG.txt
+Xlog could not be installed because hamlib
+wasn't found on the system. Use the build
+a pi script to install hamlib and then try
+installing xlog again.
+EOF
+	else
+
+		TARXLOG=$(curl -s https://download.savannah.nongnu.org/releases/xlog/ |
+			grep 2.[0-9].[0-9][0-9].tar | sort | tail -1 | sed 's/.*xlog/xlog/' | sed 's/.sig.*$//')
+
+		DIRXLOG=$(echo ${TARXLOG} | sed 's/.tar.gz//')
+
+		cd ${HOME} || return
+
+		sudo apt-get install -y libgtkgl2.0-dev libusb-1.0-0-dev
+		wget https://download.savannah.nongnu.org/releases/xlog/${TARXLOG}
+		tar -xzvf ${TARXLOG}
+		rm ${TARXLOG}
+		cd ${DIR}XLOG || return
+		./configure
+		make
+		sudo make install
+		cd ${HOME} || return
+		rm -rf "${DIR}XLOG"
+	fi
+}
+
+##################################
+#	HAMRS
+##################################
+HAMRS() {
+#move any existing hamrs files that might get in the way - https://github.com/km4ack/pi-build/issues/288
+HAMRSCHECK=$(ls ~/Downloads/ | grep hamrs-)
+if [ -n $HAMRSCHECK ]; then
+echo "moving old hamrs file(s)"
+mkdir -p $HOME/Downloads/old-hamrs
+mv $HOME/Downloads/hamrs* $HOME/Downloads/old-hamrs
+fi
+
+cd ${HOME}/Downloads
+#DL=$(curl https://www.hamrs.app | grep x86_64 | sed 's/.*href="//;s/".*//')
+#wget ${DL}
+wget https://hamrs-releases.s3.us-east-2.amazonaws.com/1.0.6/hamrs-1.0.6-linux-i386.AppImage
+HAMRS=$(ls | grep hamrs-)
+mv ${HAMRS} hamrs
+chmod +x hamrs
+sudo mv hamrs /usr/local/bin/
+#following four lines added to resolve issue #345
+sudo apt install -y fuse
+sudo modprobe fuse
+sudo groupadd fuse
+sudo usermod -a -G fuse pi
+
+
+#as of Feb 2022 there is no 64 bit version of HAMRS. The following will allow it to run
+if [ `getconf LONG_BIT` = '64' ]; then
+# sudo dpkg --add-architecture armhf 
+sudo apt-get update
+sudo apt install -y libasound2 zlib1g-dev fuse libglib2.0-0 libnss3 libatk1.0-0 \
+libatk-bridge2.0-0 libx11-xcb1 libgdk-pixbuf-2.0-0 libgtk-3-0 libdrm2 libgbm1
+fi
+
+	#create menu item and download icon	
+	cat >${HOME}/Downloads/hamrs.desktop <<EOF
+	[Desktop Entry]
+	Name=HAMRS
+	Comment=POTA Logging Software
+	Exec=/usr/local/bin/hamrs --no-sandbox
+	Icon=/usr/share/pixmaps/hamrs-logo.png
+	Terminal=false
+	Type=Application
+	Categories=HamRadio
+EOF
+	sudo mv ${HOME}/Downloads/hamrs.desktop /usr/share/applications/
+	cd $HOME/Downloads
+	wget https://github.com/km4ack/pi-scripts/raw/master/hamrs-logo.png
+	sudo mv $HOME/Downloads/hamrs-logo.png /usr/share/pixmaps/hamrs-logo.png
+	
+	
+}
+
+
+
+##################################
+#	Cloud Log install W1BAW
+##################################
+CLOUDLOG() {
+	#https://github.com/magicbug/Cloudlog/wiki/Installation
+	echo "##################"
+	echo "installing Cloud log"
+	echo "##################"
+	sudo apt-get install -y apache2 mysql-common mariadb-common
+	sudo apt-get install -y php7.4 php7.4-curl php7.4-mysql php7.4-mbstring php7.4-xml
+	cd ${DIR} || return
+	git clone https://github.com/magicbug/Cloudlog.git
+	mkdir -p /var/www/html
+	sudo mv Cloudlog/ /var/www/html/
+	sudo chown -R root:www-data /var/www/html/Cloudlog/application/config/
+	sudo chown -R root:www-data /var/www/html/Cloudlog/assets/qslcard/
+	sudo chown -R root:www-data /var/www/html/Cloudlog/backup/
+	sudo chown -R root:www-data /var/www/html/Cloudlog/updates/
+	sudo chown -R root:www-data /var/www/html/Cloudlog/uploads/
+	sudo chown -R root:www-data /var/www/html/Cloudlog/images/eqsl_card_images/
+	sudo chmod -R g+rw /var/www/html/Cloudlog/application/config/
+	sudo chmod -R g+rw /var/www/html/Cloudlog/assets/qslcard/
+	sudo chmod -R g+rw /var/www/html/Cloudlog/backup/
+	sudo chmod -R g+rw /var/www/html/Cloudlog/updates/
+	sudo chmod -R g+rw /var/www/html/Cloudlog/uploads/
+	sudo chmod -R g+rw /var/www/html/Cloudlog/images/eqsl_card_images/
+	
+}
+

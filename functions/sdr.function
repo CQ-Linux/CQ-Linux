@@ -1,0 +1,115 @@
+BUILDDIR=$HOME/.bap-source-files
+mkdir -p ${BUILDDIR}
+
+##################################
+#	SDRTRUNK broken
+##################################
+SDRTRUNK() {
+   sudo apt-get install sdrtrunk -y
+
+}
+
+##################################
+#	GQRX SDR
+##################################
+GQRS() {
+    sudo apt-get install gqrx-sdr -y
+}
+
+
+##################################
+#	SDRPLUSPLUS
+##################################
+SDR-PLUS-PLUS() {
+    sudo apt-get install sdr++ -y
+}
+
+##################################
+#	KISMET broken
+##################################
+KISMET() {
+    sudo apt-get install kismet -y
+}
+
+##################################
+#	SHINYSDR broken
+##################################
+SHINY-SDR() {
+    sudo apt-get install shinysdr -y
+}
+
+##################################
+#	RTL-SDR
+##################################
+RTL-SDR() {
+    sudo apt-get install rtl-sdr -y
+}
+
+##################################
+#	CUBICSDR
+##################################
+CUBIC-SDR() {
+    sudo apt-get install cubicsdr -y
+}
+
+##################################
+#	ESPTOOL
+##################################
+ESP-TOOL() {
+    sudo apt-get install esptool -y
+}
+
+##################################
+#	HACKTV
+##################################
+hacktv() {
+    sudo apt-get install hacktv -y
+}
+
+##################################
+#	LIQUIDSOAP
+##################################
+LIQUID-SOAP() {
+    sudo apt-get install liquidsoap -y
+}
+
+##################################
+#	MIRAGE
+##################################
+MIRAGE() {
+    sudo apt-get install mirage -y
+}
+
+
+##################################
+#	NMAP
+##################################
+NMAP() {
+    sudo apt-get install nmamp -y
+}
+
+##################################
+#	OSMO
+##################################
+OSMO() {
+    sudo apt-get install osmo -y
+}
+
+##################################
+#	UBERTOOTH
+##################################
+UBERTOOTH() {
+    sudo apt-get install ubertooth -y
+}
+
+##################################
+#	WIREGUARD
+##################################
+wireguard() {
+    sudo apt-get install wireguard -y
+}
+
+
+
+
+

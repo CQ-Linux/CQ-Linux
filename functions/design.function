@@ -1,0 +1,42 @@
+BUILDDIR=$HOME/.bap-source-files
+mkdir -p ${BUILDDIR}
+
+##################################
+#	KICAD
+##################################
+KICAD() {
+   sudo apt-get install kicad -y 
+
+}
+##################################
+#	uConf
+##################################
+UCONF() {
+   ##https://github.com/Robotips/uConfig
+   sudo apt install qt5-default qttools5-dev-tools -y
+   sudo apt install libpoppler-qt5-dev -y
+   https://github.com/Robotips/uConfig.git
+   cd uConfig
+   mkdir build
+   cd build
+   qmake ../src/uConfig.pro
+   make -j4
+
+}
+
+
+
+
+##################################
+#	FREECAD
+##################################
+FREECAD() {
+    sudo apt-get install freecad -y
+}
+
+##################################
+#	OPENSCAD
+##################################
+OPENSCAD() {
+    sudo apt-get install openscad -y
+}

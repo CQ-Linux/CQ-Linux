@@ -9,11 +9,16 @@
 #km4ack - km4ack subcategory
 
 
-REV=20220829
+REV=20221019
 
 source $HOME/.config/KM4ACK
 
 sudo mkdir -p /usr/local/share/applications
+
+sudo mkdir -p /usr/share/icons/cqlinux
+
+sudo cp ~/pi-build/images/icons/*.* /usr/share/icons/cqlinux/
+
 
 
 FLSUITE(){
@@ -95,6 +100,570 @@ fi
 
 
 }
+NEWMENUCLEANUP(){
+##########################
+#   NEW MENU CLEANUP
+##########################
+echo "updating other menu shortcuts"
+
+
+# ARDOPGUI
+if [ -f /usr/share/applications/ardopgui.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/ardopgui.desktop
+echo "moving ARDOPGUI"
+fi
+
+# BATTERY-TEST
+if [ -f /usr/share/applications/battery-test.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/battery-test.desktop
+echo "moving battery-test"
+fi
+
+# BITMAP TO COMPONENT CONVERTER
+if [ -f /usr/share/applications/bitmap2component.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/bitmap2component.desktop
+echo "moving bitmap2component"
+fi
+
+# BPQ-CONFIG
+if [ -f /usr/share/applications/bpq-config.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/bpq-config.desktop
+echo "moving bpq-config"
+fi
+
+# CHIRP
+if [ -f /usr/share/applications/chirp.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/chirp.desktop
+echo "moving chirp"
+fi
+
+# CONKY
+if [ -f /usr/share/applications/conky.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/conky.desktop
+echo "moving CONKY"
+fi
+
+# CONVERTTEMP
+if [ -f /usr/share/applications/converttemp.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/converttemp.desktop
+echo "moving converttemp"
+fi
+
+# CQRLOG
+if [ -f /usr/share/applications/cqrlog.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/cqrlog.desktop
+echo "moving cqrlog"
+fi
+
+# CUTESDR
+if [ -f /usr/share/applications/cutesdr.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/cutesdr.desktop
+echo "moving cutesdr"
+fi
+
+# DIPOLE
+if [ -f /usr/share/applications/dipole.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/dipole.desktop
+echo "moving dipole"
+fi
+
+# DIREWOLF
+if [ -f /usr/local/share/applications/direwolf.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/local/share/applications/direwolf.desktop
+echo "moving direwolf"
+fi
+
+# EESCHEMA
+if [ -f /usr/share/applications/eeschema.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/eeschema.desktop
+echo "moving eeschema"
+fi
+
+# FLUID
+if [ -f /usr/share/applications/fluid.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Development/' /usr/share/applications/fluid.desktop
+echo "moving fluid"
+fi
+
+# FREECAD
+if [ -f /usr/share/applications/freecad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools/' /usr/share/applications/freecad.desktop
+echo "moving freecad"
+fi
+
+# GARIM
+if [ -f /usr/local/share/applications/garim.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/local/share/applications/garim.desktop
+echo "moving garim"
+fi
+
+# GERBVIEW
+if [ -f /usr/share/applications/gerbview.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/gerbview.desktop
+echo "moving gerbview"
+fi
+
+# GETCALL
+if [ -f /usr/share/applications/getcall.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/getcall.desktop
+echo "moving getcall"
+fi
+
+# GHOSTWRITER
+if [ -f /usr/share/applications/ghostwriter.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Qt;Office;WordProcessor/' /usr/share/applications/ghostwriter.desktop
+echo "moving GHOSTWRITER"
+fi
+
+# GNURADIO_GRC
+if [ -f /usr/share/applications/gnuradio-grc.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/gnuradio-grc.desktop
+echo "moving gnuradio-grc"
+fi
+
+# GPARTED
+if [ -f /usr/share/applications/gparted.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=System/' /usr/share/applications/gparted.desktop
+echo "moving gparted"
+fi
+
+# GPREDICT
+if [ -f /usr/share/applications/gpredict.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/gpredict.desktop
+echo "moving gpredict"
+fi
+
+# GPSUPDATE
+if [ -f /usr/share/applications/gpsupdate.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/gpsupdate.desktop
+echo "moving gpsupdate"
+fi
+
+# GQPX
+if [ -f /usr/share/applications/gqrx.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/gqrx.desktop
+echo "moving gqpx"
+fi
+
+# GRID-CALC
+if [ -f /usr/share/applications/grid-calc.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/grid-calc.desktop
+echo "moving grid-calc"
+fi
+
+# GRIDTRACKER
+if [ -f /usr/share/applications/gridtracker.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/gridtracker.desktop
+echo "moving gridtracker"
+fi
+
+# GV
+if [ -f /usr/share/applications/gv.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Viewer;Graphics;/' /usr/share/applications/gv.desktop
+echo "moving gv"
+fi
+
+# HAMCLOCK
+if [ -f /usr/share/applications/hamclock.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/hamclock.desktop
+echo "moving hamclock"
+fi
+
+# HAMRS
+if [ -f /usr/share/applications/hamrs.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/hamrs.desktop
+echo "moving hamrs"
+fi
+
+# HOTSPOT-TOOLS
+if [ -f /usr/share/applications/hotspot-tools.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/hotspot-tools.desktop
+echo "moving hoptspot-tools"
+fi
+
+# JS8CALL
+if [ -f /usr/share/applications/js8call.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/js8call.desktop
+echo "moving js8call"
+fi
+
+# KICAD
+if [ -f /usr/share/applications/kicad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/kicad.desktop
+echo "moving kicad"
+fi
+
+# LAZARUS
+if [ -f /usr/share/applications/lazarus-2.0.10.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=IDE;Development;GTK;GUIDesigner;/' /usr/share/applications/lazarus-2.0.10.desktop
+echo "moving lazarus"
+fi
+
+# LIME-SUITE
+if [ -f /usr/share/applications/lime-suite.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/lime-suite.desktop
+echo "moving lime-suite"
+fi
+
+# LINQUIST-QT5
+if [ -f /usr/share/applications/linguist-qt5.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Qt;Development;Translation;/' /usr/share/applications/linguist-qt5.desktop
+echo "moving linquist-qt5"
+fi
+
+# LSTOPO
+if [ -f /usr/share/applications/lstopo.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=System/' /usr/share/applications/lstopo.desktop
+echo "moving lstopo"
+fi
+
+# LXINPUT
+if [ -f /usr/share/applications/lxinput.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=GTK;Settings;HardwareSettings;X-LXDE-Settings;/' /usr/share/applications/lxinput.desktop
+echo "moving lxinput"
+fi
+
+# LXRANDR
+if [ -f /usr/share/applications/lxrandr.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=GTK;Settings;HardwareSettings;X-LXDE-Settings;/' /usr/share/applications/lxrandr.desktop
+echo "moving lxrandr"
+fi
+
+# LXSESSION-DEFAULT-APPS
+if [ -f /usr/share/applications/lxsession-default-apps.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;/' /usr/share/applications/lxsession-default-apps.desktop
+echo "moving lxsession-default-apps"
+fi
+
+# LXTASK
+if [ -f /usr/share/applications/lxtask.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=GTK;System;Monitor;/' /usr/share/applications/lxtask.desktop
+echo "moving lxtask"
+fi
+
+# LXTERMINAL
+if [ -f /usr/share/applications/lxterminal.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=GTK;System;TerminalEmulator;/' /usr/share/applications/lxterminal.desktop
+echo "moving lxterminal"
+fi
+
+# M0IAX
+if [ -f /usr/share/applications/m0iax.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/m0iax.desktop
+echo "moving moiax"
+fi
+
+# MUMBLE
+if [ -f /usr/share/applications/mumble.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Network;Chat;Qt;/' /usr/share/applications/mumble.desktop
+echo "moving mumble"
+fi
+
+# OBCONF
+if [ -f /usr/share/applications/obconf.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;GTK;/' /usr/share/applications/obconf.desktop
+echo "moving obconf"
+fi
+
+# ORG.GNOME.SCREENSHOT
+if [ -f /usr/share/applications/org.gnome.Screenshot.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=GTK;GNOME;Utility;X-GNOME-Utilities;/' /usr/share/applications/org.gnome.Screenshot.desktop
+echo "moving org.gnome.screenshot"
+fi
+
+# PACKETSEARCH
+if [ -f /usr/share/applications/packetsearch.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/packetsearch.desktop
+echo "moving packetsearch"
+fi
+
+# PATMENU
+if [ -f /usr/share/applications/patmenu.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/patmenu.desktop
+echo "moving patmenu"
+fi
+
+# PAVUCONTROL
+if [ -f /usr/share/applications/pavucontrol.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=AudioVideo;Audio;Mixer;GTK;/' /usr/share/applications/pavucontrol.desktop
+echo "moving pavucontrol"
+fi
+
+# PCBCALCULATOR
+if [ -f /usr/share/applications/pcbcalculator.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/pcbcalculator.desktop
+echo "moving pcbcalculator"
+fi
+
+# PCBNEW
+if [ -f /usr/share/applications/pcbnew.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=electronics/' /usr/share/applications/pcbnew.desktop
+echo "moving pcbnew"
+fi
+
+# PCMANFM
+if [ -f /usr/share/applications/pcmanfm.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=System;FileTools;FileManager;Utility;Core;GTK;/' /usr/share/applications/pcmanfm.desktop
+echo "moving pcmanfm"
+fi
+
+# PCMANFM-DESKTOP-PREF
+if [ -f /usr/share/applications/pcmanfm-desktop-pref.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Settings;GTK;DesktopSettings;X-LXDE-Settings;/' /usr/share/applications/pcmanfm-desktop-pref.desktop
+echo "moving pcmanfm-desktop-pref"
+fi
+
+# PIAPRS
+if [ -f /usr/share/applications/piaprs.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/piaprs.desktop
+echo "moving piaprs"
+fi
+
+# PIPANEL
+if [ -f /usr/share/applications/pipanel.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;GTK;X-LXDE-Settings;/' /usr/share/applications/pipanel.desktop
+echo "moving pipanel"
+fi
+
+# PISTATS
+if [ -f /usr/share/applications/pistats.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=other/' /usr/share/applications/pistats.desktop
+echo "moving pistats"
+fi
+
+# PYQSO
+if [ -f /usr/share/applications/pyqso.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/pyqso.desktop
+echo "moving pyqso"
+fi
+
+# PYTHON2.7
+if [ -f /usr/share/applications/python2.7.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Development;/' /usr/share/applications/python2.7.desktop
+echo "moving python2.7"
+fi
+
+# PYTHON3.9
+if [ -f /usr/share/applications/python3.9.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Development;/' /usr/share/applications/python3.9.desktop
+echo "moving python3.9"
+fi
+
+# QDMR
+if [ -f /usr/share/applications/qdmr.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=radioprogramming/' /usr/share/applications/qdmr.desktop
+echo "moving qdmr"
+fi
+
+# QTEL
+if [ -f /usr/share/applications/qtel.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/qtel.desktop
+echo "moving qtel"
+fi
+
+# QTHID-2.2
+if [ -f /usr/share/applications/qthid-2.2.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/qthid-2.2.desktop
+echo "moving qthid-2.2"
+fi
+
+# QTHID
+if [ -f /usr/share/applications/qthid.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=sdrtools/' /usr/share/applications/qthid.desktop
+echo "moving qthid"
+fi
+
+# QTSOUNDMODEM
+if [ -f /usr/share/applications/qtsoundmodem.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/qtsoundmodem.desktop
+echo "moving qtsoundmodem"
+fi
+
+# QTTERMTCP
+if [ -f /usr/share/applications/qttermtcp.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/qttermtcp.desktop
+echo "moving qttermtcp"
+fi
+
+# QUISK
+if [ -f /usr/share/applications/quisk.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/quisk.desktop
+echo "moving quisk"
+fi
+
+# RC_GUI
+if [ -f /usr/share/applications/rc_gui.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;GTK;X-LXDE-Settings;/' /usr/share/applications/rc_gui.desktop
+echo "moving rc_gui"
+fi
+
+# REPEATERSTART
+if [ -f /usr/share/applications/repeaterstart.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamutilities/' /usr/share/applications/repeaterstart.desktop
+echo "moving repeaterstart"
+fi
+
+# RP-BOOKSHELF
+if [ -f /usr/share/applications/rp-bookshelf.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Help;/' /usr/share/applications/rp-bookshelf.desktop
+echo "moving rp-bookshelf"
+fi
+
+# SECURE-FILE
+if [ -f /usr/share/applications/secure-file.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Utility/' /usr/share/applications/secure-file.desktop
+echo "moving secure-file"
+fi
+
+# SHOWLOG
+if [ -f /usr/share/applications/showlog.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/showlog.desktop
+echo "moving showlog"
+fi
+
+# SYSTEM-CONFIG-PRINTER
+if [ -f /usr/share/applications/system-config-printer.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=System;Settings;HardwareSettings;Printing;GTK;/' /usr/share/applications/system-config-printer.desktop
+echo "moving system-config-printer"
+fi
+
+# TEXDOCK
+if [ -f /usr/share/applications/texdoctk.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Settings;/' /usr/share/applications/texdoctk.desktop
+echo "moving texdock"
+fi
+
+# TQSL
+if [ -f /usr/share/applications/tqsl.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=hamlogging/' /usr/share/applications/tqsl.desktop
+echo "moving tqsl"
+fi
+
+# VIM
+if [ -f /usr/share/applications/vim.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Utility;TextEditor;/' /usr/share/applications/vim.desktop
+echo "moving vim"
+fi
+
+# WSJTX
+if [ -f /usr/share/applications/wsjtx.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/wsjtx.desktop
+echo "moving wsjtx"
+fi
+
+# X11VNC
+if [ -f /usr/share/applications/x11vnc.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Network;RemoteAccess;/' /usr/share/applications/x11vnc.desktop
+echo "moving x11vnc"
+fi
+
+# XASTIR
+if [ -f /usr/share/applications/xastir.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/xastir.desktop
+echo "moving xaster"
+fi
+
+
+# XGPS
+if [ -f /usr/share/applications/xgps.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Utility/' /usr/share/applications/xgps.desktop
+echo "moving xgps"
+fi
+
+# XGPSSPEED
+if [ -f /usr/share/applications/xgpsspeed.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Application;Maps;Utility;/' /usr/share/applications/xgpsspeed.desktop
+echo "moving xgpspeed"
+fi
+
+# XSCREENSAVER-PROPERTIES
+if [ -f /usr/share/applications/xscreensaver-properties.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Settings;DesktopSettings;Security;X-XFCE;/' /usr/share/applications/xscreensaver-properties.desktop
+echo "moving xscreensaver-properties"
+fi
+
+# XYGRIB
+if [ -f /usr/share/applications/xygrib.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=Application;Geoscience;/' /usr/share/applications/xygrib.desktop
+echo "moving xygrib"
+fi
+
+# YACC
+if [ -f /usr/share/applications/yaac.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/yaac.desktop
+echo "moving yacc"
+fi
+
+# YAD-ICON-BROWSER
+if [ -f /usr/share/applications/yad-icon-browser.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=GTK;Development;/' /usr/share/applications/yad-icon-browser.desktop
+echo "moving yad-icon-browser"
+fi
+
+# YGATE
+if [ -f /usr/share/applications/ygate.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=digitalmodes/' /usr/share/applications/ygate.desktop
+echo "moving ygate"
+fi
+
+# OPENSCAD
+if [ -f /usr/share/applications/openscad.desktop ]; then
+sudo sed -i 's/Categories.*/Categories=designtools;docslearning;/' /usr/share/applications/openscad.desktop
+echo "moving openscad"
+fi
+
+
+##ICON CHANGES
+# DESIGN TOOLS ICON
+if [ -f /usr/share/desktop-directories/designtools.directory ]; then
+sudo sed -i 's|Icon.*|Icon=/usr/share/icons/cqlinux/designtools.png|' /usr/share/desktop-directories/designtools.directory
+echo "changing design tools icon"
+fi
+
+# DIGITAL MODES ICON
+if [ -f /usr/share/desktop-directories/digitalmodes.directory ]; then
+sudo sed -i 's|Icon.*|Icon=/usr/share/icons/cqlinux/digitalmodes.png|' /usr/share/desktop-directories/digitalmodes.directory
+echo "changing digital modes icon"
+fi
+
+# LOGGING ICON
+if [ -f /usr/share/desktop-directories/hamlogging.directory ]; then
+sudo sed -i 's|Icon.*|Icon=/usr/share/icons/cqlinux/logging.png|' /usr/share/desktop-directories/hamlogging.directory
+echo "changing logging icon"
+fi
+
+# RADIO PROGRAMMING ICON
+if [ -f /usr/share/desktop-directories/RadioProgramming.directory ]; then
+sudo sed -i 's|Icon.*|Icon=/usr/share/icons/cqlinux/radioProgramming.png|' /usr/share/desktop-directories/RadioProgramming.directory
+echo "changing radio programming icon"
+fi
+
+# SDR TOOLS ICON
+if [ -f /usr/share/desktop-directories/SDRTools.directory ]; then
+sudo sed -i 's|Icon.*|Icon=/usr/share/icons/cqlinux/sdr.png|' /usr/share/desktop-directories/SDRTools.directory
+echo "changing sdr tools icon"
+fi
+
+# UTILITIES ICON
+if [ -f /usr/share/desktop-directories/Utilities.directory ]; then
+sudo sed -i 's|Icon.*|Icon=/usr/share/icons/cqlinux/utilities.png|' /usr/share/desktop-directories/Utilities.directory
+echo "changing utlities icon"
+fi
+
+# VARA ICON
+if [ -f /usr/share/desktop-directories/vara.directory ]; then
+sudo sed -i 's|Icon.*|Icon=F302_VARA.0|' /usr/share/desktop-directories/vara.directory
+echo "changing vara icon"
+fi
+
+# HAM RADIO ICON
+if [ -f /usr/share/desktop-directories/HamRadio.directory ]; then
+sudo sed -i 's|Icon.*|Icon=/usr/share/icons/cqlinux/hamradio.png|' /usr/share/desktop-directories/HamRadio.directory
+echo "changing ham radio icon"
+fi
+
+}
+
 
 BAP(){
 ##########################
@@ -108,7 +677,7 @@ if [ ! -f /usr/local/share/applications/donate.desktop ]; then
 	cat >donate.desktop <<EOF
 [Desktop Entry]
 Name=Donate
-Comment=Donate to Build a Pi
+Comment=Donate to CQ-Linux
 Exec=xdg-open https://www.paypal.com/paypalme/cqLinux
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
@@ -125,7 +694,7 @@ if [ ! -f /usr/local/share/applications/faq.desktop ]; then
 	cat >faq.desktop <<EOF
 [Desktop Entry]
 Name=FAQ
-Comment=Build a Pi FAQ
+Comment=CQ-Linux FAQ
 Exec=xdg-open http://simp.ly/p/5FR1FV
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
@@ -142,7 +711,7 @@ if [ ! -f /usr/local/share/applications/support.desktop ]; then
 	cat >support.desktop <<EOF
 [Desktop Entry]
 Name=Tech Support
-Comment=Build a Pi Tech Support
+Comment=CQ-Linux Tech Support
 Exec=xdg-open https://groups.io/g/cq-linux/topics
 Icon=/home/`whoami`/pi-build/logo.png
 Terminal=false
@@ -189,11 +758,97 @@ cat >bap.directory <<EOF
 [Desktop Entry]
 Type=Directory
 Encoding=UTF-8
-Name=Build-a-Pi
+Name=CQ-Linux
 Icon=/home/`whoami`/pi-build/logo.png
 EOF
 
 sudo mv bap.directory /usr/share/desktop-directories/
+
+cat >SDRTools.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=SDR-Tools
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv SDRTools.directory /usr/share/desktop-directories/
+
+cat >RadioProgramming.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Radio-Programming
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv RadioProgramming.directory /usr/share/desktop-directories/
+
+cat >Utilities.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Utilities
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv Utilities.directory /usr/share/desktop-directories/
+
+cat >digitalmodes.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Digital-Modes
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv digitalmodes.directory /usr/share/desktop-directories/
+
+cat >hamlogging.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Ham-Radio-Logging
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv hamlogging.directory /usr/share/desktop-directories/
+
+cat >docslearning.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Ham-Radio-Docs-and-Learning
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv docslearning.directory /usr/share/desktop-directories/
+
+
+
+
+
+cat >electronics.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Electronics
+Icon=applications-electronics
+EOF
+
+sudo mv electronics.directory /usr/share/desktop-directories/
+
+cat >designtools.directory <<EOF
+[Desktop Entry]
+Type=Directory
+Encoding=UTF-8
+Name=Design-Tools
+Icon=/home/`whoami`/pi-build/logo.png
+EOF
+
+sudo mv designtools.directory /usr/share/desktop-directories/
+
+
 
 #MOD HAMRADIO.MENU FILE
 cat >hamradio.menu <<EOF
@@ -221,19 +876,93 @@ cat >hamradio.menu <<EOF
                 <Category>vara</Category>
             </Include>
         </Menu>
-	<Menu>
+		<Menu>
         <Name>Build-a-Pi</Name>
         <Directory>bap.directory</Directory>
         <Include>
             <Category>bap</Category>
         </Include>
-    </Menu>
-  </Menu> <!-- End hamradio -->
+		</Menu>
+		<Menu>
+        <Name>SDR-Tools</Name>
+        <Directory>SDRTools.directory</Directory>
+        <Include>
+            <Category>sdrtools</Category>
+        </Include>
+		</Menu>  
+		<Menu>
+        <Name>Radio-Programming</Name>
+        <Directory>RadioProgramming.directory</Directory>
+        <Include>
+            <Category>radioprogramming</Category>
+        </Include>
+		</Menu>
+		<Menu>
+        <Name>Utilities</Name>
+        <Directory>Utilities.directory</Directory>
+        <Include>
+            <Category>hamutilities</Category>
+        </Include>
+		</Menu>
+		<Menu>
+		<Name>Digital-Modes</Name>
+        <Directory>digitalmodes.directory</Directory>
+        <Include>
+            <Category>digitalmodes</Category>
+        </Include>
+		</Menu>
+		<Menu>
+		<Name>Ham-Radio-Logging</Name>
+        <Directory>hamlogging.directory</Directory>
+        <Include>
+            <Category>hamlogging</Category>
+        </Include>
+		</Menu>
+		<Menu>
+		<Name>Ham-Radio-Docs-and-Learning</Name>
+        <Directory>docslearning.directory</Directory>
+        <Include>
+            <Category>docslearning</Category>
+        </Include>
+		</Menu>
+	 </Menu> <!-- End hamradio -->
 </Menu>
 EOF
 
 sudo mv hamradio.menu /usr/share/extra-xdg-menus/
+
+
+#MOD DESIGN-TOOLS.MENU FILE
+cat >designtools.menu <<EOF
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+ "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+<Menu>
+  <Name>Applications</Name>
+  <Menu>
+    <Name>Design-Tools</Name>
+    <Directory>designtools.directory</Directory>
+    <Include>
+        <Category>designtools</Category>
+    </Include>
+	 <Menu>
+      <Name>Electronics</Name>
+      <Directory>electronics.directory</Directory>
+    <Include>
+          <Category>electronics</Category>
+    </Include>
+    </Menu>
+   </Menu> <!-- End designtools -->
+</Menu>
+EOF
+
+sudo mv designtools.menu /usr/share/extra-xdg-menus/
+sudo exmendis --system electronics
+sudo exmenen --system designtools
+
 }
+
+
+
 
 #verify ham menu is installed
 if [ ! -f /usr/share/extra-xdg-menus/hamradio.menu ]; then
@@ -253,6 +982,7 @@ echo "MENU=$REV" >> $HOME/.config/KM4ACK
 CREATEMENU
 FLSUITE
 VARA
+NEWMENUCLEANUP
 fi
 
 
