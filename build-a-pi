@@ -160,6 +160,7 @@ fi
 sudo ln -s /usr/bin/lxterminal /usr/bin/xterm
 sudo apt-get install build-essential -y
 sudo apt-get install libjpeg9 -y
+sudo apt-get install libpng-dev -y
 sudo mkdir /var/log/cqLinux
 
 
