@@ -406,7 +406,7 @@ if [ ${BUT} = 3 ]; then
 		echo "$i" >>${FLSUITE}
 	done
 fi
-FLDEPENDS
+
 
 #####################################
 #	digital modes
@@ -766,6 +766,7 @@ done <${BASE}
 source ${FUNCTIONS}/flsuite.function
 #perform memory increase if needed
 CHECKFL="${MYPATH}/flsuite.txt"
+FLDEPENDS
 if [ -s "$CHECKFL" ]; then
 	FLSTART
 fi
