@@ -178,7 +178,7 @@ VARA() {
 	####http://k6eta.com/linux/installing-rms-express-on-linux-with-wine
 	####https://dcj21net.wordpress.com/2016/06/17/install-rms-express-linux/
 	####https://github.com/WheezyE/Winelink
-	sudo apt-get install ntp
+	sudo apt-get install ntp -y
 	echo "##################"
 	echo "installing VARA"
 	echo "##################"
