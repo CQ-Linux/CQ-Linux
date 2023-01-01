@@ -712,6 +712,8 @@ sudo mv /run/user/$UID/repair-bap /usr/local/bin/
 
 fi
 
+sudo apt-get install -y libfltk1.3-dev libjpeg62-turbo-dev libxft-dev libxinerama-dev libxcursor-dev libsndfile1-dev libsamplerate0-dev portaudio19-dev libpulse-dev libusb-1.0-0-dev texinfo libudev-dev libsamplerate-ocaml-dev libjpeg-turbo8-dev
+
 #####################################
 #	Install Base Apps
 #####################################

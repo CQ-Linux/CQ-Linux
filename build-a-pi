@@ -155,7 +155,10 @@ fi
 
 if ! hash pip 2>/dev/null; then
 	sudo apt install -y pip
-fi
+fi	
+
+sudo apt-get install -y libfltk1.3-dev libjpeg62-turbo-dev libxft-dev libxinerama-dev libxcursor-dev libsndfile1-dev libsamplerate0-dev portaudio19-dev libpulse-dev libusb-1.0-0-dev texinfo libudev-dev libsamplerate-ocaml-dev libjpeg-turbo8-dev
+
 
 sudo ln -s /usr/bin/lxterminal /usr/bin/xterm
 sudo apt-get install build-essential -y
