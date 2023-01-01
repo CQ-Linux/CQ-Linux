@@ -157,7 +157,20 @@ if ! hash pip 2>/dev/null; then
 	sudo apt install -y pip
 fi	
 
-sudo apt-get install -y libfltk1.3-dev libjpeg62-turbo-dev libxft-dev libxinerama-dev libxcursor-dev libsndfile1-dev libsamplerate0-dev portaudio19-dev libpulse-dev libusb-1.0-0-dev texinfo libudev-dev libsamplerate-ocaml-dev libjpeg-turbo8-dev
+sudo apt-get install -y libfltk1.3-dev
+sudo apt-get install -y libjpeg62-turbo-dev
+sudo apt-get install -y libxft-dev
+sudo apt-get install -y libxinerama-dev
+sudo apt-get install -y libxcursor-dev
+sudo apt-get install -y libsndfile1-dev
+sudo apt-get install -y libsamplerate0-dev
+sudo apt-get install -y portaudio19-dev
+sudo apt-get install -y libpulse-dev
+sudo apt-get install -y libusb-1.0-0-dev
+sudo apt-get install -y texinfo
+sudo apt-get install -y libudev-dev
+sudo apt-get install -y libsamplerate-ocaml-dev
+sudo apt-get install -y libjpeg-turbo8-dev
 
 
 sudo ln -s /usr/bin/lxterminal /usr/bin/xterm
