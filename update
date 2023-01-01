@@ -734,7 +734,6 @@ if [ -n "$CHECKFL" ]; then
 	FLSTART
 fi
 
-FLDEPENDS
 
 touch ${HOME}/.config/KM4ACK
 while read i; do

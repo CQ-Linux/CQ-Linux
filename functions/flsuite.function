@@ -21,34 +21,7 @@ FLSTART() {
 		sudo /etc/init.d/dphys-swapfile restart
 		sleep 10
 	fi
-
 	
-
-	##################################
-	#	FLXMLRPC
-	##################################
-	FLX=$(ldconfig -p | grep flxmlrpc)
-
-	if [ -z "$FLX" ]; then
-		#determine latest FLXMLRPC & download
-		FLXM=$(curl -s http://www.w1hkj.com/files/flxmlrpc/ | grep .tar.gz | sed 's/.*ref="//;s/">.*$//')
-		XMPKG=$(echo ${FLXM} | sed 's/.tar.gz//')
-		cd ${BUILDDIR} || return
-		wget --tries 2 --connect-timeout=60 http://www.w1hkj.com/files/flxmlrpc/${FLXM}
-		tar -zxvf ${FLXM}
-		rm ./*.gz #THIS IS DANGEROUS -- SEE SC2035
-
-		#build FLXMLRPC
-		cd ${XMPKG} || return
-		./configure --prefix=/usr/local --enable-static
-		make
-		sudo make install
-		sudo ldconfig
-		sudo make clean
-	fi
-}
-
-FLDEPENDS() {
 	##################################
 	#	DEPENDS
 	##################################
@@ -74,8 +47,37 @@ FLDEPENDS() {
 	sudo apt-get install -y libudev-dev
 	sudo apt-get install -y libsamplerate-ocaml-dev
 	sudo apt-get install -y libjpeg-turbo8-dev
-}
+	
+	
+	
+	
+	
+	
+	
 
+	##################################
+	#	FLXMLRPC
+	##################################
+	FLX=$(ldconfig -p | grep flxmlrpc)
+
+	if [ -z "$FLX" ]; then
+		#determine latest FLXMLRPC & download
+		FLXM=$(curl -s http://www.w1hkj.com/files/flxmlrpc/ | grep .tar.gz | sed 's/.*ref="//;s/">.*$//')
+		XMPKG=$(echo ${FLXM} | sed 's/.tar.gz//')
+		cd ${BUILDDIR} || return
+		wget --tries 2 --connect-timeout=60 http://www.w1hkj.com/files/flxmlrpc/${FLXM}
+		tar -zxvf ${FLXM}
+		rm ./*.gz #THIS IS DANGEROUS -- SEE SC2035
+
+		#build FLXMLRPC
+		cd ${XMPKG} || return
+		./configure --prefix=/usr/local --enable-static
+		make
+		sudo make install
+		sudo ldconfig
+		sudo make clean
+	fi
+}
 
 
 ##################################
