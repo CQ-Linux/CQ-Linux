@@ -171,7 +171,8 @@ sudo apt-get install -y texinfo
 sudo apt-get install -y libudev-dev
 sudo apt-get install -y libsamplerate-ocaml-dev
 sudo apt-get install -y libjpeg-turbo8-dev
-
+sudo mkdir -pm755 /etc/apt/keyrings
+sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
 
 sudo ln -s /usr/bin/lxterminal /usr/bin/xterm
 sudo apt-get install build-essential -y
