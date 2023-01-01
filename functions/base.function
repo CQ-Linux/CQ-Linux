@@ -178,12 +178,13 @@ VARA() {
 	####http://k6eta.com/linux/installing-rms-express-on-linux-with-wine
 	####https://dcj21net.wordpress.com/2016/06/17/install-rms-express-linux/
 	####https://github.com/WheezyE/Winelink
+	sudo apt-get install ntp
 	echo "##################"
 	echo "installing VARA"
 	echo "##################"
 	#curl -O https://raw.githubusercontent.com/bwattendorf/Winelink-X86/master/install_winelink.sh && bash install_winelink.sh bap
 	#wget https://raw.githubusercontent.com/WheezyE/Winelink/a332f261a9b3f007f7a9e45db8c89b2fc1955a47/install_winelink.sh
-    wget https://raw.githubusercontent.com/WheezyE/Winelink/main/install_winelink.sh
+    wget https://raw.githubusercontent.com/SpudGunMan/Winelink/patch-ahk/install_winelink.sh
 	bash install_winelink.sh bap
 }
 
