@@ -329,7 +329,40 @@ EOF
 #	QSSTV
 ##################################
 QSSTV() {
-	sudo apt-get install qsstv -y
+	sudo apt-get install -y g++ libfftw3-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libpulse-dev libhamlib-dev libasound2-dev libv4l-dev libopenjp2-7 libopenjp2-7-dev
+
+	cd ${BUILDDIR} || return
+
+	TAR=$(curl -s http://qsl.net/o/on4qz//qsstv/downloads/ | grep tar.gz | sed 's/.*href="//' | sed 's/">.*$//' | tail -1)
+	wget --tries 2 --connect-timeout=60 http://qsl.net/o/on4qz//qsstv/downloads/$TAR
+	tar -xvzf $TAR
+	SSTVTAR=$(ls -d */ | grep qss)
+	cd $SSTVTAR || return
+	qmake
+	make
+	sudo make install
+	sudo make clean
+	cd ${BUILDDIR} || return
+	rm *.gz
+	mkdir -p /usr/local/share/pixmaps/
+	sudo cp ${BUILDDIR}/${SSTVTAR}/icons/qsstv.png /usr/local/share/pixmaps/
+
+cat >qsstv.desktop <<EOF
+[Desktop Entry]
+Name=QSSTV
+Comment=Slow Scan TV
+GenericName=QSSTV
+Exec=/usr/local/bin/qsstv
+Icon=qsstv.png
+Type=Application
+Terminal=false
+Categories=HamRadio;
+EOF
+
+	sudo mv qsstv.desktop /usr/share/applications/
+
+}
+
 
 }
 ##################################
