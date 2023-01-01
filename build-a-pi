@@ -406,6 +406,7 @@ if [ ${BUT} = 3 ]; then
 		echo "$i" >>${FLSUITE}
 	done
 fi
+FLDEPENDS
 
 #####################################
 #	digital modes
