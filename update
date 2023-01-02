@@ -671,7 +671,7 @@ CKSDR=$(cat ${SDR})
 CKTRAINING=$(cat ${TRAINING})
 
 
-if [ -z "$CKBASE" ] && [ -z "$CKFL" ] && [ -z "$CKADD" ] && [ -z "$CKUTIL" ] && [ z- "$CKDESIGN" ] && [ z- "$SDR" ] && [ z- "$TRAINING"]; then
+if [ -z "$CKBASE" ] && [ -z "$CKFL" ] && [ -z "$CKADD" ] && [ -z "$CKUTIL" ] && [ z- "$CKDESIGN" ] && [ z- "$CKSDR" ] && [ z- "CK$TRAINING"]; then
 	rm ${BASE} ${FLSUITE} ${ADDITIONAL} ${UTILITY} ${DESIGN} ${SDR} ${TRAINING} >/dev/null 2>&1
 	yad --width=550 --height=250 --text-align=center --center --title="Update" \
 		--image ${LOGO} --window-icon=${LOGO} --image-on-top --separator="|" --item-separator="|" \
