@@ -233,15 +233,15 @@ WSJTX() {
 		sudo /etc/init.d/dphys-swapfile restart
 		sleep 10
 	fi
-	sudo apt-get -y install gfortran >> errors/apt.log
-    sudo apt-get -y install fftw3-dev >> errors/apt.log
-    sudo apt-get -y install libqt5sql5-sqlite >> errors/apt.log
-    sudo apt-get -y install libtool >> errors/apt.log
-	sudo apt-get -y install libudev1 >> errors/apt.log
-	sudo apt-get -y install libudev-dev >> errors/apt.log
-    sudo apt-get -y install texinfo >> errors/apt.log
-    sudo apt-get -y install asciidoctor >> errors/apt.log
-	sudo apt-get -y install ntp >> errors/apt.log
+	sudo apt-get -y install gfortran 
+    sudo apt-get -y install fftw3-dev
+    sudo apt-get -y install libqt5sql5-sqlite
+    sudo apt-get -y install libtool
+	sudo apt-get -y install libudev1
+	sudo apt-get -y install libudev-dev
+    sudo apt-get -y install texinfo
+    sudo apt-get -y install asciidoctor
+	sudo apt-get -y install ntp
 
 	#sudo apt install -y build-essential git cmake gfortran fftw3-dev qtbase5-dev qttools5-dev libqt5serialport5-dev  qtmultimedia5-dev libqt5multimedia5-plugins libqt5sql5-sqlite autoconf automake libtool texinfo libusb-1.0-0-dev libudev-dev libboost-all-dev asciidoctor
 
