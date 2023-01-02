@@ -24,13 +24,53 @@ PYQSO() {
 ##################################
 CQRLOG() {
 
-sudo apt-get install -y lcl-2.0 lazarus-2.0 fp-compiler-3.2.0 fpc-3.2.0 libssl-dev git build-essential \
-		libmariadb-dev-compat lazarus-ide lcl lcl-gtk2 lcl-nogui lcl-units lcl-utils lazarus lazarus-doc lazarus-src \
-		fp-units-misc fp-units-rtl fp-utils fpc fpc-source libssl-dev default-mysql-client-core default-mysql-server \
-		default-mysql-server-core gawk libcgi-fast-perl libcgi-pm-perl libconfig-inifiles-perl libdbd-mysql-perl \
-		libdbi-perl libencode-locale-perl libfcgi-perl libhtml-parser-perl libhtml-tagset-perl \
-		libhtml-template-perl libhttp-date-perl libhttp-message-perl libio-html-perl liblwp-mediatypes-perl \
-		libmariadb-dev-compat libnetpbm10 readline-common libterm-readkey-perl libtimedate-perl liburi-perl \
+sudo apt-get install -y lcl-2.0
+sudo apt-get install -y lazarus-2.0
+sudo apt-get install -y fp-compiler-3.2.0
+sudo apt-get install -y fpc-3.2.0
+sudo apt-get install -y libssl-dev
+sudo apt-get install -y git
+sudo apt-get install -y build-essential
+sudo apt-get install -y libmariadb-dev-compat
+sudo apt-get install -y lazarus-ide
+sudo apt-get install -y lcl
+sudo apt-get install -y lcl-gtk2
+sudo apt-get install -y lcl-nogui
+sudo apt-get install -y lcl-units
+sudo apt-get install -y lcl-utils
+sudo apt-get install -y lazarus
+sudo apt-get install -y lazarus-doc
+sudo apt-get install -y lazarus-src
+sudo apt-get install -y fp-units-misc
+sudo apt-get install -y fp-units-rtl
+sudo apt-get install -y fp-utils
+sudo apt-get install -y fpc
+sudo apt-get install -y fpc-source
+sudo apt-get install -y libssl-dev
+sudo apt-get install -y default-mysql-client-core
+sudo apt-get install -y default-mysql-server
+sudo apt-get install -y default-mysql-server-core
+sudo apt-get install -y gawk
+sudo apt-get install -y libcgi-fast-perl
+sudo apt-get install -y libcgi-pm-perl
+sudo apt-get install -y libconfig-inifiles-perl
+sudo apt-get install -y libdbd-mysql-perl
+sudo apt-get install -y libdbi-perl
+sudo apt-get install -y libencode-locale-perl
+sudo apt-get install -y libfcgi-perl
+sudo apt-get install -y libhtml-parser-perl
+sudo apt-get install -y libhtml-tagset-perl
+sudo apt-get install -y libhtml-template-perl
+sudo apt-get install -y libhttp-date-perl
+sudo apt-get install -y libhttp-message-perl
+sudo apt-get install -y libio-html-perl
+sudo apt-get install -y liblwp-mediatypes-perl
+sudo apt-get install -y libmariadb-dev-compat
+sudo apt-get install -y libnetpbm10
+sudo apt-get install -y readline-common
+sudo apt-get install -y libterm-readkey-perl
+sudo apt-get install -y libtimedate-perl
+sudo apt-get install -ysudo apt-get install -y liburi-perl
 
 cd $HOME
 git clone https://github.com/ok2cqr/cqrlog.git
