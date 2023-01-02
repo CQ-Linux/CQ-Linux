@@ -451,7 +451,7 @@ XASTIR() {
 	sudo apt-get -y install build-essential automake git xorg-dev libmotif-dev graphicsmagick \
 		gv libcurl4-openssl-dev shapelib libshp-dev libpcre3-dev libproj-dev libdb-dev python-dev \
 		libax25-dev libwebp-dev libwebp-dev libgraphicsmagick1-dev festival festival-dev
-
+	sudo apt-get -y install libmotif-common
 	cd ${BUILDDIR} || return
 	git clone https://github.com/Xastir/Xastir.git
 	cd Xastir || return
