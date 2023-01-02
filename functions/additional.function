@@ -98,6 +98,7 @@ OLDCODE(){
 #	GARIM
 ##################################
 GARIM() {
+	sudo apt-get install libfltk1.3-dev -y
 	GPKG=$(curl -s https://www.whitemesa.net/garim/src/ | grep tar.gz | tail -1 | sed 's/^.*garim/garim/' | sed 's/tar.gz.*$/tar.gz/')
 	cd ${BUILDDIR} || return
 	wget --tries 2 --connect-timeout=60 https://www.whitemesa.net/garim/src/$GPKG
