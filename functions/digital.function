@@ -341,8 +341,8 @@ QSSTV() {
 
 	cd ${BUILDDIR} || return
 
-	TAR=$(curl -s http://qsl.net/o/on4qz//qsstv/downloads/ | grep tar.gz | sed 's/.*href="//' | sed 's/">.*$//' | tail -1)
-	wget --tries 2 --connect-timeout=60 http://qsl.net/o/on4qz//qsstv/downloads/$TAR
+	TAR=$(curl -s https://qsl.net/o/on4qz//qsstv/downloads/ | grep tar.gz | sed 's/.*href="//' | sed 's/">.*$//' | tail -1)
+	wget --tries 2 --connect-timeout=60 https://qsl.net/o/on4qz//qsstv/downloads/$TAR
 	tar -xvzf $TAR
 	SSTVTAR=$(ls -d */ | grep qss)
 	cd $SSTVTAR || return
@@ -390,10 +390,10 @@ GRIDTRACKER() {
 	#GT_DIR=$(echo $GRIDDLL | sed 's|/.*||')
 	#GRIDDLL=$(echo $GRIDDLL | sed 's/.*GridTracker/GridTracker/')
 	
-	wget --tries 2 --connect-timeout=60 https://storage.googleapis.com/gt_download/v1.22.0725/gridtracker_1.22.0725_all.deb
+	wget --tries 2 --connect-timeout=60 https://www.dropbox.com/s/eouury4p3u2j5oo/gridtracker_1.22.1204_all.deb
 	#GRIDTAR=$(echo $GRIDDLL | sed 's/.*\///g')
-	sudo dpkg -i gridtracker_1.22.0725_all.deb
-	rm gridtracker_1.22.0725_all.deb
+	sudo dpkg -i gridtracker_1.22.1205_all.deb
+	rm gridtracker_1.22.1204_all.deb
 	cat >gridtracker.desktop <<EOF
 [Desktop Entry]
 Name=GridTracker
