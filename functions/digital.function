@@ -233,32 +233,11 @@ WSJTX() {
 		sudo /etc/init.d/dphys-swapfile restart
 		sleep 10
 	fi
-	sudo apt-get -y install gfortran 
-    sudo apt-get -y install fftw3-dev
-    sudo apt-get -y install libqt5sql5-sqlite
-    sudo apt-get -y install libtool
-	sudo apt-get -y install libudev1
-	sudo apt-get -y install libudev-dev
-    sudo apt-get -y install texinfo
-    sudo apt-get -y install asciidoctor
-	sudo apt-get -y install ntp
-
-	#sudo apt install -y build-essential git cmake gfortran fftw3-dev qtbase5-dev qttools5-dev libqt5serialport5-dev  qtmultimedia5-dev libqt5multimedia5-plugins libqt5sql5-sqlite autoconf automake libtool texinfo libusb-1.0-0-dev libudev-dev libboost-all-dev asciidoctor
-
-	FT8PKG=$(curl -s https://physics.princeton.edu/pulsar/k1jt/wsjtx.html | grep .tgz | sed 's/.*="//;s/">.*$//' | head -1)
-	FT8DIR=$(echo $FT8PKG | sed 's/.tgz//')
 	cd ${BUILDDIR}
-	wget --tries 2 --connect-timeout=60 https://physics.princeton.edu/pulsar/k1jt/$FT8PKG
-	tar -xvf $FT8PKG
-	rm $FT8PKG
-	cd $FT8DIR
-	cmake -D CMAKE_INSTALL_PREFIX=${BUILDDIR}/$FT8DIR
-	cmake -DWSJT_SKIP_MANPAGES=ON -DWSJT_GENERATE_DOCS=OFF
-	sudo cmake --build . --target install -j4
-	sudo mv ${BUILDDIR}/${FT8DIR}/bin/* /usr/local/bin/
-	sudo cp ${BUILDDIR}/${FT8DIR}/share/applications/wsjtx.desktop /usr/share/applications/
-	sudo cp ${BUILDDIR}/${FT8DIR}/share/pixmaps/wsjtx_icon.png /usr/share/pixmaps/
-
+	wget --tries 2 --connect-timeout=60 https://sourceforge.net/projects/wsjt/files/wsjtx-2.2.2/wsjtx_2.5.4_amd64.deb
+	sudo dpkg -i wsjtx_2.2.5_amd64.deb
+	sudo apt-get --fix-broken -y install
+	sudo dpkg -i wsjtx_2.2.5_amd64.deb
 	#reset swap size to default
 	if [ ${FREEMEM} -lt 3000 ]; then
 		echo "Resetting swap size to default"
