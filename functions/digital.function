@@ -392,7 +392,7 @@ GRIDTRACKER() {
 	
 	wget --tries 2 --connect-timeout=60 https://www.dropbox.com/s/eouury4p3u2j5oo/gridtracker_1.22.1204_all.deb
 	#GRIDTAR=$(echo $GRIDDLL | sed 's/.*\///g')
-	sudo dpkg -i gridtracker_1.22.1205_all.deb
+	sudo dpkg -i gridtracker_1.22.1204_all.deb
 	rm gridtracker_1.22.1204_all.deb
 	cat >gridtracker.desktop <<EOF
 [Desktop Entry]
