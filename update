@@ -816,7 +816,8 @@ rm ${BASE} ${ADDITIONAL} ${UTILITY} ${FLSUITE} ${LOGGING} ${DIGITAL} ${SDR} ${TR
 
 #remove libham (rigctl) installed from apt
 #since it conflicts with hamlib installed from source
-sudo apt purge -y libhamlib4
+## W1BAW commenting this out since I am installing wsjtx from package
+#sudo apt purge -y libhamlib4
 
 #make sure update has read write execute priv 
 #to make sure it can run again another day
