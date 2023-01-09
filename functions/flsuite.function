@@ -49,9 +49,7 @@ FLSTART() {
 	sudo apt-get install -y libjpeg-turbo8-dev
 	
 	
-	
-	
-	
+		
 	
 	
 
@@ -108,23 +106,26 @@ FLRIG() {
 #	FLWRAP
 ##################################
 FLWRAP() {
-	#Determine latest FLWRAP
-	WRAPTAR=$(curl -s http://www.w1hkj.com/files/flwrap/ | grep .tar.gz | sed 's/.*ref="//;s/".*$//')
-	WRAPPKG=$(echo ${WRAPTAR} | sed 's/.tar.gz//')
+	sudo -A apt install -y flwrap
+	
+	
+	##Determine latest FLWRAP
+	#WRAPTAR=$(curl -s http://www.w1hkj.com/files/flwrap/ | grep .tar.gz | sed 's/.*ref="//;s/".*$//')
+	#WRAPPKG=$(echo ${WRAPTAR} | sed 's/.tar.gz//')
 
-	#Download latest FLWRAP
-	cd ${BUILDDIR} || return
-	wget --tries 2 --connect-timeout=60 http://www.w1hkj.com/files/flwrap/${WRAPTAR}
-	tar -zxvf ${WRAPTAR}
-	rm ./*.gz #THIS IS DANGEROUS -- SEE SC2035
+	##Download latest FLWRAP
+	#cd ${BUILDDIR} || return
+	#wget --tries 2 --connect-timeout=60 http://www.w1hkj.com/files/flwrap/${WRAPTAR}
+	#tar -zxvf ${WRAPTAR}
+	#rm ./*.gz #THIS IS DANGEROUS -- SEE SC2035
 
-	#Build FLRIG
-	cd ${WRAPPKG} || return
-	./configure --prefix=/usr/local --enable-static
-	make
-	sudo make install
-	sudo ldconfig
-	sudo make clean
+	##Build FLRIG
+	#cd ${WRAPPKG} || return
+	#./configure --prefix=/usr/local --enable-static
+	#make
+	#sudo make install
+	#sudo ldconfig
+	#sudo make clean
 }
 
 ##################################
