@@ -106,6 +106,10 @@ FLRIG() {
 #	FLWRAP
 ##################################
 FLWRAP() {
+	
+	
+	sudo -A apt install -y flwrap
+	sudo -A apt install -y --fix-broken
 	sudo -A apt install -y flwrap
 	
 	
