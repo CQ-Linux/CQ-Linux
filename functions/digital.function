@@ -358,9 +358,9 @@ EOF
 GRIDTRACKER() {
 	cd ${HOME} || return
 	#sudo apt-get install -y libgconf-2-4
-	wget --tries 2 --connect-timeout=60 https://storage.googleapis.com/gt_download/nwjs-downloader/v0.60.0-1/nwjs-downloader_0.60.0-0_all.deb
-	sudo apt-get --fix-broken -y install
-	sudo dpkg -i nwjs-downloader_0.60.0-0_all.deb
+	wget --tries 2 --connect-timeout=60 https://gridtracker.org/index.php/downloads/debian-nwjs-downloader/routedownload/nwjs-downloader-0-68-1
+	#sudo apt-get --fix-broken -y install
+	sudo dpkg -i nwjs-downloader_0.68.1-1_all.deb
 	rm nwjs*.*.*.deb
 	
 	#https://storage.googleapis.com/gt_download/v1.22.0725/gridtracker_1.22.0725_all.deb
@@ -369,10 +369,10 @@ GRIDTRACKER() {
 	#GT_DIR=$(echo $GRIDDLL | sed 's|/.*||')
 	#GRIDDLL=$(echo $GRIDDLL | sed 's/.*GridTracker/GridTracker/')
 	
-	wget --tries 2 --connect-timeout=60 https://www.dropbox.com/s/eouury4p3u2j5oo/gridtracker_1.22.1204_all.deb
+	wget --tries 2 --connect-timeout=60 https://www.dropbox.com/s/eouury4p3u2j5oo/gridtracker_1.22.1226_all.deb
 	#GRIDTAR=$(echo $GRIDDLL | sed 's/.*\///g')
-	sudo dpkg -i gridtracker_1.22.1204_all.deb
-	rm gridtracker_1.22.1204_all.deb
+	sudo dpkg -i gridtracker_1.22.1226_all.deb
+	rm gridtracker_1.22.1226_all.deb
 	cat >gridtracker.desktop <<EOF
 [Desktop Entry]
 Name=GridTracker
