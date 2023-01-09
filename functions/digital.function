@@ -234,10 +234,10 @@ WSJTX() {
 		sleep 10
 	fi
 	cd ${BUILDDIR}
-	wget --tries 2 --connect-timeout=60 https://sourceforge.net/projects/wsjt/files/wsjtx-2.2.2/wsjtx_2.5.4_amd64.deb
-	sudo dpkg -i wsjtx_2.2.5_amd64.deb
+	wget --tries 2 --connect-timeout=60 https://sourceforge.net/projects/wsjt/files/wsjtx-2.6.0/wsjtx_2.6.0_amd64.deb
+	sudo dpkg -i wsjtx_2.6.0_amd64.deb
 	sudo apt-get --fix-broken -y install
-	sudo dpkg -i wsjtx_2.2.5_amd64.deb
+	sudo dpkg -i wsjtx_2.6.0_amd64.deb
 	#reset swap size to default
 	if [ ${FREEMEM} -lt 3000 ]; then
 		echo "Resetting swap size to default"
