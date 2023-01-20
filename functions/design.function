@@ -46,6 +46,9 @@ OPENSCAD() {
 #	ARDUINO IDE
 ##################################
 ARDUINO() {
-    sudo apt-get install openscad -y
+    sudo apt-get install arduino -y
+	
+	
+	
 }
 
