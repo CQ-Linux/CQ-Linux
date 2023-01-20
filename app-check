@@ -766,10 +766,23 @@ else
 echo "OPENSCAD=Installed" >> $UPDATEFILE
 fi
 
+#----------------------------------------------------#
+#		ARDUINO
+#----------------------------------------------------#
+if ! hash arduino 2>/dev/null; then
+	echo "ARDUINO=Not_Installed" >> $UPDATEFILE
+else
+echo "ARDUINO=Installed" >> $UPDATEFILE
+fi
 
-
-
-
+#----------------------------------------------------#
+#		SuperSlicer
+#----------------------------------------------------#
+if ! hash superslicer 2>/dev/null; then
+	echo "SUPERSLICER=Not_Installed" >> $UPDATEFILE
+else
+echo "SUPERSLICER=Installed" >> $UPDATEFILE
+fi
 
 
 
