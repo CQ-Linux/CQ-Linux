@@ -40,3 +40,12 @@ FREECAD() {
 OPENSCAD() {
     sudo apt-get install openscad -y
 }
+
+
+##################################
+#	ARDUINO IDE
+##################################
+ARDUINO() {
+    sudo apt-get install openscad -y
+}
+
