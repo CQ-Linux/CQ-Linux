@@ -46,8 +46,10 @@ OPENSCAD() {
 #	ARDUINO IDE
 ##################################
 ARDUINO() {
-    sudo apt-get install arduino -y
-		
+    sudo apt-get install fuse -y
+	## download and run appimage from arduino website
+	## download and put into usr folder and then set permission 
+	## create icon to start appimage file	
 }
 
 
@@ -55,7 +57,10 @@ ARDUINO() {
 #	SUPER SLICER
 ##################################
 SUPERSLICER() {
-    https://github.com/supermerill/SuperSlicer/releases/download/2.4.58.5/SuperSlicer_2.4.58.5_linux64_220924.tar.zip
+    sudo apt-get install fuse -y
+	## download and run appimage from Super Slicer website
+	## download and put into usr folder and then set permission 
+	## create icon to start appimage file
 	
 	
 }
