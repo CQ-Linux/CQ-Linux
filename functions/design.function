@@ -48,6 +48,7 @@ OPENSCAD() {
 ARDUINO() {
     sudo apt-get install fuse -y
 	sudo mkdir /usr/local/bin/arduino
+	sudo mkdir /usr/share/icons/appimage/arduino
 	wget --tries 2 --connect-timeout=60 https://github.com/arduino/arduino-ide/releases/download/2.0.3/arduino-ide_2.0.3_Linux_64bit.AppImage
 	sudo mv arduino* /usr/local/bin/arduino/
 	chmod +x /usr/local/bin/arduino/a*
@@ -84,6 +85,7 @@ EOF
 SUPERSLICER() {
     sudo apt-get install fuse -y
 	sudo mkdir /usr/local/bin/superSlicer
+	sudo mkdir /usr/share/icons/appimage/superSlicer
 	cd $HOME/Downloads
 	wget --tries 2 --connect-timeout=60 https://github.com/supermerill/SuperSlicer/releases/download/2.4.58.5/SuperSlicer-ubuntu_18.04-gtk2-2.4.58.5.AppImage
 	sudo mv Super*.*.* /usr/local/bin/superSlicer/
