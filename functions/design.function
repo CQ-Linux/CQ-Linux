@@ -54,8 +54,8 @@ ARDUINO() {
 	## download and run appimage from arduino website
 	## download and put into usr folder and then set permission 
 	## create icon to start appimage file	
-
-
+	wget --tries 2 --connect-timeout=60 https://github.com/arduino/arduino-ide/blob/main/electron/build/resources/icons/512x512.png
+	sudo mv 512x512.png /usr/share/icons/appimage/arduino/512x512.png
 
 
 	cat >${HOME}/Downloads/arduino.desktop <<EOF
@@ -63,8 +63,8 @@ ARDUINO() {
 Name=Arduino
 GenericName=Arduino IDE
 Comment=Ardunino IDE
-Exec=./usr/local/bin/arduino/arduino*
-Icon=/usr/share/icons/Adwaita/scalable/apps/preferences-system-time-symbolic.svg
+Exec=/usr/local/bin/arduino/arduino-ide_2.0.3_Linux_64bit.AppImage
+Icon=/usr/share/icons/appimage/arduino/512x512.png
 Terminal=false
 Type=Application
 Categories=designtools;
@@ -88,9 +88,10 @@ SUPERSLICER() {
 	wget --tries 2 --connect-timeout=60 https://github.com/supermerill/SuperSlicer/releases/download/2.4.58.5/SuperSlicer-ubuntu_18.04-gtk2-2.4.58.5.AppImage
 	sudo mv Super*.*.* /usr/local/bin/superSlicer/
 	chmod +x /usr/local/bin/superSlicer/S*
-	
-	
-	
+	wget --tries 2 --connect-timeout=60 https://github.com/supermerill/SuperSlicer/blob/master/resources/icons/SuperSlicer.png
+	sudo mv SuperSlicer.png /usr/share/icons/appimage/superSlicer/SuperSlicer.png
+
+
 	## download and run appimage from Super Slicer website
 	## download and put into usr folder and then set permission 
 	## create icon to start appimage file
@@ -100,8 +101,8 @@ SUPERSLICER() {
 Name=SuperSlicer
 GenericName=Super Slicer
 Comment=3D printer Slicer
-Exec=./usr/local/bin/superSlicer/Super*
-Icon=/usr/share/icons/Adwaita/scalable/apps/preferences-system-time-symbolic.svg
+Exec=/usr/local/bin/superSlicer/SuperSlicer-ubuntu_18.04-gtk2-2.4.58.5.AppImage
+Icon=/usr/share/icons/appimage/superSlicer/SuperSlicer.png
 Terminal=false
 Type=Application
 Categories=designtools;
