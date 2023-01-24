@@ -1,4 +1,6 @@
-version=2.4.0
+version=2.5.0
+
+2.5.0       added arduino and super slicer into the design tools, also changed over to installing on Lubuntu x64 bit
 
 2.4.0       added SDR, Design tools, learning software,  changed the Ham radio menu and moved everything into seperate folders 
 			fixed a bunch of bugs.
